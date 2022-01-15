@@ -9,5 +9,5 @@ You may edit it and use it for yourself but you may not redistribute this projec
 
 # Download Links and other links
 
-SpigotMC: WIP
+SpigotMC: WIP\
 CurseForge: WIP
