@@ -9,5 +9,5 @@ You may edit it and use it for yourself but you may not redistribute this projec
 
 # Download Links and other links
 
-SpigotMC: https://www.spigotmc.org/resources/lifestolen.99220/\
+SpigotMC: https://www.spigotmc.org/resources/lifestolen.99220/ \
 CurseForge: WIP
