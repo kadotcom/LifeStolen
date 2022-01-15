@@ -1,0 +1,13 @@
+name: LifeStolen
+version: '${project.version}'
+main: me.kadotcom.lifestolen.LifeStolen
+api-version: 1.18
+prefix: LIFESTOLEN
+authors: [ KadotCom ]
+description: A lifesteal plugin.
+commands:
+  resetHealth:
+    description: Resets everyone that is onlines health
+    permission: lifestolen.resethealth
+    permission-message: You do not have the lifestolen.resethealth permission.
+
