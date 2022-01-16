@@ -42,24 +42,24 @@ public final class LifeStolen extends JavaPlugin implements Listener {
         Entity e = event.getEntity().getKiller();
         if (e instanceof Player) {
 
-            if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() > getConfig().getDouble("minHealth") + 1.0) {
+            if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() > 2.0) {
                 System.out.println("Player " + e.getName() + " Killed " + p.getName());
                 ((Player) e).setMaxHealth(((Player) e).getMaxHealth() + 2.0);
                 p.setMaxHealth(p.getMaxHealth() - 2.0);
-            } else if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() <= getConfig().getDouble("minHealth") + 1.0) {
+            } else if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() <= 2.0) {
                 System.out.println("Player " + e.getName() + " Killed " + p.getName());
                 ((Player) e).setMaxHealth(((Player) e).getMaxHealth() + 2.0);
                 p.setMaxHealth(p.getMaxHealth() - 1.0);
 
             }
 
-            if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == getConfig().getDouble("minHealth") && getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP")) {
+            if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == 1.0 && getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP")) {
                 for (Player target : getServer().getOnlinePlayers()) {
                     target.playSound(target, Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1);
                     target.sendMessage(ChatColor.RED + p.getName() + " has ran out of hearts...");
                     p.kickPlayer("You have ran out of hearts...");
                 }
-            } else if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == getConfig().getDouble("minHealth") && !getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP")) {
+            } else if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == 1.0 && !getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP")) {
                 for (Player target : getServer().getOnlinePlayers()) {
                     target.playSound(target, Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1);
                     target.sendMessage(p.getName() + " has ran out of hearts...");
@@ -70,7 +70,7 @@ public final class LifeStolen extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        if (event.getPlayer().getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == getConfig().getDouble("minHealth") && getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP"))
+        if (event.getPlayer().getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == 1.0 && getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP"))
             event.getPlayer().kickPlayer("You have ran out of hearts...");
         if (!event.getPlayer().hasPlayedBefore()) {
             event.getPlayer().setMaxHealth(getConfig().getDouble("maxHealth"));
