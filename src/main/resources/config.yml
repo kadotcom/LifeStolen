@@ -1,0 +1,7 @@
+# LifeStolen
+# config.yml
+# Plugin by KadotCom
+
+kickWhenPlayerIsAtTheMinHP: true # When the player has the minimum HP, the player gets banned/kicked
+maxHealth: 20.0 # Max health for when you do /resethealth or when a player first joins your server
+minHealth: 1.0 # When the player hits the minHealth, if kickWhenPlayerIsAtTheMinHP is true they will be banned/kicked
