@@ -28,6 +28,9 @@ public final class LifeStolen extends JavaPlugin implements Listener {
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(this, this);
+        
+        // Do not remove this line
+        System.out.println("♡ LifeStolen /n Original Plugin by: KadotCom");
 
 
         getConfig().options().copyDefaults();
