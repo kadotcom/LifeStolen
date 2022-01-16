@@ -53,13 +53,13 @@ public final class LifeStolen extends JavaPlugin implements Listener {
 
             }
 
-            if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == getConfig().getDouble("minHealth") && getConfig().getBoolean("kickWhenPlayerHasNoHearts")) {
+            if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == getConfig().getDouble("minHealth") && getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP")) {
                 for (Player target : getServer().getOnlinePlayers()) {
                     target.playSound(target, Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1);
                     target.sendMessage(ChatColor.RED + p.getName() + " has ran out of hearts...");
                     p.kickPlayer("You have ran out of hearts...");
                 }
-            } else if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == getConfig().getDouble("minHealth") && !getConfig().getBoolean("kickWhenPlayerHasNoHearts")) {
+            } else if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == getConfig().getDouble("minHealth") && !getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP")) {
                 for (Player target : getServer().getOnlinePlayers()) {
                     target.playSound(target, Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1);
                     target.sendMessage(p.getName() + " has ran out of hearts...");
@@ -70,7 +70,7 @@ public final class LifeStolen extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        if (event.getPlayer().getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == getConfig().getDouble("minHealth") && getConfig().getBoolean("kickWhenPlayerHasNoHearts"))
+        if (event.getPlayer().getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == getConfig().getDouble("minHealth") && getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP"))
             event.getPlayer().kickPlayer("You have ran out of hearts...");
         if (!event.getPlayer().hasPlayedBefore()) {
             event.getPlayer().setMaxHealth(getConfig().getDouble("maxHealth"));
@@ -128,3 +128,4 @@ public final class LifeStolen extends JavaPlugin implements Listener {
         }
     }
 }
+
