@@ -1,8 +1,9 @@
-#   .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-.
-##  ( L .'( i .'( f .'( e .'( S .'( t .'( o .'( l .'( e .'( n .'
-##   `.(   `.(   `.(   `.(   `.(   `.(   `.(   `.(   `.(   `.(
-##
+#  .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-.  
+#  '. L )'. i )'. f )'. e )'. S )'. t )'. o )'. l )'. e )'. n ) 
+#    ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'  
+# 
 # Plugin by KadotCom
+# Open-Source
 
 # General
 kickWhenPlayerIsAtTheMinHP: true # When the player has the minimum HP, the player gets banned/kicked.
