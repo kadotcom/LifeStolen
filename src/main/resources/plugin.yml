@@ -6,7 +6,7 @@ prefix: LIFESTOLEN
 authors: [ KadotCom ]
 description: A lifesteal plugin.
 commands:
-  resetHealth:
+  resethp:
     description: Resets everyone that is onlines health
     usage: /<command>
     permission: lifestolen.resethealth
@@ -19,8 +19,6 @@ commands:
     usage: /<command>
     permission: lifestolen.giveheart
     permission-message: You do not have the lifestolen.giveheart permission. You will have to craft a heart.
-
-
 
 
 

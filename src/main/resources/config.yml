@@ -1,5 +1,23 @@
-# LifeStolen
-# config.yml
+#   .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-.
+##  ( L .'( i .'( f .'( e .'( S .'( t .'( o .'( l .'( e .'( n .'
+##   `.(   `.(   `.(   `.(   `.(   `.(   `.(   `.(   `.(   `.(
+##
 # Plugin by KadotCom
 
-kickWhenPlayerIsAtTheMinHP: true # When the player has the minimum HP, the player gets banned/kicked
+# General
+kickWhenPlayerIsAtTheMinHP: true # When the player has the minimum HP, the player gets banned/kicked.
+kickStaffAtMinHP: false # Kicks staff when they are at min HP if kickWhenPlayerIsAtTheMinHP is true. (If this is false, people who have the lifestolen.savefromkick will be safe)
+
+# Crafting
+# For reference. See this image to see each slots 'https://wiki.vg/images/7/7b/CraftingTable-slots.png' and this for material types 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'
+# To make a blank spot, type 'AIR' in one of the slots
+HeartRecipe:
+  Slot1: "REDSTONE_BLOCK"
+  Slot2: "REDSTONE_BLOCK"
+  Slot3: "REDSTONE_BLOCK"
+  Slot4: "REDSTONE_BLOCK"
+  Slot5: "ENCHANTED_GOLDEN_APPLE"
+  Slot6: "REDSTONE_BLOCK"
+  Slot7: "AIR"
+  Slot8: "REDSTONE_BLOCK"
+  Slot9: "AIR"
