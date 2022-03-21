@@ -11,11 +11,3 @@ You may edit it and use it for yourself or your server but you may not redistrib
 
 SpigotMC: https://www.spigotmc.org/resources/lifestolen.99220/  
 CurseForge: https://www.curseforge.com/minecraft/bukkit-plugins/lifestolen
-
-
-
-
-# Roadmap
-* LifeStolen for BungeeCord
-* PerWorldHealth (Basically when you go to a different world, your hearts reset to a different value)
-* ~~Editable crafting recipes~~
