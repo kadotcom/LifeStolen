@@ -13,6 +13,7 @@ public class ResetHP implements CommandExecutor {
             target.setMaxHealth(20.0);
             target.playSound(target, Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1);
             target.sendMessage(ChatColor.RED + "Your hearts has been resetted.");
+
         }
         return true;
     }

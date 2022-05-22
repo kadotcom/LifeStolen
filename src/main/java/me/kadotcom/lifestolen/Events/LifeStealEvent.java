@@ -1,61 +1,73 @@
 package me.kadotcom.lifestolen.Events;
 
 import me.kadotcom.lifestolen.LifeStolen;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Sound;
-import org.bukkit.attribute.Attribute;
+import me.kadotcom.lifestolen.Managers.HealthManager;
+import org.bukkit.*;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class LifeStealEvent implements Listener {
 
-    private final LifeStolen main = LifeStolen.getPlugin(LifeStolen.class);
-    
+    LifeStolen plugin;
+    public LifeStealEvent(LifeStolen ls){
+        plugin = ls;
+    }
+
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
         Player p = event.getEntity();
         Entity e = event.getEntity().getKiller();
+
+        if(HealthManager.getMaxHealth(p) > 2.0){
+            HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2.0, p);
+        }else if(HealthManager.getMaxHealth(p) <= 2.0){
+            HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 1.0, p);
+        }
+
         if (e instanceof Player) {
 
-            if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() > 2.0) {
+            if (HealthManager.getMaxHealth(p) > 2.0) {
                 System.out.println("Player " + e.getName() + " Killed " + p.getName());
-                ((Player) e).setMaxHealth(((Player) e).getMaxHealth() + 2.0);
-                p.setMaxHealth(p.getMaxHealth() - 2.0);
-            } else if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() <= 2.0) {
+                HealthManager.setMaxHealth(HealthManager.getMaxHealth((Player) e) + 2.0, (Player) e);
+                //((Player) e).setMaxHealth(((Player) e).getMaxHealth() + 2.0);
+                //p.setMaxHealth(p.getMaxHealth() - 2.0);
+            } else if (HealthManager.getMaxHealth(p) <= 2.0) {
                 System.out.println("Player " + e.getName() + " Killed " + p.getName());
-                ((Player) e).setMaxHealth(((Player) e).getMaxHealth() + 2.0);
-                p.setMaxHealth(p.getMaxHealth() - 1.0);
+                //((Player) e).setMaxHealth(((Player) e).getMaxHealth() + 2.0);
+                //p.setMaxHealth(p.getMaxHealth() - 1.0);
+
+                HealthManager.setMaxHealth(HealthManager.getMaxHealth((Player) e) + 2.0, (Player) e);
 
             }
 
-            if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == 1.0 && main.getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP")) {
-                for (Player target : Bukkit.getServer().getOnlinePlayers()) {
-                    target.playSound(target, Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1);
-                    target.sendMessage(ChatColor.RED + p.getName() + " has ran out of hearts...");
-                    if(!p.hasPermission("lifestolen.savefromkick") && main.getConfig().getBoolean("kickStaffAtMinHP")){
-                        p.kickPlayer("You have ran out of hearts...");
-                    }else if (p.hasPermission("lifestolen.savefromkick") && !main.getConfig().getBoolean("kickStaffAtMinHP")){ }
-                }
-            } else if (p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == 1.0 && !main.getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP")) {
-                for (Player target : Bukkit.getServer().getOnlinePlayers()) {
-                    target.playSound(target, Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1);
-                    target.sendMessage(ChatColor.RED + p.getName() + " has ran out of hearts...");
-                }
+
             }
+
+        if (HealthManager.getMaxHealth(p) == 1.0) {
+
+
+            HealthManager.setMaxHealth(plugin.getConfig().getInt("returnHP"), p);
+            Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "minecraft:ban " + p.getName() + " You have ran out of hearts...");
+
+            for (Player target : Bukkit.getServer().getOnlinePlayers()) {
+                target.playSound(target, Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 1, 1);
+                target.sendMessage(ChatColor.RED + p.getName() + " has ran out of hearts...");
+            }
+
         }
+
     }
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        if (event.getPlayer().getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() == 1.0 && main.getConfig().getBoolean("kickWhenPlayerIsAtTheMinHP"))
-            event.getPlayer().kickPlayer("You have ran out of hearts...");
         if (!event.getPlayer().hasPlayedBefore()) {
-            event.getPlayer().setMaxHealth(main.getConfig().getDouble("maxHealth"));
+            HealthManager.setMaxHealth(20, event.getPlayer());
         }
     }
 }

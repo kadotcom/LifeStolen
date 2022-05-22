@@ -11,12 +11,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class LifeStolen extends JavaPlugin {
 
 
-
     @Override
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new ItemEvent(), this);
-        getServer().getPluginManager().registerEvents(new LifeStealEvent(), this);
+        getServer().getPluginManager().registerEvents(new LifeStealEvent(this), this);
         getCommand("giveheart").setExecutor(new GiveHeart());
         getCommand("health").setExecutor(new Health());
         getCommand("resethp").setExecutor(new ResetHP());

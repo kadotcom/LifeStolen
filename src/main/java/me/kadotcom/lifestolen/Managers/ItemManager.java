@@ -49,4 +49,6 @@ public class ItemManager {
         sr.setIngredient('9', Material.matchMaterial(main.getConfig().getString("HeartRecipe.Slot9")));
         Bukkit.getServer().addRecipe(sr);
     }
+
+
 }

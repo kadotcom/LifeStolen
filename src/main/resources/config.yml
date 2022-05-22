@@ -1,13 +1,11 @@
 #  .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-.  
 #  '. L )'. i )'. f )'. e )'. S )'. t )'. o )'. l )'. e )'. n ) 
-#    ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'  
-# 
+#    ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).' 
 # Plugin by KadotCom
 # Open-Source
 
 # General
-kickWhenPlayerIsAtTheMinHP: true # When the player has the minimum HP, the player gets banned/kicked.
-kickStaffAtMinHP: false # Kicks staff when they are at min HP if kickWhenPlayerIsAtTheMinHP is true. (If this is false, people who have the lifestolen.savefromkick will be safe)
+returnHP: 20 #  When a player is unbanned, their health will reset
 
 # Crafting
 # For reference. See this image to see each slots 'https://wiki.vg/images/7/7b/CraftingTable-slots.png' and this for material types 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'
