@@ -11,4 +11,5 @@ You may edit it and use it for yourself or your server but you may not redistrib
 
 CurseForge: https://www.curseforge.com/minecraft/bukkit-plugins/lifestolen \
 SpigotMC: https://www.spigotmc.org/resources/lifestolen.99220/ \
-GitHub Releases: https://github.com/kadotcom/lifestolen/releases/ (RECOMMENDED)
+GitHub Releases: https://github.com/kadotcom/lifestolen/releases/ (RECOMMENDED)\
+Discord: https://discord.gg/2wNv7MSJaw
