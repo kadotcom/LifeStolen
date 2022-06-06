@@ -1,7 +1,6 @@
 name: LifeStolen
 version: '${project.version}'
 main: me.kadotcom.lifestolen.LifeStolen
-api-version: 1.18
 prefix: LIFESTOLEN-OPEN
 authors: [ KadotCom ]
 description: A lifesteal plugin.
@@ -19,6 +18,13 @@ commands:
     usage: /<command>
     permission: lifestolen.giveheart
     permission-message: You do not have the lifestolen.giveheart permission. You will have to craft a heart.
-
+  sethealth:
+    description: Sets a players health.
+    usage: /<command> [player] [amount]
+    permission: lifestolen.sethealth
+    permission-message: You do not have the lifestolen.sethealth permission.
+  withdraw:
+    description: Withdraws a heart from yourself
+    usage: /<command>
 
 
