@@ -9,5 +9,7 @@ You may edit it and use it for yourself or your server but you may not redistrib
 
 # Download Links and other links
 
-SpigotMC: https://www.spigotmc.org/resources/lifestolen.99220/ (NO LONGER BEING UPDATED)\
-CurseForge: https://www.curseforge.com/minecraft/bukkit-plugins/lifestolen
+CurseForge: https://www.curseforge.com/minecraft/bukkit-plugins/lifestolen \
+SpigotMC: https://www.spigotmc.org/resources/lifestolen.99220/ \
+GitHub Releases: https://github.com/kadotcom/lifestolen/releases/ (RECOMMENDED)\
+Discord: https://discord.gg/2wNv7MSJaw
