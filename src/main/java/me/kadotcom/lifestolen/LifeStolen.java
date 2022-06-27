@@ -20,9 +20,7 @@ public final class LifeStolen extends JavaPlugin {
         getCommand("sethealth").setExecutor(new SetHealth());
         getCommand("withdraw").setExecutor(new Withdraw());
 
-        System.out.println("♡ LifeStolen ver: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\nOpen-Source");
-
-
+        System.out.println("♡ LifeStolen \nVersion " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\nOpen-Source");
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 

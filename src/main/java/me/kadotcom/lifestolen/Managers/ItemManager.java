@@ -24,7 +24,7 @@ public class ItemManager {
     }
 
     private static void createHeart(){
-        ItemStack item = new ItemStack(Material.RED_DYE, 1);
+        ItemStack item = new ItemStack(Material.matchMaterial(main.getConfig().getString("heartItem")), 1);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("Heart");
         List<String> lore = new ArrayList<>();

@@ -1,6 +1,6 @@
 #  .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-.  
 #  '. L )'. i )'. f )'. e )'. S )'. t )'. o )'. l )'. e )'. n ) 
-#    ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).' 
+#    ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'
 # Plugin by KadotCom
 # Open-Source
 
@@ -8,12 +8,16 @@
 returnHP: 20 #  When a player is unbanned, their health will reset
 MaxHP: 120 # HP that when reached, the player will not gain anymore health
 
+# Item
+# To see valid items, go to this website 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html+'
+
+heartItem: 'REDSTONE' # Item used for hearts
 
 # Banning
 
 banTime: 86400 # Ban duration in seconds.
-banReason: You ran out of hearts. # The ban message.
-kickMessage: You ran out of hearts... # Kick message for when you get banned.
+banReason: "You ran out of hearts." # The ban message.
+kickMessage: "You ran out of hearts..." # Kick message for when you get banned.
 
 # Crafting
 # For reference. See this image to see each slots 'https://wiki.vg/images/7/7b/CraftingTable-slots.png' and this for material types 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'

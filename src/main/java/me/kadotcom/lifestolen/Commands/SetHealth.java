@@ -15,24 +15,31 @@ public class SetHealth implements CommandExecutor {
             Player p = (Player) sender;
             Player sName = Bukkit.getPlayer(args[0]);
 
+            if(p.isOp() || p.hasPermission("lifestolen.sethealth") || p.hasPermission("lifestolen.*")){
+                if(sName != null){
 
-            if(sName != null){
+
+                    try {
+                        int i = Integer.parseInt(args[1]);
+
+                        HealthManager.setMaxHealth(i, sName);
+                    } catch (NumberFormatException e) {
+                        p.sendMessage("'" + args[1] + "' isn't a valid number");
+                    }
 
 
-                try {
-                    int i = Integer.parseInt(args[1]);
 
-                    HealthManager.setMaxHealth(i, sName);
-                } catch (NumberFormatException e) {
-                    p.sendMessage("'" + args[1] + "' isn't a valid number");
+
+                }else{
+                    p.sendMessage("Player not found!");
                 }
-
-
-
-
             }else{
-                p.sendMessage("Player not found!");
+                p.sendMessage("You do not have the lifestolen.sethealth permission.");
             }
+
+
+
+
 
         }
 

@@ -14,10 +14,10 @@ import org.bukkit.entity.Player;
                 if(sender instanceof Player){
                     Player p = (Player) sender;
 
-
-                    HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
-                    p.getInventory().addItem(ItemManager.heart);
-
+                    if(HealthManager.getMaxHealth(p) > 2.0){
+                        HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
+                        p.getInventory().addItem(ItemManager.heart);
+                    }
                 }
 
         return true;

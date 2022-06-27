@@ -11,7 +11,12 @@ public class GiveHeart implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player){
             Player p = (Player) sender;
-            p.getInventory().addItem(ItemManager.heart);
+            if(p.isOp() || p.hasPermission("lifestolen.giveheart") || p.hasPermission("lifestolen.*")){
+                p.getInventory().addItem(ItemManager.heart);
+                return true;
+            }else{
+                p.sendMessage("You do not have the lifestolen.giveheart permission. You will have to craft a heart.");
+            }
 
         }
 
