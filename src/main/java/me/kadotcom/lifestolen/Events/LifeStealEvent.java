@@ -1,6 +1,7 @@
 package me.kadotcom.lifestolen.Events;
 
 import me.kadotcom.lifestolen.LifeStolen;
+import me.kadotcom.lifestolen.Managers.BanManager;
 import me.kadotcom.lifestolen.Managers.HealthManager;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -61,15 +62,9 @@ public class LifeStealEvent implements Listener {
 
             if (HealthManager.getMaxHealth(p) == 1.0) {
 
-                Date date = new Date(System.currentTimeMillis()+plugin.getConfig().getInt("banTime") * 1000);
-
-                HealthManager.setMaxHealth(plugin.getConfig().getInt("returnHP"), p);
-                Bukkit.getServer().getBanList(BanList.Type.NAME).addBan(p.getName(), plugin.getConfig().getString("banReason"), date, null);
-                p.kickPlayer(plugin.getConfig().getString("kickMessage"));
-                //Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "minecraft:ban " + p.getName() + " You have ran out of hearts...");
+                BanManager.ban(p,plugin.getConfig().getInt("banTime"),plugin.getConfig().getInt("returnHP"),plugin.getConfig().getString("banReason"),plugin.getConfig().getString("kickMessage"));
 
                 for (Player target : Bukkit.getServer().getOnlinePlayers()) {
-                    target.playSound(target, Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 1, 1);
                     target.sendMessage(ChatColor.RED + p.getName() + " has ran out of hearts...");
                 }
 

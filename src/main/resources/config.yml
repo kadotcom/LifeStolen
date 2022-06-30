@@ -8,16 +8,40 @@
 returnHP: 20 #  When a player is unbanned, their health will reset
 MaxHP: 120 # HP that when reached, the player will not gain anymore health
 
+# Permissions
+
+permissions:
+  # permission - The permission someone needs to run a permission based command.
+  # permission-message - The message that appears when someone tries to run a command and doesn't have the correct permissions.
+  # permissionToDoEverything - The permission someone needs to run all permission based commands.
+  sethealth:
+    permission: "lifestolen.sethealth"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
+  addhealth:
+    permission: "lifestolen.sethealth"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
+  removehealth:
+    permission: "lifestolen.removehealth"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
+  resethp:
+    permission: "lifestolen.resethealth"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
+  giveheart:
+    permission: "lifestolen.giveheart"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command. You will have to craft a heart."
+  permissionToDoEverything: "lifestolen.*"
+
+
 # Item
-# To see valid items, go to this website 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html+'
+# To see valid items, go to this website 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'
 
 heartItem: 'REDSTONE' # Item used for hearts
 
 # Banning
 
 banTime: 86400 # Ban duration in seconds.
-banReason: "You ran out of hearts." # The ban message.
-kickMessage: "You ran out of hearts..." # Kick message for when you get banned.
+banReason: "&4You ran out of hearts." # The ban message.
+kickMessage: "&4You ran out of hearts..." # Kick message for when you get banned.
 
 # Crafting
 # For reference. See this image to see each slots 'https://wiki.vg/images/7/7b/CraftingTable-slots.png' and this for material types 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'

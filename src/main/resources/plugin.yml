@@ -18,6 +18,12 @@ commands:
   sethealth:
     description: Sets a players health.
     usage: /<command> [player] [amount]
+  addhealth:
+    description: Adds to players health.
+    usage: /<command> [player] [amount]
+  removehealth:
+    description: Removes from players health.
+    usage: /<command> [player] [amount]
   withdraw:
     description: Withdraws a heart from yourself
     usage: /<command>
