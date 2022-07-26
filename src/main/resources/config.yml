@@ -7,6 +7,7 @@
 # General
 returnHP: 20 #  When a player is unbanned, their health will reset
 MaxHP: 120 # HP that when reached, the player will not gain anymore health
+banOnDeath: true # If set true the player will be banned when they lose all their hearts, if set to false the player will be put in spectator instead.
 
 # Permissions
 
@@ -18,7 +19,7 @@ permissions:
     permission: "lifestolen.sethealth"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   addhealth:
-    permission: "lifestolen.sethealth"
+    permission: "lifestolen.addhealth"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   removehealth:
     permission: "lifestolen.removehealth"
@@ -29,13 +30,19 @@ permissions:
   giveheart:
     permission: "lifestolen.giveheart"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command. You will have to craft a heart."
+  reload:
+    permission: "lifestolen.reload"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   permissionToDoEverything: "lifestolen.*"
 
 
 # Item
 # To see valid items, go to this website 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'
 
-heartItem: 'REDSTONE' # Item used for hearts
+heart:
+  isEnabled: true # Indicates if an item is enabled or disabled.
+  disabledMessage: '&cThe heart item is disabled on this server.' # Message that appears if this item is disabled
+  item: 'REDSTONE' # Item used for hearts
 
 # Banning
 

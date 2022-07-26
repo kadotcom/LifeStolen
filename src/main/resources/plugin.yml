@@ -27,5 +27,6 @@ commands:
   withdraw:
     description: Withdraws a heart from yourself
     usage: /<command>
-
-
+  reloadls:
+    description: Reloads the plugin
+    usage: /<command>

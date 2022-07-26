@@ -5,7 +5,6 @@ import me.kadotcom.lifestolen.Events.ItemEvent;
 import me.kadotcom.lifestolen.Events.LifeStealEvent;
 import me.kadotcom.lifestolen.Managers.ItemManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.checkerframework.checker.units.qual.A;
 
 public final class LifeStolen extends JavaPlugin {
 
@@ -19,11 +18,12 @@ public final class LifeStolen extends JavaPlugin {
         getCommand("health").setExecutor(new Health());
         getCommand("resethp").setExecutor(new ResetHP(this));
         getCommand("sethealth").setExecutor(new SetHealth(this));
-        getCommand("withdraw").setExecutor(new Withdraw());
+        getCommand("withdraw").setExecutor(new Withdraw(this));
         getCommand("addhealth").setExecutor(new AddHealth(this));
         getCommand("removehealth").setExecutor(new RemoveHealth(this));
+        getCommand("reloadls").setExecutor(new ReloadLifeStolen(this));
 
-         System.out.println("♡ LifeStolen \nVersion " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\nOpen-Source");
+        System.out.println("♡ LifeStolen \nVersion " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\nOpen-Source");
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 

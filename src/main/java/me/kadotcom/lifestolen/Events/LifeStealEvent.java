@@ -2,6 +2,7 @@ package me.kadotcom.lifestolen.Events;
 
 import me.kadotcom.lifestolen.LifeStolen;
 import me.kadotcom.lifestolen.Managers.BanManager;
+import me.kadotcom.lifestolen.Managers.GameModeManager;
 import me.kadotcom.lifestolen.Managers.HealthManager;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -62,7 +63,14 @@ public class LifeStealEvent implements Listener {
 
             if (HealthManager.getMaxHealth(p) == 1.0) {
 
-                BanManager.ban(p,plugin.getConfig().getInt("banTime"),plugin.getConfig().getInt("returnHP"),plugin.getConfig().getString("banReason"),plugin.getConfig().getString("kickMessage"));
+
+                if(plugin.getConfig().getBoolean("banOnDeath")) {
+                    BanManager.ban(p, plugin.getConfig().getInt("banTime"), plugin.getConfig().getInt("returnHP"), plugin.getConfig().getString("banReason"), plugin.getConfig().getString("kickMessage"));
+                }else{
+                    GameModeManager.setGamemodeAndHealth(GameMode.SPECTATOR, plugin.getConfig().getInt("returnHP"), p);
+                }
+
+
 
                 for (Player target : Bukkit.getServer().getOnlinePlayers()) {
                     target.sendMessage(ChatColor.RED + p.getName() + " has ran out of hearts...");

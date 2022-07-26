@@ -17,7 +17,11 @@ public class GiveHeart implements CommandExecutor {
         if(sender instanceof Player){
             Player p = (Player) sender;
             if(p.isOp() || p.hasPermission(plugin.getConfig().getString("permissions.giveheart.permission")) || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
-                p.getInventory().addItem(ItemManager.heart);
+                if(plugin.getConfig().getBoolean("heart.isEnabled")){
+                    p.getInventory().addItem(ItemManager.heart);
+                }else {
+                  p.sendMessage(plugin.getConfig().getString("heart.disabledMessage").replace("&", "§"));
+                }
                 return true;
             }else{
                 p.sendMessage(plugin.getConfig().getString("permissions.giveheart.permission-message").replace("&", "§"));

@@ -20,11 +20,13 @@ public class ItemManager {
     public static ItemStack heart;
 
     public static void init(){
-      createHeart();
+        if(main.getConfig().getBoolean("heart.isEnabled")){
+            createHeart();
+        }
     }
 
     private static void createHeart(){
-        ItemStack item = new ItemStack(Material.matchMaterial(main.getConfig().getString("heartItem")), 1);
+        ItemStack item = new ItemStack(Material.matchMaterial(main.getConfig().getString("heart.item")), 1);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("Heart");
         List<String> lore = new ArrayList<>();
@@ -38,16 +40,16 @@ public class ItemManager {
                 , "456"
                 , "789");
 
-        sr.setIngredient('1', Material.matchMaterial(main.getConfig().getString("HeartRecipe.Slot1")));
-        sr.setIngredient('2', Material.matchMaterial(main.getConfig().getString("HeartRecipe.Slot2")));
-        sr.setIngredient('3', Material.matchMaterial(main.getConfig().getString("HeartRecipe.Slot3")));
-        sr.setIngredient('4', Material.matchMaterial(main.getConfig().getString("HeartRecipe.Slot4")));
-        sr.setIngredient('5', Material.matchMaterial(main.getConfig().getString("HeartRecipe.Slot5")));
-        sr.setIngredient('6', Material.matchMaterial(main.getConfig().getString("HeartRecipe.Slot6")));
-        sr.setIngredient('7', Material.matchMaterial(main.getConfig().getString("HeartRecipe.Slot7")));
-        sr.setIngredient('8', Material.matchMaterial(main.getConfig().getString("HeartRecipe.Slot8")));
-        sr.setIngredient('9', Material.matchMaterial(main.getConfig().getString("HeartRecipe.Slot9")));
-        Bukkit.getServer().addRecipe(sr);
+        sr.setIngredient('1', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot1")));
+        sr.setIngredient('2', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot2")));
+        sr.setIngredient('3', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot3")));
+        sr.setIngredient('4', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot4")));
+        sr.setIngredient('5', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot5")));
+        sr.setIngredient('6', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot6")));
+        sr.setIngredient('7', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot7")));
+        sr.setIngredient('8', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot8")));
+        sr.setIngredient('9', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot9")));
+        main.getServer().addRecipe(sr);
     }
 
 

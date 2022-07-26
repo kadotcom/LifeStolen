@@ -24,7 +24,7 @@ public class BanManager {
         p.kickPlayer(kickMessage.replace("&", "§"));
     }
 
-    public static void unban(Player p){
+    public static void unban(OfflinePlayer p){
         Bukkit.getServer().getBanList(BanList.Type.NAME).pardon(p.getName());
     }
 }
