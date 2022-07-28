@@ -1,6 +1,7 @@
 package me.kadotcom.lifestolen;
 
 import me.kadotcom.lifestolen.Commands.*;
+import me.kadotcom.lifestolen.Events.ChatEvent;
 import me.kadotcom.lifestolen.Events.ItemEvent;
 import me.kadotcom.lifestolen.Events.LifeStealEvent;
 import me.kadotcom.lifestolen.Managers.ItemManager;
@@ -13,6 +14,7 @@ public final class LifeStolen extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new ItemEvent(this), this);
+        getServer().getPluginManager().registerEvents(new ChatEvent(this), this);
         getServer().getPluginManager().registerEvents(new LifeStealEvent(this), this);
         getCommand("giveheart").setExecutor(new GiveHeart(this));
         getCommand("health").setExecutor(new Health());
@@ -23,7 +25,7 @@ public final class LifeStolen extends JavaPlugin {
         getCommand("removehealth").setExecutor(new RemoveHealth(this));
         getCommand("reloadls").setExecutor(new ReloadLifeStolen(this));
 
-        System.out.println("♡ LifeStolen \nVersion " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\nOpen-Source");
+        System.out.println("♡ LifeStolen \nver: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom");
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 

@@ -2,7 +2,7 @@ name: LifeStolen
 version: '${project.version}'
 main: me.kadotcom.lifestolen.LifeStolen
 api-version: 1.13
-prefix: LIFESTOLEN-OPEN
+prefix: LIFESTOLEN
 authors: [ KadotCom ]
 description: A lifesteal plugin.
 commands:
@@ -30,3 +30,5 @@ commands:
   reloadls:
     description: Reloads the plugin
     usage: /<command>
+
+
