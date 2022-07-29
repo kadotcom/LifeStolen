@@ -1,8 +1,8 @@
-#  .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-.  
-#  '. L )'. i )'. f )'. e )'. S )'. t )'. o )'. l )'. e )'. n ) 
-#    ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'   ).'
+#   .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-. .-.-.
+#   ( L .'( i .'( f .'( e .'( S .'( t .'( o .'( l .'( e .'( n .'
+#    `.(   `.(   `.(   `.(   `.(   `.(   `.(   `.(   `.(   `.(
+#
 # Plugin by KadotCom
-# Open-Source
 
 # General
 returnHP: 20 #  When a player is unbanned, their health will reset
@@ -40,9 +40,17 @@ permissions:
 # To see valid items, go to this website 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'
 
 heart:
+  itemName: "Heart" # Item name.
+  itemLore: "This will give you one heart." # Item lore.
   isEnabled: true # Indicates if an item is enabled or disabled.
   disabledMessage: '&cThe heart item is disabled on this server.' # Message that appears if this item is disabled
   item: 'REDSTONE' # Item used for hearts
+reviver:
+  itemName: "Reviver" # Item name.
+  itemLore: "This will revive someone." # Item lore.
+  isEnabled: true # Indicates if an item is enabled or disabled.
+  disabledMessage: '&cThe heart item is disabled on this server.' # Message that appears if this item is disabled
+  item: 'BEACON' # Item used for hearts
 
 # Banning
 
@@ -59,6 +67,16 @@ HeartRecipe:
   Slot3: "REDSTONE_BLOCK"
   Slot4: "REDSTONE_BLOCK"
   Slot5: "ENCHANTED_GOLDEN_APPLE"
+  Slot6: "REDSTONE_BLOCK"
+  Slot7: "AIR"
+  Slot8: "REDSTONE_BLOCK"
+  Slot9: "AIR"
+ReviverRecipe:
+  Slot1: "REDSTONE_BLOCK"
+  Slot2: "REDSTONE_BLOCK"
+  Slot3: "REDSTONE_BLOCK"
+  Slot4: "REDSTONE_BLOCK"
+  Slot5: "DIAMOND"
   Slot6: "REDSTONE_BLOCK"
   Slot7: "AIR"
   Slot8: "REDSTONE_BLOCK"
