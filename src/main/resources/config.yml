@@ -5,9 +5,11 @@
 # Plugin by KadotCom
 
 # General
+
 returnHP: 20 #  When a player is unbanned, their health will reset
 MaxHP: 120 # HP that when reached, the player will not gain anymore health
 banOnDeath: true # If set true the player will be banned when they lose all their hearts, if set to false the player will be put in spectator instead.
+anyDeathRemovesHearts: true # If set false the player will only lose hearts if another player kills them.
 
 # Permissions
 
@@ -72,12 +74,12 @@ HeartRecipe:
   Slot8: "REDSTONE_BLOCK"
   Slot9: "AIR"
 ReviverRecipe:
-  Slot1: "REDSTONE_BLOCK"
-  Slot2: "REDSTONE_BLOCK"
-  Slot3: "REDSTONE_BLOCK"
-  Slot4: "REDSTONE_BLOCK"
-  Slot5: "DIAMOND"
-  Slot6: "REDSTONE_BLOCK"
-  Slot7: "AIR"
-  Slot8: "REDSTONE_BLOCK"
-  Slot9: "AIR"
+  Slot1: "DIAMOND_BLOCK"
+  Slot2: "DIAMOND_BLOCK"
+  Slot3: "DIAMOND_BLOCK"
+  Slot4: "EMERALD_BLOCK"
+  Slot5: "NETHER_STAR"
+  Slot6: "EMERALD_BLOCK"
+  Slot7: "OBSIDIAN"
+  Slot8: "OBSIDIAN"
+  Slot9: "OBSIDIAN"

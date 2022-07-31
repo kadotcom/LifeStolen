@@ -28,15 +28,22 @@ public class LifeStealEvent implements Listener {
         Player p = event.getEntity();
         Entity e = event.getEntity().getKiller();
 
-        if(HealthManager.getMaxHealth(p) > 2.0){
+
+        if(HealthManager.getMaxHealth(p) > 2.0 && plugin.getConfig().getBoolean("anyDeathRemovesHearts")){
             HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2.0, p);
-        }else if(HealthManager.getMaxHealth(p) <= 2.0){
+        }else if(HealthManager.getMaxHealth(p) <= 2.0 && plugin.getConfig().getBoolean("anyDeathRemovesHearts")){
             HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 1.0, p);
         }
 
         if (e instanceof Player) {
                 if (HealthManager.getMaxHealth(p) > 2.0) {
                     System.out.println("Player " + e.getName() + " Killed " + p.getName());
+
+                    if(HealthManager.getMaxHealth(p) > 2.0 && !plugin.getConfig().getBoolean("anyDeathRemovesHearts")){
+                        HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2.0, p);
+                    }else if(HealthManager.getMaxHealth(p) <= 2.0 && !plugin.getConfig().getBoolean("anyDeathRemovesHearts")){
+                        HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 1.0, p);
+                    }
 
                     if (HealthManager.getMaxHealth((Player) e) != plugin.getConfig().getInt("MaxHP")) {
                         HealthManager.setMaxHealth(HealthManager.getMaxHealth((Player) e) + 2.0, (Player) e);

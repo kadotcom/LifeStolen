@@ -30,7 +30,7 @@ public class ItemEvent implements Listener {
                         event.setCancelled(true);
                         event.getItem().setAmount(event.getItem().getAmount() - 1);
                         Player p = event.getPlayer();
-                        p.setMaxHealth(p.getMaxHealth() + 2.0);
+                        HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) + 2.0, p);
                     }else if(HealthManager.getMaxHealth(event.getPlayer()) >= plugin.getConfig().getInt("MaxHP")){
                         HealthManager.setMaxHealth(plugin.getConfig().getInt("MaxHP"), event.getPlayer());
                     }
@@ -45,7 +45,7 @@ public class ItemEvent implements Listener {
                     if(HealthManager.getMaxHealth(event.getPlayer()) != plugin.getConfig().getInt("MaxHP")){
                         event.getItem().setAmount(event.getItem().getAmount() - 1);
                         Player p = event.getPlayer();
-                        p.setMaxHealth(p.getMaxHealth() + 2.0);
+                        HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) + 2.0, p);
                         event.setCancelled(true);
                     }else if(HealthManager.getMaxHealth(event.getPlayer()) >= plugin.getConfig().getInt("MaxHP")){
                         HealthManager.setMaxHealth(plugin.getConfig().getInt("MaxHP"), event.getPlayer());
@@ -56,13 +56,16 @@ public class ItemEvent implements Listener {
                 if (event.getItem().getItemMeta().equals(ItemManager.reviver.getItemMeta())) {
                     Player player = event.getPlayer();
 
+
                     if(!players.contains(player)){
                         players.add(player);
                         player.sendMessage("Put a username in chat");
                         event.getItem().setAmount(event.getItem().getAmount() - 1);
-                        event.setCancelled(true);
 
                     }
+
+
+                        event.setCancelled(true);
 
 
 

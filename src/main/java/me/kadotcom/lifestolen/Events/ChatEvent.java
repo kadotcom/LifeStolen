@@ -2,13 +2,17 @@ package me.kadotcom.lifestolen.Events;
 
 import me.kadotcom.lifestolen.LifeStolen;
 import me.kadotcom.lifestolen.Managers.BanManager;
-import org.bukkit.BanList;
-import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
+import me.kadotcom.lifestolen.Managers.GameModeManager;
+import me.kadotcom.lifestolen.Managers.HealthManager;
+import org.bukkit.*;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerChatEvent;
+
+import java.util.Objects;
 
 public class ChatEvent implements Listener {
 
@@ -19,25 +23,51 @@ public class ChatEvent implements Listener {
 
 
     @EventHandler
-    public void onChat(AsyncPlayerChatEvent event){
+    public void onChat(PlayerChatEvent event){
         if(ItemEvent.players.contains(event.getPlayer())){
 
             OfflinePlayer sName = Bukkit.getOfflinePlayer(event.getMessage());
+            Player sName2 = Bukkit.getPlayer(event.getMessage());
 
-            if(sName != null){
-                if(Bukkit.getBanList(BanList.Type.NAME).isBanned(sName.getName())){
-                    BanManager.unban(sName);
-                    ItemEvent.players.remove(event.getPlayer());
-                    event.getPlayer().sendMessage("You revived " + sName.getName() + ".");
-                }else {
-                    event.getPlayer().sendMessage("Player you mentioned isn't banned.");
-                    ItemEvent.players.remove(event.getPlayer());
+            if(sName != null || sName.hasPlayedBefore()){
+                if(plugin.getConfig().getBoolean("banOnDeath")){
+                    if(Bukkit.getBanList(BanList.Type.NAME).isBanned(sName.getName())){
+                        BanManager.unban(sName);
+                        ItemEvent.players.remove(event.getPlayer());
+                        event.getPlayer().sendMessage("You revived " + sName.getName() + ".");
+                    }else {
+                        event.getPlayer().sendMessage("Player you mentioned isn't banned.");
+                        ItemEvent.players.remove(event.getPlayer());
 
+                    }
                 }
+
 
             }else {
                 ItemEvent.players.remove(event.getPlayer());
                 event.getPlayer().sendMessage("Mention a player that has joined.");
+            }
+
+            if(sName2 != null){
+                if(!plugin.getConfig().getBoolean("banOnDeath")){
+                    if(sName2.getGameMode() == GameMode.SPECTATOR){
+                        ItemEvent.players.remove(event.getPlayer());
+                        ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+                        String command = "gamemode survival " + sName2.getName();
+                        Bukkit.dispatchCommand(console, command);
+
+                        Location loc = new Location(Bukkit.getServer().getWorlds().get(0), Bukkit.getServer().getWorlds().get(0).getSpawnLocation().getX(), Bukkit.getServer().getWorlds().get(0).getSpawnLocation().getY(), Bukkit.getServer().getWorlds().get(0).getSpawnLocation().getZ());
+                        sName2.teleport(loc);
+                        event.getPlayer().sendMessage("You revived " + sName2.getName() + ".");
+
+                    }else {
+                        ItemEvent.players.remove(event.getPlayer());
+                        event.getPlayer().sendMessage("Mention a player that is dead.");
+                    }
+                }
+            }else {
+                ItemEvent.players.remove(event.getPlayer());
+                event.getPlayer().sendMessage("Mention a player that is in the server.");
             }
 
             event.setCancelled(true);
