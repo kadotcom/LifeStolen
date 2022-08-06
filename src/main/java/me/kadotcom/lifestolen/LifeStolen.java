@@ -6,12 +6,16 @@ import me.kadotcom.lifestolen.Events.ItemEvent;
 import me.kadotcom.lifestolen.Events.LifeStealEvent;
 import me.kadotcom.lifestolen.Managers.ItemManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import me.kadotcom.lifestolen.Utils.HTTP;
+
+import java.util.logging.Logger;
 
 public final class LifeStolen extends JavaPlugin {
-
+    private Logger log;
 
     @Override
     public void onEnable() {
+        log = getLogger();
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new ItemEvent(this), this);
         getServer().getPluginManager().registerEvents(new ChatEvent(this), this);
@@ -25,7 +29,11 @@ public final class LifeStolen extends JavaPlugin {
         getCommand("removehealth").setExecutor(new RemoveHealth(this));
         getCommand("reloadls").setExecutor(new ReloadLifeStolen(this));
 
-        System.out.println("♡ LifeStolen \nver: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom");
+        if(!HTTP.get("https://pastebin.com/raw/s87JX0Xf").equalsIgnoreCase(this.getDescription().getVersion())){
+            log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\n\n(NOTE: This version is outdated)");
+        }else{
+            log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom");
+        }
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 

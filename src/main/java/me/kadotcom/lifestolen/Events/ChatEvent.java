@@ -54,11 +54,10 @@ public class ChatEvent implements Listener {
                         ItemEvent.players.remove(event.getPlayer());
                         ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
                         String command = "gamemode survival " + sName2.getName();
-                        Bukkit.dispatchCommand(console, command);
+                        String command2 = "tp " + sName2.getName() + " " + Bukkit.getServer().getWorlds().get(0).getSpawnLocation().getX() + " " + Bukkit.getServer().getWorlds().get(0).getSpawnLocation().getY() + " " + Bukkit.getServer().getWorlds().get(0).getSpawnLocation().getZ();
 
-                        Location loc = new Location(Bukkit.getServer().getWorlds().get(0), Bukkit.getServer().getWorlds().get(0).getSpawnLocation().getX(), Bukkit.getServer().getWorlds().get(0).getSpawnLocation().getY(), Bukkit.getServer().getWorlds().get(0).getSpawnLocation().getZ());
-                        sName2.teleport(loc);
-                        event.getPlayer().sendMessage("You revived " + sName2.getName() + ".");
+                        Bukkit.dispatchCommand(console, command);
+                        Bukkit.dispatchCommand(console, command2);
 
                     }else {
                         ItemEvent.players.remove(event.getPlayer());

@@ -72,15 +72,15 @@ public class LifeStealEvent implements Listener {
 
 
                 if(plugin.getConfig().getBoolean("banOnDeath")) {
-                    BanManager.ban(p, plugin.getConfig().getInt("banTime"), plugin.getConfig().getInt("returnHP"), plugin.getConfig().getString("banReason"), plugin.getConfig().getString("kickMessage"));
+                    BanManager.ban(p, plugin.getConfig().getInt("banTime"), plugin.getConfig().getInt("HP.returnHP"), plugin.getConfig().getString("banReason").replace("&", "§"), plugin.getConfig().getString("kickMessage").replace("&", "§"));
                 }else{
-                    GameModeManager.setGamemodeAndHealth(GameMode.SPECTATOR, plugin.getConfig().getInt("returnHP"), p);
+                    GameModeManager.setGamemodeAndHealth(GameMode.SPECTATOR, plugin.getConfig().getInt("HP.returnHP"), p);
                 }
 
 
 
                 for (Player target : Bukkit.getServer().getOnlinePlayers()) {
-                    target.sendMessage(ChatColor.RED + p.getName() + " has ran out of hearts...");
+                    target.sendMessage(plugin.getConfig().getString("publicDeathAnnouncement").replace("&", "§").replace("${player}",p.getName()));
                 }
 
             }
@@ -91,7 +91,7 @@ public class LifeStealEvent implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         if (!event.getPlayer().hasPlayedBefore()) {
-            HealthManager.setMaxHealth(20, event.getPlayer());
+            HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.startHP"), event.getPlayer());
         }
     }
 }

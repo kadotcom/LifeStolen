@@ -4,7 +4,7 @@ main: me.kadotcom.lifestolen.LifeStolen
 api-version: 1.13
 prefix: LIFESTOLEN
 authors: [ KadotCom ]
-description: A lifesteal plugin.
+description: Another lifesteal plugin.
 commands:
   resethp:
     description: Resets everyone that is onlines health

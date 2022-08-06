@@ -6,10 +6,13 @@
 
 # General
 
-returnHP: 20 #  When a player is unbanned, their health will reset
+HP:
+  startHP: 20 # When a player first joins a server, the health will be set to this.
+  returnHP: 20 #  When a player is unbanned, their health will reset
 MaxHP: 120 # HP that when reached, the player will not gain anymore health
 banOnDeath: true # If set true the player will be banned when they lose all their hearts, if set to false the player will be put in spectator instead.
 anyDeathRemovesHearts: true # If set false the player will only lose hearts if another player kills them.
+publicDeathAnnouncement: "&4${player} ran out of hearts..." # The message that appears when player loses all their hearts - ${player} = Player who died.
 
 # Permissions
 
@@ -51,7 +54,7 @@ reviver:
   itemName: "Reviver" # Item name.
   itemLore: "This will revive someone." # Item lore.
   isEnabled: true # Indicates if an item is enabled or disabled.
-  disabledMessage: '&cThe heart item is disabled on this server.' # Message that appears if this item is disabled
+  disabledMessage: '&cThe reviver item is disabled on this server.' # Message that appears if this item is disabled
   item: 'BEACON' # Item used for hearts
 
 # Banning
