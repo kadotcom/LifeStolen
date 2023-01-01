@@ -30,5 +30,7 @@ commands:
   reloadls:
     description: Reloads the plugin
     usage: /<command>
-
+  lshelp:
+    description: Shows all commands available to LifeStolen.
+    usage: /<command>
 

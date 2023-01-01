@@ -13,6 +13,7 @@ MaxHP: 120 # HP that when reached, the player will not gain anymore health
 banOnDeath: true # If set true the player will be banned when they lose all their hearts, if set to false the player will be put in spectator instead.
 anyDeathRemovesHearts: true # If set false the player will only lose hearts if another player kills them.
 publicDeathAnnouncement: "&4${player} ran out of hearts..." # The message that appears when player loses all their hearts - ${player} = Player who died.
+clearItemsOnFullDeath: false # When a player dies and get banned, all the players items will be cleared. Only if banOnDeath is true.
 
 # Permissions
 
@@ -38,8 +39,9 @@ permissions:
   reload:
     permission: "lifestolen.reload"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
+  messages:
+    outdatedPermissionMessage: "lifestolen.message.outdated"
   permissionToDoEverything: "lifestolen.*"
-
 
 # Item
 # To see valid items, go to this website 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'
@@ -49,7 +51,9 @@ heart:
   itemLore: "This will give you one heart." # Item lore.
   isEnabled: true # Indicates if an item is enabled or disabled.
   disabledMessage: '&cThe heart item is disabled on this server.' # Message that appears if this item is disabled
-  item: 'REDSTONE' # Item used for hearts
+  item: 'RED_DYE' # Item used for hearts
+  haveLimitedUses: false # When this is enabled, you can use this item a certain amount of times before having to kill players for hearts.
+  uses: 5 # Uses that are allowed if haveLimitedUses is true.
 reviver:
   itemName: "Reviver" # Item name.
   itemLore: "This will revive someone." # Item lore.
