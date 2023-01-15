@@ -6,7 +6,7 @@ LifeStolen is another life steal plugin.
 [![Spigot Downloads](https://img.shields.io/spiget/downloads/99220?label=spigot&logo=spigot)](https://www.spigotmc.org/resources/lifestolen.99220/)
 [![Discord](https://img.shields.io/discord/872329028596535307?label=discord&logo=discord)](https://discord.gg/kbFsgPE4b6/)
 [![CurseForge Downloads](http://cf.way2muchnoise.eu/lifestolen.svg)](https://www.curseforge.com/minecraft/bukkit-plugins/lifestolen)
-
+[![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)](https://www.curseforge.com/project/567776/license)
 
 # DO NOT REDISTRIBUTE THIS PLUGIN
 
