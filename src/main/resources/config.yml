@@ -14,6 +14,7 @@ banOnDeath: true # If set true the player will be banned when they lose all thei
 anyDeathRemovesHearts: true # If set false the player will only lose hearts if another player kills them.
 publicDeathAnnouncement: "&4${player} ran out of hearts..." # The message that appears when player loses all their hearts - ${player} = Player who died.
 clearItemsOnFullDeath: false # When a player dies and get banned, all the players items will be cleared. Only if banOnDeath is true.
+dropHeartOnDeath: false # Heart Item drops when a player dies from a player (if anyDeathRemovesHearts is false) or by anything (if anyDeathRemovesHearts is true)
 
 # Permissions
 

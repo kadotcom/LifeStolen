@@ -4,12 +4,14 @@ import me.kadotcom.lifestolen.LifeStolen;
 import me.kadotcom.lifestolen.Managers.BanManager;
 import me.kadotcom.lifestolen.Managers.GameModeManager;
 import me.kadotcom.lifestolen.Managers.HealthManager;
+import me.kadotcom.lifestolen.Managers.ItemManager;
 import me.kadotcom.lifestolen.Utils.HTTP;
 import me.kadotcom.lifestolen.Utils.UserDataHandler;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -34,8 +36,20 @@ public class LifeStealEvent implements Listener {
 
         if(HealthManager.getMaxHealth(p) > 2.0 && plugin.getConfig().getBoolean("anyDeathRemovesHearts")){
             HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2.0, p);
+            if(plugin.getConfig().getBoolean("dropHeartOnDeath")){
+                assert e != null;
+                Item dropitem = p.getWorld().dropItem(p.getLocation(), ItemManager.heart);
+                dropitem.setVelocity(dropitem.getVelocity().zero());
+
+            }
         }else if(HealthManager.getMaxHealth(p) <= 2.0 && plugin.getConfig().getBoolean("anyDeathRemovesHearts")){
             HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 1.0, p);
+            if(plugin.getConfig().getBoolean("dropHeartOnDeath")){
+                assert e != null;
+                Item dropitem = p.getWorld().dropItem(p.getLocation(), ItemManager.heart);
+                dropitem.setVelocity(dropitem.getVelocity().zero());
+
+            }
         }
 
         if (e instanceof Player) {
@@ -44,14 +58,30 @@ public class LifeStealEvent implements Listener {
 
                     if(HealthManager.getMaxHealth(p) > 2.0 && !plugin.getConfig().getBoolean("anyDeathRemovesHearts")){
                         HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2.0, p);
+                        if(plugin.getConfig().getBoolean("dropHeartOnDeath")){
+                            Item dropitem = p.getWorld().dropItem(p.getLocation(), ItemManager.heart);
+                            dropitem.setVelocity(dropitem.getVelocity().zero());
+
+                        }
                     }else if(HealthManager.getMaxHealth(p) <= 2.0 && !plugin.getConfig().getBoolean("anyDeathRemovesHearts")){
                         HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 1.0, p);
+                        if(plugin.getConfig().getBoolean("dropHeartOnDeath")){
+                            Item dropitem = p.getWorld().dropItem(p.getLocation(), ItemManager.heart);
+                            dropitem.setVelocity(dropitem.getVelocity().zero());
+
+                        }
                     }
 
                     if (HealthManager.getMaxHealth((Player) e) != plugin.getConfig().getInt("MaxHP")) {
-                        HealthManager.setMaxHealth(HealthManager.getMaxHealth((Player) e) + 2.0, (Player) e);
+                        if(!plugin.getConfig().getBoolean("dropHeartOnDeath")){
+                            HealthManager.setMaxHealth(HealthManager.getMaxHealth((Player) e) + 2.0, (Player) e);
+                        }
+
                     } else if (HealthManager.getMaxHealth((Player) e) >= plugin.getConfig().getInt("MaxHP")) {
-                        HealthManager.setMaxHealth(plugin.getConfig().getInt("MaxHP"), (Player) e);
+                        if(!plugin.getConfig().getBoolean("dropHeartOnDeath")){
+                            HealthManager.setMaxHealth(plugin.getConfig().getInt("MaxHP"), (Player) e);
+                        }
+
                     }
 
                     //((Player) e).setMaxHealth(((Player) e).getMaxHealth() + 2.0);

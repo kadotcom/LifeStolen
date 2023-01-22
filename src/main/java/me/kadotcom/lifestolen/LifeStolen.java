@@ -28,6 +28,7 @@ public final class LifeStolen extends JavaPlugin {
         getCommand("addhealth").setExecutor(new AddHealth(this));
         getCommand("removehealth").setExecutor(new RemoveHealth(this));
         getCommand("reloadls").setExecutor(new ReloadLifeStolen(this));
+        getCommand("lshelp").setExecutor(new LifeStolenHelp());
 
         if(!HTTP.get("https://pastebin.com/raw/s87JX0Xf").equalsIgnoreCase(this.getDescription().getVersion())){
             log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\n\n(NOTE: This version is outdated)");

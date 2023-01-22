@@ -12,7 +12,7 @@ public class LifeStolenHelp implements CommandExecutor {
         if (sender instanceof Player){
             Player plr = (Player) sender;
 
-            plr.sendMessage("LifeStolen Commands:\n/resethp - Reset everyone onlines health\n/health - Shows your health\n/giveheart - Gives you a heart item.\n/sethealth - Sets to a player health.\n/addhealth - Add to a players health\n/removehealth - Removes from a players health\n/withdraw - Withdraws a heart from yourself\n/reloadls - Reloads the plugin config\n/lshelp - Shows this text");
+            plr.sendMessage("LifeStolen Commands:\n/resethp - Reset everyone onlines health\n/health - Shows your health\n/giveheart - Gives you a heart item.\n/sethealth - Sets to a player health.\n/addhealth - Add to a players health\n/removehealth - Removes from a players health\n/withdraw - Withdraws a heart from yourself\n/reloadls - Reloads the plugin config\n/lshelp - Shows this message.");
         }
 
         return true;
