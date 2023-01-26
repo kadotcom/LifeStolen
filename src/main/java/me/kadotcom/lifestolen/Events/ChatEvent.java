@@ -64,9 +64,6 @@ public class ChatEvent implements Listener {
                         event.getPlayer().sendMessage("Mention a player that is dead.");
                     }
                 }
-            }else {
-                ItemEvent.players.remove(event.getPlayer());
-                event.getPlayer().sendMessage("Mention a player that is in the server.");
             }
 
             event.setCancelled(true);

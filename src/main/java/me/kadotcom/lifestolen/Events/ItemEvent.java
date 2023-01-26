@@ -90,8 +90,9 @@ public class ItemEvent implements Listener {
 
                     }
 
-
-                if (event.getItem().getItemMeta().equals(ItemManager.reviver.getItemMeta())) {
+            }
+            }
+        }else if (event.getItem().getItemMeta().equals(ItemManager.reviver.getItemMeta())) {
                     Player player = event.getPlayer();
 
 
@@ -103,16 +104,13 @@ public class ItemEvent implements Listener {
                     }
 
 
-                        event.setCancelled(true);
+                    event.setCancelled(true);
 
 
 
 
 
                 }
-            }
-            }
-        }
 
         }
         }
