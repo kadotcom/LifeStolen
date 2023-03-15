@@ -65,6 +65,7 @@ reviver:
 # Banning
 
 banTime: 86400 # Ban duration in seconds.
+permBan: false # Will override the ban time and permanently ban the player.
 banReason: "&4You ran out of hearts." # The ban message.
 kickMessage: "&4You ran out of hearts..." # Kick message for when you get banned.
 
@@ -76,18 +77,18 @@ HeartRecipe:
   Slot2: "REDSTONE_BLOCK"
   Slot3: "REDSTONE_BLOCK"
   Slot4: "REDSTONE_BLOCK"
-  Slot5: "ENCHANTED_GOLDEN_APPLE"
+  Slot5: "GOLDEN_APPLE"
   Slot6: "REDSTONE_BLOCK"
-  Slot7: "AIR"
+  Slot7: "BONE_MEAL"
   Slot8: "REDSTONE_BLOCK"
-  Slot9: "AIR"
+  Slot9: "BONE_MEAL"
 ReviverRecipe:
   Slot1: "DIAMOND_BLOCK"
   Slot2: "DIAMOND_BLOCK"
   Slot3: "DIAMOND_BLOCK"
-  Slot4: "EMERALD_BLOCK"
-  Slot5: "NETHER_STAR"
-  Slot6: "EMERALD_BLOCK"
+  Slot4: "OBSIDIAN"
+  Slot5: "TOTEM_OF_UNDYING"
+  Slot6: "OBSIDIAN"
   Slot7: "OBSIDIAN"
   Slot8: "OBSIDIAN"
   Slot9: "OBSIDIAN"

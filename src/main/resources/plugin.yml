@@ -32,5 +32,5 @@ commands:
     usage: /<command>
   lshelp:
     description: Shows all commands available to LifeStolen.
-    usage: /<command>
+    usage: /<command> [page]
 

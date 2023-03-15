@@ -30,7 +30,7 @@ public final class LifeStolen extends JavaPlugin {
         getCommand("reloadls").setExecutor(new ReloadLifeStolen(this));
         getCommand("lshelp").setExecutor(new LifeStolenHelp());
 
-        if(!HTTP.get("https://pastebin.com/raw/s87JX0Xf").equalsIgnoreCase(this.getDescription().getVersion())){
+        if(!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(this.getDescription().getVersion())){
             log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\n\n(NOTE: This version is outdated)");
         }else{
             log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom");

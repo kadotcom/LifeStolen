@@ -107,7 +107,11 @@ public class LifeStealEvent implements Listener {
                          p.getInventory().clear();
                      }
                          if(plugin.getConfig().getBoolean("banOnDeath")) {
-                             BanManager.ban(p, plugin.getConfig().getInt("banTime"), plugin.getConfig().getInt("HP.returnHP"), plugin.getConfig().getString("banReason").replace("&", "§"), plugin.getConfig().getString("kickMessage").replace("&", "§"));
+                             if(!plugin.getConfig().getBoolean("permBan")){
+                                 BanManager.ban(p, plugin.getConfig().getInt("banTime"), plugin.getConfig().getInt("HP.returnHP"), plugin.getConfig().getString("banReason").replace("&", "§"), plugin.getConfig().getString("kickMessage").replace("&", "§"));
+                             }else{
+                                 BanManager.banPerm(p, plugin.getConfig().getInt("HP.returnHP"), plugin.getConfig().getString("banReason").replace("&", "§"), plugin.getConfig().getString("kickMessage").replace("&", "§"));
+                             }
                          }else{
                              GameModeManager.setGamemodeAndHealth(GameMode.SPECTATOR, plugin.getConfig().getInt("HP.returnHP"), p);
                          }
@@ -130,8 +134,8 @@ public class LifeStealEvent implements Listener {
             HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.startHP"), event.getPlayer());
         }
 
-        if(!HTTP.get("https://pastebin.com/raw/s87JX0Xf").equalsIgnoreCase(plugin.getDescription().getVersion())){
-            if(event.getPlayer().isOp() || event.getPlayer().hasPermission(plugin.getConfig().getString("permissions.message.outdatedPermissionMessage"))){
+        if(!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(plugin.getDescription().getVersion())){
+            if(event.getPlayer().isOp() || event.getPlayer().hasPermission(plugin.getConfig().getString("permissions.messages.outdatedPermissionMessage"))){
                 event.getPlayer().sendMessage("§f[§cLifeStolen§f] There is a new version of LifeStolen.\nYou are on "+ plugin.getDescription().getVersion() +" while the newest version is " + HTTP.get("https://pastebin.com/raw/s87JX0Xf") + ".\nYou can get the newest version here. https://www.spigotmc.org/resources/lifestolen.99220/");
             }
         }

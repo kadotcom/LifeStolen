@@ -17,6 +17,12 @@ public class BanManager {
         p.kickPlayer(kickMessage.replace("&", "§"));
     }
 
+    public static void banPerm(Player p, int returnHP, String reason, String kickMessage){
+        HealthManager.setMaxHealth(returnHP, p);
+        Bukkit.getServer().getBanList(BanList.Type.NAME).addBan(p.getName(), reason.replace("&", "§"), null, null);
+        p.kickPlayer(kickMessage.replace("&", "§"));
+    }
+
     public static void ban(Player p, int sec, String reason, String kickMessage){
         Date date = new Date(System.currentTimeMillis()+sec * 1000);
 
