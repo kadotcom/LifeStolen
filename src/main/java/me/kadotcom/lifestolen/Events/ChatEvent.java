@@ -30,7 +30,7 @@ public class ChatEvent implements Listener {
             Player sName2 = Bukkit.getPlayer(event.getMessage());
 
             if(sName != null || sName.hasPlayedBefore()){
-                if(plugin.getConfig().getBoolean("banOnDeath")){
+                if(plugin.getConfig().getBoolean("death.banOnDeath")){
                     if(Bukkit.getBanList(BanList.Type.NAME).isBanned(sName.getName())){
                         BanManager.unban(sName);
                         ItemEvent.players.remove(event.getPlayer());
@@ -49,7 +49,7 @@ public class ChatEvent implements Listener {
             }
 
             if(sName2 != null){
-                if(!plugin.getConfig().getBoolean("banOnDeath")){
+                if(!plugin.getConfig().getBoolean("death.banOnDeath")){
                     if(sName2.getGameMode() == GameMode.SPECTATOR){
                         ItemEvent.players.remove(event.getPlayer());
                         ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();

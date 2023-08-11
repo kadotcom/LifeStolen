@@ -44,6 +44,7 @@ public class UserDataHandler {
                 UserConfig.set("User.Info.PreviousName", player.getName());
                 UserConfig.set("User.Info.UniqueID", player.getUniqueId().toString());
                 UserConfig.set("User.Config.Item.HeartUses",0);
+                UserConfig.set("User.Config.Item.ReviverUses",0);
                 UserConfig.save(userFile);
 
 

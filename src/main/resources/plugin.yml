@@ -33,4 +33,7 @@ commands:
   lshelp:
     description: Shows all commands available to LifeStolen.
     usage: /<command> [page]
+  vercheck:
+    description: Checks the version of LifeStolen you are using.
+    usage: /<command>
 

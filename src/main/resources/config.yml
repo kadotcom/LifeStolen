@@ -9,12 +9,15 @@
 HP:
   startHP: 20 # When a player first joins a server, the health will be set to this.
   returnHP: 20 #  When a player is unbanned, their health will reset
-MaxHP: 120 # HP that when reached, the player will not gain anymore health
-banOnDeath: true # If set true the player will be banned when they lose all their hearts, if set to false the player will be put in spectator instead.
-anyDeathRemovesHearts: true # If set false the player will only lose hearts if another player kills them.
-publicDeathAnnouncement: "&4${player} ran out of hearts..." # The message that appears when player loses all their hearts - ${player} = Player who died.
-clearItemsOnFullDeath: false # When a player dies and get banned, all the players items will be cleared. Only if banOnDeath is true.
-dropHeartOnDeath: false # Heart Item drops when a player dies from a player (if anyDeathRemovesHearts is false) or by anything (if anyDeathRemovesHearts is true)
+  maxHP: 120 # HP that when reached, the player will not gain anymore health
+
+death:
+  banOnDeath: true # If set to true, the player will be banned when they lose all their hearts. If set to false, the player will be put in spectator instead.
+  teleportOnDeath: false # If set to true, the player will be teleported on death. If set to false, the player won't be teleported on death. (Overrides banOnDeath)
+  anyDeathRemovesHearts: true # If set false the player will only lose hearts if another player kills them.
+  publicDeathAnnouncement: "&4${player} ran out of hearts..." # The message that appears when player loses all their hearts - ${player} = Player who died.
+  clearItemsOnFullDeath: false # When a player dies and get banned, all the players items will be cleared. Only if banOnDeath is true.
+  dropHeartOnDeath: false # Heart Item drops when a player dies from a player (if anyDeathRemovesHearts is false) or by anything (if anyDeathRemovesHearts is true)
 
 # Permissions
 
@@ -40,6 +43,9 @@ permissions:
   reload:
     permission: "lifestolen.reload"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
+  vercheck:
+    permission: "lifestolen.vercheck"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   messages:
     outdatedPermissionMessage: "lifestolen.message.outdated"
   permissionToDoEverything: "lifestolen.*"
@@ -62,12 +68,25 @@ reviver:
   disabledMessage: '&cThe reviver item is disabled on this server.' # Message that appears if this item is disabled
   item: 'BEACON' # Item used for hearts
 
-# Banning
+# Death Punishments
 
-banTime: 86400 # Ban duration in seconds.
-permBan: false # Will override the ban time and permanently ban the player.
-banReason: "&4You ran out of hearts." # The ban message.
-kickMessage: "&4You ran out of hearts..." # Kick message for when you get banned.
+banning:
+  banTime: 86400 # Ban duration in seconds.
+  permBan: false # Will override the ban time and permanently ban the player.
+  banReason: "&4You ran out of hearts." # The ban message.
+  kickMessage: "&4You ran out of hearts..." # Kick message for when you get banned.
+
+teleporting: # All for if teleportOnDeath is enabled.
+  xCoord: 0.0 # X coord of location you want player to be teleported to
+  yCoord: 0.0 # Y coord of location you want player to be teleported to
+  zCoord: 0.0 # Z coord of location you want player to be teleported to
+  gamemode: 3 # Gamemode you want the player to be in once being teleported
+  # 0 = Survival
+  # 1 = Creative
+  # 2 = Adventure
+  # 3 = Spectator
+  giveDefaultHP: true # If enabled, the player will be given the default HP once teleported.
+
 
 # Crafting
 # For reference. See this image to see each slots 'https://wiki.vg/images/7/7b/CraftingTable-slots.png' and this for material types 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'
