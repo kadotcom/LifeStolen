@@ -16,7 +16,7 @@ public class GiveHeart implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player){
             Player p = (Player) sender;
-            if(p.isOp() || p.hasPermission(plugin.getConfig().getString("permissions.giveheart.permission")) || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
+            if(p.isOp() || p.hasPermission(plugin.getCommand("giveheart").getPermission())  || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 if(plugin.getConfig().getBoolean("heart.isEnabled")){
                     p.getInventory().addItem(ItemManager.heart);
                 }else {

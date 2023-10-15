@@ -21,19 +21,23 @@ public class VerCheck implements CommandExecutor {
 
             String ver = plugin.getDescription().getVersion();
 
-            if(p.isOp() || p.hasPermission(plugin.getConfig().getString("permissions.vercheck.permission")) || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
+            if(!plugin.getConfig().getBoolean("permissions.vercheck.bePermissionBased")){
                 if (!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(plugin.getDescription().getVersion()) && !plugin.getDescription().getVersion().contains("Tested")) {
                     p.sendMessage("&7You are currently using LifeStolen version " + ver + ", you are using an outdated version of LifeStolen.");
                 } else {
                     p.sendMessage("&7You are currently using LifeStolen version " + ver);
                 }
-            }else{
-                p.sendMessage(plugin.getConfig().getString("permissions.vercheck.permission-message").replace("&", "§"));
             }
 
-
-
-
+            if(plugin.getConfig().getBoolean("permissions.vercheck.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.vercheck.permission"))){
+                if (!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(plugin.getDescription().getVersion()) && !plugin.getDescription().getVersion().contains("Tested")) {
+                    p.sendMessage("&7You are currently using LifeStolen version " + ver + ", you are using an outdated version of LifeStolen.");
+                } else {
+                    p.sendMessage("&7You are currently using LifeStolen version " + ver);
+                }
+            }else if (plugin.getConfig().getBoolean("permissions.vercheck.bePermissionBased") && !p.hasPermission(plugin.getConfig().getString("permissions.vercheck.permission"))){
+                p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
+            }
         }
         return true;
     }

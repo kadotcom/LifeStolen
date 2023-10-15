@@ -16,21 +16,24 @@ public final class LifeStolen extends JavaPlugin {
     @Override
     public void onEnable() {
         log = getLogger();
-        // Plugin startup logic
+
+        // Events
         getServer().getPluginManager().registerEvents(new ItemEvent(this), this);
         getServer().getPluginManager().registerEvents(new ChatEvent(this), this);
         getServer().getPluginManager().registerEvents(new LifeStealEvent(this), this);
+        // Commands
         getCommand("giveheart").setExecutor(new GiveHeart(this));
-        getCommand("health").setExecutor(new Health());
+        getCommand("health").setExecutor(new Health(this));
         getCommand("resethp").setExecutor(new ResetHP(this));
         getCommand("sethealth").setExecutor(new SetHealth(this));
         getCommand("withdraw").setExecutor(new Withdraw(this));
         getCommand("addhealth").setExecutor(new AddHealth(this));
         getCommand("removehealth").setExecutor(new RemoveHealth(this));
         getCommand("reloadls").setExecutor(new ReloadLifeStolen(this));
-        getCommand("lshelp").setExecutor(new LifeStolenHelp());
+        getCommand("lshelp").setExecutor(new LifeStolenHelp(this));
         getCommand("vercheck").setExecutor(new VerCheck(this));
 
+        // Plugin startup logic
         if(!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(this.getDescription().getVersion()) && !this.getDescription().getVersion().contains("Tested")){
             log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\n\n(NOTE: This version is outdated)");
         }else{

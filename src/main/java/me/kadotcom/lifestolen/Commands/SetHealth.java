@@ -21,7 +21,7 @@ public class SetHealth implements CommandExecutor {
             Player p = (Player) sender;
             Player sName = Bukkit.getPlayer(args[0]);
 
-            if(p.isOp() || p.hasPermission(plugin.getConfig().getString("permissions.sethealth.permission")) || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
+            if(p.isOp() || p.hasPermission(plugin.getCommand("sethealth").getPermission()) || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 if(sName != null){
 
 

@@ -9,27 +9,39 @@ commands:
   resethp:
     description: Resets everyone that is onlines health
     usage: /<command>
+    permission: "lifestolen.resethp"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   health:
     description: Shows your exact health
     usage: /<command>
   giveheart:
     description: Gives you a heart item.
     usage: /<command>
+    permission: "lifestolen.giveheart"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command. You will have to craft a heart."
   sethealth:
     description: Sets a players health.
     usage: /<command> [player] [amount]
+    permission: "lifestolen.sethealth"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   addhealth:
     description: Adds to players health.
     usage: /<command> [player] [amount]
+    permission: "lifestolen.addhealth"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   removehealth:
     description: Removes from players health.
     usage: /<command> [player] [amount]
+    permission: "lifestolen.removehealth"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   withdraw:
     description: Withdraws a heart from yourself
     usage: /<command>
   reloadls:
     description: Reloads the plugin
     usage: /<command>
+    permission: "lifestolen.reloadls"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   lshelp:
     description: Shows all commands available to LifeStolen.
     usage: /<command> [page]

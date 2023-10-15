@@ -15,40 +15,36 @@ death:
   banOnDeath: true # If set to true, the player will be banned when they lose all their hearts. If set to false, the player will be put in spectator instead.
   teleportOnDeath: false # If set to true, the player will be teleported on death. If set to false, the player won't be teleported on death. (Overrides banOnDeath)
   anyDeathRemovesHearts: true # If set false the player will only lose hearts if another player kills them.
-  publicDeathAnnouncement: "&4${player} ran out of hearts..." # The message that appears when player loses all their hearts - ${player} = Player who died.
+  fullDeathAnnouncement: "&4${player} ran out of hearts..." # The message that appears when player loses all their hearts - ${player} = Player who died.
   clearItemsOnFullDeath: false # When a player dies and get banned, all the players items will be cleared. Only if banOnDeath is true.
   dropHeartOnDeath: false # Heart Item drops when a player dies from a player (if anyDeathRemovesHearts is false) or by anything (if anyDeathRemovesHearts is true)
+  runCommandsOnDeath: false # If set to true, command(s) will run when a full death occurs.
+
+deathMessages: # Custom messages for when a player dies.
+  generic: "${player} was slain by ${attacker}" # The message that appears when a player dies from a generic reason
+  explosion: "${player} was exploded by ${attacker}" # The message that appears when a player dies from a explosion
+  shot: "${player} was shot by ${attacker}" # --The message that appears when a player dies from someone shooting the player.
 
 # Permissions
 
 permissions:
-  # permission - The permission someone needs to run a permission based command.
-  # permission-message - The message that appears when someone tries to run a command and doesn't have the correct permissions.
-  # permissionToDoEverything - The permission someone needs to run all permission based commands.
-  sethealth:
-    permission: "lifestolen.sethealth"
-    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
-  addhealth:
-    permission: "lifestolen.addhealth"
-    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
-  removehealth:
-    permission: "lifestolen.removehealth"
-    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
-  resethp:
-    permission: "lifestolen.resethealth"
-    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
-  giveheart:
-    permission: "lifestolen.giveheart"
-    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command. You will have to craft a heart."
-  reload:
-    permission: "lifestolen.reload"
-    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
+  # bePermissionBased - Indicates whether a command should be permission based, or not.
+  # permission - Indicates what permission the player needs to run the command.
   vercheck:
+    bePermissionBased: false
     permission: "lifestolen.vercheck"
-    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
+  health:
+    bePermissionBased: false
+    permission: "lifestolen.health"
+  withdraw:
+    bePermissionBased: false
+    permission: "lifestolen.withdraw"
+  lshelp:
+    bePermissionBased: false
+    permission: "lifestolen.lshelp"
   messages:
     outdatedPermissionMessage: "lifestolen.message.outdated"
-  permissionToDoEverything: "lifestolen.*"
+  permissionToDoEverything: "lifestolen.*" # The permission someone needs to run all permission based commands.
 
 # Item
 # To see valid items, go to this website 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'
@@ -77,9 +73,9 @@ banning:
   kickMessage: "&4You ran out of hearts..." # Kick message for when you get banned.
 
 teleporting: # All for if teleportOnDeath is enabled.
-  xCoord: 0.0 # X coord of location you want player to be teleported to
-  yCoord: 0.0 # Y coord of location you want player to be teleported to
-  zCoord: 0.0 # Z coord of location you want player to be teleported to
+  xCord: 0.0 # X cord of location you want player to be teleported to
+  yCord: 0.0 # Y cord of location you want player to be teleported to
+  zCord: 0.0 # Z cord of location you want player to be teleported to
   gamemode: 3 # Gamemode you want the player to be in once being teleported
   # 0 = Survival
   # 1 = Creative
@@ -87,6 +83,8 @@ teleporting: # All for if teleportOnDeath is enabled.
   # 3 = Spectator
   giveDefaultHP: true # If enabled, the player will be given the default HP once teleported.
 
+commands:
+  commandsToRun: ["say Hello.","say World!"] # The commands that will run on full death. (Do not include the / at the beginning.)
 
 # Crafting
 # For reference. See this image to see each slots 'https://wiki.vg/images/7/7b/CraftingTable-slots.png' and this for material types 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'

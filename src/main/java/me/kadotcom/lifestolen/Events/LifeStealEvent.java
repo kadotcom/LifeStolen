@@ -12,6 +12,7 @@ import org.bukkit.*;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -35,6 +36,7 @@ public class LifeStealEvent implements Listener {
         Player p = event.getEntity();
         Entity e = event.getEntity().getKiller();
 
+        String dm = "";
 
         if(HealthManager.getMaxHealth(p) > 2.0 && plugin.getConfig().getBoolean("death.anyDeathRemovesHearts")){
             HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2.0, p);
@@ -86,12 +88,29 @@ public class LifeStealEvent implements Listener {
 
                     }
 
+
+
                     //((Player) e).setMaxHealth(((Player) e).getMaxHealth() + 2.0);
                     //p.setMaxHealth(p.getMaxHealth() - 2.0);
                 } else if (HealthManager.getMaxHealth(p) <= 2.0) {
                     System.out.println("Player " + e.getName() + " Killed " + p.getName());
                     //((Player) e).setMaxHealth(((Player) e).getMaxHealth() + 2.0);
                     //p.setMaxHealth(p.getMaxHealth() - 1.0);
+                    if(event.getEntityType() != EntityType.PLAYER && event.getEntityType() != EntityType.PRIMED_TNT && event.getEntityType() != EntityType.MINECART_TNT && event.getEntityType() != EntityType.CREEPER  && event.getEntityType() != EntityType.SKELETON  && event.getEntityType() != EntityType.ARROW  && event.getEntityType() != EntityType.SPECTRAL_ARROW) {
+                        dm = plugin.getConfig().getString("deathMessages.generic").replace("&", "§").replace("${player}", p.getName()).replace("${attacker}", event.getEntityType().name());
+                        event.setDeathMessage(dm);
+                    }else if(event.getEntityType() == EntityType.PLAYER){
+                        dm = plugin.getConfig().getString("deathMessages.generic").replace("&", "§").replace("${player}", p.getName()).replace("${attacker}", e.getName());
+                        event.setDeathMessage(dm);
+                    }else if (event.getEntityType() == EntityType.CREEPER || event.getEntityType() == EntityType.MINECART_TNT || event.getEntityType() == EntityType.PRIMED_TNT) {
+                        dm = plugin.getConfig().getString("deathMessages.explosion").replace("&", "§").replace("${player}", p.getName()).replace("${attacker}", event.getEntityType().name());
+                        event.setDeathMessage(dm);
+                    }else if(event.getEntityType() == EntityType.SKELETON || event.getEntityType() == EntityType.ARROW || event.getEntityType() == EntityType.SPECTRAL_ARROW){
+                        dm = plugin.getConfig().getString("deathMessages.shot").replace("&", "§").replace("${player}", p.getName()).replace("${attacker}", event.getEntityType().name());
+                        event.setDeathMessage(dm);
+                    }else{
+                        event.setDeathMessage(event.getDeathMessage());
+                    }
 
                     if (HealthManager.getMaxHealth((Player) e) != plugin.getConfig().getInt("HP.maxHP")) {
                         HealthManager.setMaxHealth(HealthManager.getMaxHealth((Player) e) + 2.0, (Player) e);
@@ -105,7 +124,7 @@ public class LifeStealEvent implements Listener {
 
         if (HealthManager.getMaxHealth(p) == 1.0) {
             for (Player target : Bukkit.getServer().getOnlinePlayers()) {
-                target.sendMessage(plugin.getConfig().getString("death.publicDeathAnnouncement").replace("&", "§").replace("${player}",p.getName()));
+                target.sendMessage(plugin.getConfig().getString("death.fullDeathAnnouncement").replace("&", "§").replace("${player}",p.getName()));
             }
 
         }
@@ -139,15 +158,23 @@ public class LifeStealEvent implements Listener {
                 p.getInventory().clear();
             }
 
+            if(plugin.getConfig().getBoolean("death.runCommandsOnDeath")){
+                for(int i = 0; plugin.getConfig().getStringList("commands.commandsToRun").size() > i; i++){
+                    String item = plugin.getConfig().getStringList("commands.commandsToRun").get(i).replace("&", "§").replace("${player}", event.getPlayer().getName());
+
+                    plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), item);
+                }
+            }
+
             if(plugin.getConfig().getBoolean("death.teleportOnDeath")){
 
-                Location Location = new Location(p.getWorld(), (double) plugin.getConfig().getDouble("teleporting.xCoord"),(double) plugin.getConfig().getDouble("teleporting.yCoord"),(double) plugin.getConfig().getDouble("teleporting.zCoord"));
+                Location Location = new Location(p.getWorld(), (double) plugin.getConfig().getDouble("teleporting.xCord"),(double) plugin.getConfig().getDouble("teleporting.yCord"),(double) plugin.getConfig().getDouble("teleporting.zCord"));
                 event.setRespawnLocation(Location);
                 if(!p.isDead()){
                     Location l = p.getLocation();
-                    l.setX((double) plugin.getConfig().getDouble("teleporting.xCoord"));
-                    l.setY((double) plugin.getConfig().getDouble("teleporting.yCoord"));
-                    l.setZ((double) plugin.getConfig().getDouble("teleporting.zCoord"));
+                    l.setX((double) plugin.getConfig().getDouble("teleporting.xCord"));
+                    l.setY((double) plugin.getConfig().getDouble("teleporting.yCord"));
+                    l.setZ((double) plugin.getConfig().getDouble("teleporting.zCord"));
                 }
 
                 if(plugin.getConfig().getInt("teleporting.gamemode") == 0){
