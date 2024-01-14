@@ -17,4 +17,5 @@ CurseForge: https://www.curseforge.com/minecraft/bukkit-plugins/lifestolen \
 SpigotMC: https://www.spigotmc.org/resources/lifestolen.99220/ \
 Modrinth: https://modrinth.com/plugin/lifestolen \
 GitHub Releases: https://github.com/kadotcom/lifestolen/releases/ (RECOMMENDED)\
-Discord: https://discord.gg/2wNv7MSJaw
+Discord: https://discord.gg/2wNv7MSJaw \
+Wiki: https://kadotcom.gitbook.io/lifestolen
