@@ -23,8 +23,6 @@ public class GiveHeart implements CommandExecutor {
                   p.sendMessage(plugin.getConfig().getString("heart.disabledMessage").replace("&", "§"));
                 }
                 return true;
-            }else{
-                p.sendMessage(plugin.getConfig().getString("permissions.giveheart.permission-message").replace("&", "§"));
             }
 
         }

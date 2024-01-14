@@ -6,7 +6,7 @@
 
     <groupId>me.kadotcom</groupId>
     <artifactId>LifeStolen</artifactId>
-    <version>4.0Tested-2</version>
+    <version>4.0</version>
     <packaging>jar</packaging>
 
     <name>LifeStolen</name>

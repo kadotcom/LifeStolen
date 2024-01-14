@@ -30,7 +30,7 @@ public class VerCheck implements CommandExecutor {
             }
 
             if(plugin.getConfig().getBoolean("permissions.vercheck.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.vercheck.permission"))){
-                if (!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(plugin.getDescription().getVersion()) && !plugin.getDescription().getVersion().contains("Tested")) {
+                if (!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(plugin.getDescription().getVersion()) && !plugin.getDescription().getVersion().contains("Tested") && plugin.getConfig().getBoolean("disableVersionMessage")) {
                     p.sendMessage("&7You are currently using LifeStolen version " + ver + ", you are using an outdated version of LifeStolen.");
                 } else {
                     p.sendMessage("&7You are currently using LifeStolen version " + ver);

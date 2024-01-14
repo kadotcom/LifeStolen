@@ -24,8 +24,6 @@ public class ResetHP implements CommandExecutor {
                     target.sendMessage(ChatColor.RED + "Your hearts has been resetted.");
 
                 }
-            }else{
-                p.sendMessage(plugin.getConfig().getString("permissions.resethp.permission-message").replace("&", "§"));
             }
 
 

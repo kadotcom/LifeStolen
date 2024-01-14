@@ -48,4 +48,7 @@ commands:
   vercheck:
     description: Checks the version of LifeStolen you are using.
     usage: /<command>
+  viewrecipes:
+    description: Allows you to view the plugin's item recipes.
+    usage: /<command> [heart/reviver]
 

@@ -6,6 +6,8 @@
 
 # General
 
+disableVersionMessage: false # Indicates whether the version message should be enabled.
+
 HP:
   startHP: 20 # When a player first joins a server, the health will be set to this.
   returnHP: 20 #  When a player is unbanned, their health will reset
@@ -66,13 +68,13 @@ reviver:
 
 # Death Punishments
 
-banning:
+banning: # Category for banning a player on full death (if banOnDeath is enabled).
   banTime: 86400 # Ban duration in seconds.
   permBan: false # Will override the ban time and permanently ban the player.
   banReason: "&4You ran out of hearts." # The ban message.
   kickMessage: "&4You ran out of hearts..." # Kick message for when you get banned.
 
-teleporting: # All for if teleportOnDeath is enabled.
+teleporting: # Category for teleporting a player on full death (if teleportOnDeath is enabled).
   xCord: 0.0 # X cord of location you want player to be teleported to
   yCord: 0.0 # Y cord of location you want player to be teleported to
   zCord: 0.0 # Z cord of location you want player to be teleported to
@@ -83,7 +85,7 @@ teleporting: # All for if teleportOnDeath is enabled.
   # 3 = Spectator
   giveDefaultHP: true # If enabled, the player will be given the default HP once teleported.
 
-commands:
+commands: # Category for running commands when a player gets a full death (if runCommandsOnDeath is enabled).
   commandsToRun: ["say Hello.","say World!"] # The commands that will run on full death. (Do not include the / at the beginning.)
 
 # Crafting

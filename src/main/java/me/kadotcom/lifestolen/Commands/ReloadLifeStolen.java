@@ -23,8 +23,6 @@ public class ReloadLifeStolen implements CommandExecutor {
             if(p.isOp() || p.hasPermission(plugin.getCommand("reloadls").getPermission())  || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 plugin.reloadConfig();
                 p.sendMessage("[" + ChatColor.RED + "LifeStolen" + ChatColor.WHITE + "] Reloaded!");
-            }else{
-                p.sendMessage(plugin.getConfig().getString("permissions.reload.permission-message").replace("&", "§"));
             }
 
 

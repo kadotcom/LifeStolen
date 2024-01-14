@@ -38,8 +38,6 @@ public class AddHealth implements CommandExecutor {
                 }else{
                     p.sendMessage("Player not found!");
                 }
-            }else{
-                p.sendMessage(plugin.getConfig().getString("permissions.sethealth.permission-message").replace("&", "§"));
             }
 
 
