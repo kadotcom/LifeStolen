@@ -28,15 +28,20 @@ import org.bukkit.entity.Player;
                                     p.getInventory().addItem(ItemManager.heart);
                                 }
                             }else{
-                                for(int i = 0; i < Integer.parseInt((args[0])); i++){
-                                    if(HealthManager.getMaxHealth(p) > 2.0){
-                                        HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
-                                        p.getInventory().addItem(ItemManager.heart);
-                                    }else{
-                                        p.sendMessage("§f[§cLifeStolen§f] You don't have enough hearts to withdraw.");
-                                        break;
+                                try {
+                                    for(int i = 0; i < Integer.parseInt((args[0])); i++){
+                                        if(HealthManager.getMaxHealth(p) > 2.0){
+                                            HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
+                                            p.getInventory().addItem(ItemManager.heart);
+                                        }else{
+                                            p.sendMessage("§f[§cLifeStolen§f] You don't have enough hearts to withdraw.");
+                                            break;
+                                        }
                                     }
+                                } catch (NumberFormatException e) {
+                                    p.sendMessage("'" + args[0] + "' isn't a valid number");
                                 }
+
                             }
 
                         }else {
