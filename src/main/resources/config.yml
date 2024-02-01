@@ -27,6 +27,9 @@ deathMessages: # Custom messages for when a player dies.
   explosion: "${player} was exploded by ${attacker}" # The message that appears when a player dies from a explosion
   shot: "${player} was shot by ${attacker}" # --The message that appears when a player dies from someone shooting the player.
 
+trade:
+  enableTrading: false
+
 # Permissions
 
 permissions:
@@ -65,6 +68,8 @@ reviver:
   isEnabled: true # Indicates if an item is enabled or disabled.
   disabledMessage: '&cThe reviver item is disabled on this server.' # Message that appears if this item is disabled
   item: 'BEACON' # Item used for hearts
+  haveLimitedUses: false # When this is enabled, you can use this item a certain amount of times before you can't use this item anymore.
+  uses: 5 # Uses that are allowed if haveLimitedUses is true.
 
 # Death Punishments
 

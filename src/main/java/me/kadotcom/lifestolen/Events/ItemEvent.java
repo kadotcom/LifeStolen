@@ -68,21 +68,17 @@ public class ItemEvent implements Listener {
                         if (event.getItem().getItemMeta().equals(ItemManager.heart.getItemMeta())) {
                             if(HealthManager.getMaxHealth(event.getPlayer()) != plugin.getConfig().getInt("HP.maxHP")) {
                                 if(plugin.getConfig().getBoolean("heart.haveLimitedUses")) {
-                                    if(user.getUserFile().getInt("User.Config.Item.HeartUses") >= plugin.getConfig().getInt("heart.maxUses")){
-                                        int uses = user.getUserFile().getInt("User.Config.Item.HeartUses");
-                                        user.getUserFile().set("User.Config.Item.HeartUses", plugin.getConfig().getInt("heart.maxUses"));
-                                        user.saveUserFile();
-                                        event.setCancelled(true);
+                                    if(user.getUserFile().getInt("User.Config.Item.HeartUses") >= plugin.getConfig().getInt("heart.uses")){
                                         return;
                                     }
+                                    int uses = user.getUserFile().getInt("User.Config.Item.HeartUses");
+                                    uses += 1;
+                                    user.getUserFile().set("User.Config.Item.HeartUses",uses);
+                                    user.saveUserFile();
                                 }
                                 event.getItem().setAmount(event.getItem().getAmount() - 1);
                                 Player p = event.getPlayer();
                                 HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) + 2.0, p);
-                                int uses = user.getUserFile().getInt("User.Config.Item.HeartUses");
-                                uses += 1;
-                                user.getUserFile().set("User.Config.Item.HeartUses",uses);
-                                user.saveUserFile();
                                 event.setCancelled(true);
                     }else if(HealthManager.getMaxHealth(event.getPlayer()) >= plugin.getConfig().getInt("HP.maxHP")){
                         HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.maxHP"), event.getPlayer());
@@ -95,6 +91,16 @@ public class ItemEvent implements Listener {
         }else if (event.getItem().getItemMeta().equals(ItemManager.reviver.getItemMeta())) {
                     Player player = event.getPlayer();
 
+                    if(plugin.getConfig().getBoolean("reviver.haveLimitedUses")) {
+                        if(user.getUserFile().getInt("User.Config.Item.ReviverUses") >= plugin.getConfig().getInt("reviver.uses")){
+                            return;
+                        }
+
+                        int uses = user.getUserFile().getInt("User.Config.Item.ReviverUses");
+                        uses += 1;
+                        user.getUserFile().set("User.Config.Item.ReviverUses",uses);
+                        user.saveUserFile();
+                    }
 
                     if(!players.contains(player)){
                         players.add(player);
