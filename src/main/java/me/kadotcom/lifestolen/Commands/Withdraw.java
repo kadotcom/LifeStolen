@@ -22,28 +22,7 @@ import org.bukkit.entity.Player;
                     Player p = (Player) sender;
                     if(!plugin.getConfig().getBoolean("permissions.withdraw.bePermissionBased")){
                         if(plugin.getConfig().getBoolean("heart.isEnabled")){
-                            if(args[0] == null){
-                                if(HealthManager.getMaxHealth(p) > 2.0){
-                                    HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
-                                    p.getInventory().addItem(ItemManager.heart);
-                                }
-                            }else{
-                                try {
-                                    for(int i = 0; i < Integer.parseInt((args[0])); i++){
-                                        if(HealthManager.getMaxHealth(p) > 2.0){
-                                            HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
-                                            p.getInventory().addItem(ItemManager.heart);
-                                        }else{
-                                            p.sendMessage("§f[§cLifeStolen§f] You don't have enough hearts to withdraw.");
-                                            break;
-                                        }
-                                    }
-                                } catch (NumberFormatException e) {
-                                    p.sendMessage("'" + args[0] + "' isn't a valid number");
-                                }
-
-                            }
-
+                            checkAndRun(args,p);
                         }else {
                             p.sendMessage(plugin.getConfig().getString("heart.disabledMessage").replace("&", "§"));
                         }
@@ -51,10 +30,7 @@ import org.bukkit.entity.Player;
 
                     if(plugin.getConfig().getBoolean("permissions.withdraw.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.withdraw.permission"))){
                         if(plugin.getConfig().getBoolean("heart.isEnabled")){
-                            if(HealthManager.getMaxHealth(p) > 2.0){
-                                HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
-                                p.getInventory().addItem(ItemManager.heart);
-                            }
+                            checkAndRun(args,p);
                         }else {
                             p.sendMessage(plugin.getConfig().getString("heart.disabledMessage").replace("&", "§"));
                         }
@@ -66,5 +42,29 @@ import org.bukkit.entity.Player;
                 }
 
         return true;
+    }
+
+    public void checkAndRun(String[] args, Player p){
+        if(args[0] == null){
+            if(HealthManager.getMaxHealth(p) > 2.0){
+                HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
+                p.getInventory().addItem(ItemManager.heart);
+            }
+        }else{
+            try {
+                for(int i = 0; i < Integer.parseInt((args[0])); i++){
+                    if(HealthManager.getMaxHealth(p) > 2.0){
+                        HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
+                        p.getInventory().addItem(ItemManager.heart);
+                    }else{
+                        p.sendMessage("§f[§cLifeStolen§f] You don't have enough hearts to withdraw.");
+                        break;
+                    }
+                }
+            } catch (NumberFormatException e) {
+                p.sendMessage("'" + args[0] + "' isn't a valid number");
+            }
+
+        }
     }
 }
