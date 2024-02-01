@@ -22,10 +22,23 @@ import org.bukkit.entity.Player;
                     Player p = (Player) sender;
                     if(!plugin.getConfig().getBoolean("permissions.withdraw.bePermissionBased")){
                         if(plugin.getConfig().getBoolean("heart.isEnabled")){
-                            if(HealthManager.getMaxHealth(p) > 2.0){
-                                HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
-                                p.getInventory().addItem(ItemManager.heart);
+                            if(args[0] == null){
+                                if(HealthManager.getMaxHealth(p) > 2.0){
+                                    HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
+                                    p.getInventory().addItem(ItemManager.heart);
+                                }
+                            }else{
+                                for(int i = 0; i < Integer.parseInt((args[0])); i++){
+                                    if(HealthManager.getMaxHealth(p) > 2.0){
+                                        HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
+                                        p.getInventory().addItem(ItemManager.heart);
+                                    }else{
+                                        p.sendMessage("§f[§cLifeStolen§f] You don't have enough hearts to withdraw.");
+                                        break;
+                                    }
+                                }
                             }
+
                         }else {
                             p.sendMessage(plugin.getConfig().getString("heart.disabledMessage").replace("&", "§"));
                         }
