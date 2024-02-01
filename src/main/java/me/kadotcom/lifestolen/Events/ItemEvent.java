@@ -93,6 +93,7 @@ public class ItemEvent implements Listener {
 
                     if(plugin.getConfig().getBoolean("reviver.haveLimitedUses")) {
                         if(user.getUserFile().getInt("User.Config.Item.ReviverUses") >= plugin.getConfig().getInt("reviver.uses")){
+                            event.setCancelled(true);
                             return;
                         }
 
