@@ -19,12 +19,30 @@ public final class LifeStolen extends JavaPlugin {
     public void onEnable() {
         log = getLogger();
 
-        // Events
+        registerEvents();
+        // Commands
+        setCommandExecutor();
+        // Plugin startup logic
+        if(!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(this.getDescription().getVersion()) && !this.getDescription().getVersion().contains("Tested") && !this.getConfig().getBoolean("disableVersionMessage")){
+            log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\n\n(NOTE: This version is outdated)");
+        }else {
+            log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom");
+        }
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+
+        ItemManager.init();
+    }
+
+    public void registerEvents(){
         getServer().getPluginManager().registerEvents(new ItemEvent(this), this);
         getServer().getPluginManager().registerEvents(new ChatEvent(this), this);
         getServer().getPluginManager().registerEvents(new GUIEvent(this), this);
         getServer().getPluginManager().registerEvents(new LifeStealEvent(this), this);
-        // Commands
+
+    }
+
+    public  void setCommandExecutor(){
         getCommand("giveheart").setExecutor(new GiveHeart(this));
         getCommand("health").setExecutor(new Health(this));
         getCommand("resethp").setExecutor(new ResetHP(this));
@@ -36,17 +54,6 @@ public final class LifeStolen extends JavaPlugin {
         getCommand("lshelp").setExecutor(new LifeStolenHelp(this));
         getCommand("vercheck").setExecutor(new VerCheck(this));
         getCommand("viewrecipes").setExecutor(new ViewRecipes(this));
-
-        // Plugin startup logic
-        if(!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(this.getDescription().getVersion()) && !this.getDescription().getVersion().contains("Tested") && !this.getConfig().getBoolean("disableVersionMessage")){
-            log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\n\n(NOTE: This version is outdated)");
-        }else {
-            log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom");
-        }
-        getConfig().options().copyDefaults();
-        saveDefaultConfig();
-
-        ItemManager.init();
     }
 
     @Override
