@@ -23,8 +23,6 @@ public class SetHealth implements CommandExecutor {
 
             if(p.isOp() || p.hasPermission(plugin.getCommand("sethealth").getPermission()) || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 if(sName != null){
-
-
                     try {
                         int i = Integer.parseInt(args[1]);
 
@@ -33,18 +31,10 @@ public class SetHealth implements CommandExecutor {
                         p.sendMessage("'" + args[1] + "' isn't a valid number");
                     }
 
-
-
-
                 }else{
                     p.sendMessage("Player not found!");
                 }
             }
-
-
-
-
-
         }
 
         return true;

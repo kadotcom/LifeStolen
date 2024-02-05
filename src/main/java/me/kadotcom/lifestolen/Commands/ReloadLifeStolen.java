@@ -24,12 +24,7 @@ public class ReloadLifeStolen implements CommandExecutor {
                 plugin.reloadConfig();
                 p.sendMessage("[" + ChatColor.RED + "LifeStolen" + ChatColor.WHITE + "] Reloaded!");
             }
-
-
-
-
         }
-
         return true;
     }
 }

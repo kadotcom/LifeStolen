@@ -25,12 +25,7 @@ public class Health implements CommandExecutor {
         if (sender instanceof Player) {
 
             Player p = (Player) sender;
-            if(!plugin.getConfig().getBoolean("permissions.health.bePermissionBased")){
-                p.sendMessage(ChatColor.AQUA + "Your exact health is " + p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() + "");
-                p.playSound(p, Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
-            }
-
-            if(plugin.getConfig().getBoolean("permissions.health.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.health.permission"))){
+            if(!plugin.getConfig().getBoolean("permissions.health.bePermissionBased") || plugin.getConfig().getBoolean("permissions.health.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.health.permission"))){
                 p.sendMessage(ChatColor.AQUA + "Your exact health is " + p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() + "");
                 p.playSound(p, Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
             }else if (plugin.getConfig().getBoolean("permissions.health.bePermissionBased") && !p.hasPermission(plugin.getConfig().getString("permissions.health.permission"))){

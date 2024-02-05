@@ -22,13 +22,8 @@ public class ResetHP implements CommandExecutor {
                 for (Player target : Bukkit.getServer().getOnlinePlayers()) {
                     HealthManager.setMaxHealth(20, target);
                     target.sendMessage(ChatColor.RED + "Your hearts has been resetted.");
-
                 }
             }
-
-
-
-
         }
         return true;
     }

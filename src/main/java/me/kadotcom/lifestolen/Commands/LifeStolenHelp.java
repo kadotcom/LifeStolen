@@ -22,14 +22,7 @@ public class LifeStolenHelp implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player){
             Player p = (Player) sender;
-            if(!plugin.getConfig().getBoolean("permissions.lshelp.bePermissionBased")){
-                /*
-                This is gonna go under a HUGE rework.
-                So I am gonna delete the code in here for now, if I do a tested 5.0 without this done, expect it to be disabled.
-                 */
-            }
-
-            if(plugin.getConfig().getBoolean("permissions.lshelp.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.lshelp.permission"))){
+            if(!plugin.getConfig().getBoolean("permissions.lshelp.bePermissionBased") || plugin.getConfig().getBoolean("permissions.lshelp.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.lshelp.permission"))){
                 /*
                 This is gonna go under a HUGE rework.
                 So I am gonna delete the code in here for now, if I do a tested 5.0 without this done, expect it to be disabled.

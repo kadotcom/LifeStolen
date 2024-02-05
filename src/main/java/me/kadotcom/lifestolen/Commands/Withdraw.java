@@ -20,21 +20,12 @@ import org.bukkit.entity.Player;
             public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
                 if(sender instanceof Player){
                     Player p = (Player) sender;
-                    if(!plugin.getConfig().getBoolean("permissions.withdraw.bePermissionBased")){
+                    if(!plugin.getConfig().getBoolean("permissions.withdraw.bePermissionBased") || plugin.getConfig().getBoolean("permissions.withdraw.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.withdraw.permission"))){
                         if(plugin.getConfig().getBoolean("heart.isEnabled")){
                             checkAndRun(args,p);
                         }else {
                             p.sendMessage(plugin.getConfig().getString("heart.disabledMessage").replace("&", "§"));
                         }
-                    }
-
-                    if(plugin.getConfig().getBoolean("permissions.withdraw.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.withdraw.permission"))){
-                        if(plugin.getConfig().getBoolean("heart.isEnabled")){
-                            checkAndRun(args,p);
-                        }else {
-                            p.sendMessage(plugin.getConfig().getString("heart.disabledMessage").replace("&", "§"));
-                        }
-
                     }else if (plugin.getConfig().getBoolean("permissions.withdraw.bePermissionBased") && !p.hasPermission(plugin.getConfig().getString("permissions.withdraw.permission"))){
                         p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
                     }

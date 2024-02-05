@@ -22,8 +22,6 @@ public class RemoveHealth implements CommandExecutor {
 
             if(p.isOp() || p.hasPermission(plugin.getCommand("removehealth").getPermission()) || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 if(sName != null){
-
-
                     try {
                         int i = Integer.parseInt(args[1]);
 
@@ -31,10 +29,6 @@ public class RemoveHealth implements CommandExecutor {
                     } catch (NumberFormatException e) {
                         p.sendMessage("'" + args[1] + "' isn't a valid number");
                     }
-
-
-
-
                 }else{
                     p.sendMessage("Player not found!");
                 }
