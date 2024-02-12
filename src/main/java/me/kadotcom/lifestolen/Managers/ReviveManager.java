@@ -47,6 +47,7 @@ public class ReviveManager {
                     Bukkit.dispatchCommand(console, command);
                     Bukkit.dispatchCommand(console, command2);
 
+                    caller.sendMessage("You revived " + playerName + ".");
                 } else {
                     caller.sendMessage("Mention a player that is dead.");
                 }
@@ -64,6 +65,8 @@ public class ReviveManager {
                             playerData.setGameMode(GameMode.SURVIVAL);
                             playerData.setLocation(new Location(world, spawn.getX(), spawn.getY(), spawn.getZ()));
                             playerData.save();
+
+                            caller.sendMessage("You revived " + playerName + ".");
                         } else {
                             caller.sendMessage("Mention a player that is dead.");
                         }
