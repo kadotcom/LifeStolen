@@ -65,6 +65,7 @@ public final class LifeStolen extends JavaPlugin {
         getCommand("lshelp").setExecutor(new LifeStolenHelp(this));
         getCommand("vercheck").setExecutor(new VerCheck(this));
         getCommand("viewrecipes").setExecutor(new ViewRecipes(this));
+        getCommand("revive").setExecutor(new Revive(this));
     }
 
     @Override
