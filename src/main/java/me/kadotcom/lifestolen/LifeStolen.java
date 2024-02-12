@@ -7,12 +7,16 @@ import me.kadotcom.lifestolen.Events.ItemEvent;
 import me.kadotcom.lifestolen.Events.LifeStealEvent;
 import me.kadotcom.lifestolen.Managers.ItemManager;
 import net.md_5.bungee.api.chat.ClickEvent;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import me.kadotcom.lifestolen.Utils.HTTP;
+import net.quazar.offlinemanager.api.OfflineManagerAPI;
 
 import java.util.logging.Logger;
 
 public final class LifeStolen extends JavaPlugin {
+    public static OfflineManagerAPI OfflineManagerAPI;
     private Logger log;
 
     @Override
@@ -30,6 +34,12 @@ public final class LifeStolen extends JavaPlugin {
         }
         getConfig().options().copyDefaults();
         saveDefaultConfig();
+        
+        // Load OfflineManager API if possible.
+        Plugin plugin = Bukkit.getPluginManager().getPlugin("OfflineManager");
+        if (plugin != null) {
+        	OfflineManagerAPI = (OfflineManagerAPI) plugin;
+        }
 
         ItemManager.init();
     }
