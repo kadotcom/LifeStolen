@@ -17,29 +17,29 @@ public class ReviveManager {
     public ReviveManager(LifeStolen ls) {
         plugin = ls;
     }
-	
-	public void revivePlayer(Player caller, String playerName) {
-		if (plugin.getConfig().getBoolean("death.banOnDeath")) {
+
+    public void revivePlayer(Player caller, String playerName) {
+        if (plugin.getConfig().getBoolean("death.banOnDeath")) {
             OfflinePlayer sName = Bukkit.getOfflinePlayer(playerName);
-            
+
             if (sName != null) {
                 if (!sName.hasPlayedBefore()) {
-                	caller.sendMessage("Mention a player that has joined.");
+                    caller.sendMessage("Mention a player that has joined.");
                 } else if (Bukkit.getBanList(BanList.Type.NAME).isBanned(sName.getName())) {
                     BanManager.unban(sName);
 
                     caller.sendMessage("You revived " + sName.getName() + ".");
                 } else {
-                	caller.sendMessage("Player you mentioned isn't banned.");
+                    caller.sendMessage("Player you mentioned isn't banned.");
                 }
             }
         } else {
             Player sName = Bukkit.getPlayer(playerName);
-            
+
             if (sName != null) {
                 if (sName.getGameMode() == GameMode.SPECTATOR){
-                	World world = Bukkit.getServer().getWorlds().get(0);
-        			Location spawn = world.getSpawnLocation();
+                    World world = Bukkit.getServer().getWorlds().get(0);
+                    Location spawn = world.getSpawnLocation();
                     ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
                     String command = "gamemode survival " + sName.getName();
                     String command2 = "tp " + sName.getName() + " " + spawn.getX() + " " + spawn.getY() + " " + spawn.getZ();
@@ -48,30 +48,30 @@ public class ReviveManager {
                     Bukkit.dispatchCommand(console, command2);
 
                 } else {
-                	caller.sendMessage("Mention a player that is dead.");
+                    caller.sendMessage("Mention a player that is dead.");
                 }
             } else {
-            	if (LifeStolen.OfflineManagerAPI != null) {
-            		if (!LifeStolen.OfflineManagerAPI.getStorage().hasPlayer(playerName)) {
-            			caller.sendMessage("Mention a player that has joined.");
-            		} else {
-            			IPlayerData playerData = LifeStolen.OfflineManagerAPI.getPlayerData(playerName);
-            			GameMode gameMode = playerData.getGameMode();
-            			World world = Bukkit.getServer().getWorlds().get(0);
-            			Location spawn = world.getSpawnLocation();
-            			
-            			if (gameMode == GameMode.SPECTATOR) {
-            				playerData.setGameMode(GameMode.SURVIVAL);
-            				playerData.setLocation(new Location(world, spawn.getX(), spawn.getY(), spawn.getZ()));
-            				playerData.save();
-            			} else {
-            				caller.sendMessage("Mention a player that is dead.");
-            			}
-            		}
-            	} else {
-            		caller.sendMessage("Offline players cannot be resurrected.");
-            	}
+                if (LifeStolen.OfflineManagerAPI != null) {
+                    if (!LifeStolen.OfflineManagerAPI.getStorage().hasPlayer(playerName)) {
+                        caller.sendMessage("Mention a player that has joined.");
+                    } else {
+                        IPlayerData playerData = LifeStolen.OfflineManagerAPI.getPlayerData(playerName);
+                        GameMode gameMode = playerData.getGameMode();
+                        World world = Bukkit.getServer().getWorlds().get(0);
+                        Location spawn = world.getSpawnLocation();
+
+                        if (gameMode == GameMode.SPECTATOR) {
+                            playerData.setGameMode(GameMode.SURVIVAL);
+                            playerData.setLocation(new Location(world, spawn.getX(), spawn.getY(), spawn.getZ()));
+                            playerData.save();
+                        } else {
+                            caller.sendMessage("Mention a player that is dead.");
+                        }
+                    }
+                } else {
+                    caller.sendMessage("Offline players cannot be resurrected.");
+                }
             }
         }
-	}
+    }
 }

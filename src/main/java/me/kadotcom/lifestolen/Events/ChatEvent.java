@@ -17,8 +17,8 @@ public class ChatEvent implements Listener {
     @EventHandler
     public void onChat(PlayerChatEvent event) {
         if (ItemEvent.players.contains(event.getPlayer())) {
-        	String playerName = event.getMessage();
-        	new ReviveManager(plugin).revivePlayer(event.getPlayer(), playerName);
+            String playerName = event.getMessage();
+            new ReviveManager(plugin).revivePlayer(event.getPlayer(), playerName);
 
             ItemEvent.players.remove(event.getPlayer());
             event.setCancelled(true);

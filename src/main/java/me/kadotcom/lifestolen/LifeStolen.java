@@ -38,7 +38,8 @@ public final class LifeStolen extends JavaPlugin {
         // Load OfflineManager API if possible.
         Plugin plugin = Bukkit.getPluginManager().getPlugin("OfflineManager");
         if (plugin != null) {
-        	OfflineManagerAPI = (OfflineManagerAPI) plugin;
+            log.info("OfflineManager API enabled.");
+            OfflineManagerAPI = (OfflineManagerAPI) plugin;
         }
 
         ItemManager.init();
