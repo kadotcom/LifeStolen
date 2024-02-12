@@ -46,6 +46,7 @@ public class ReviveManager {
 
                     Bukkit.dispatchCommand(console, command);
                     Bukkit.dispatchCommand(console, command2);
+
                     caller.sendMessage("You revived " + playerName + ".");
                 } else {
                     caller.sendMessage("Mention a player that is dead.");
