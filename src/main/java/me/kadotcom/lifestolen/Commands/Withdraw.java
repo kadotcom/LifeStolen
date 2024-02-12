@@ -36,10 +36,12 @@ import org.bukkit.entity.Player;
     }
 
     public void checkAndRun(String[] args, Player p){
-        if(args[0] == null){
-            if(HealthManager.getMaxHealth(p) > 2.0){
+        if (args.length == 0) {
+            if (HealthManager.getMaxHealth(p) > 2.0) {
                 HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
                 p.getInventory().addItem(ItemManager.heart);
+            } else {
+                p.sendMessage("§f[§cLifeStolen§f] You don't have enough hearts to withdraw.");
             }
         }else{
             try {
