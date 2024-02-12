@@ -63,6 +63,7 @@ public class ReviveManager {
             			if (gameMode == GameMode.SPECTATOR) {
             				playerData.setGameMode(GameMode.SURVIVAL);
             				playerData.setLocation(new Location(world, spawn.getX(), spawn.getY(), spawn.getZ()));
+            				playerData.save();
             			} else {
             				caller.sendMessage("Mention a player that is dead.");
             			}
