@@ -24,8 +24,8 @@ public final class LifeStolen extends JavaPlugin {
         log = getLogger();
 
         registerEvents();
-        // Commands
         setCommandExecutor();
+
         // Plugin startup logic
         if(!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(this.getDescription().getVersion()) && !this.getDescription().getVersion().contains("Tested") && !this.getConfig().getBoolean("disableVersionMessage")){
             log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\n\n(NOTE: This version is outdated)");
@@ -38,8 +38,10 @@ public final class LifeStolen extends JavaPlugin {
         // Load OfflineManager API if possible.
         Plugin plugin = Bukkit.getPluginManager().getPlugin("OfflineManager");
         if (plugin != null) {
-            log.info("OfflineManager API enabled.");
+            log.info("OfflineManager API was found and enabled.");
             OfflineManagerAPI = (OfflineManagerAPI) plugin;
+        }else{
+            log.info("OfflineManager API not found, plugin will continue to load but stuff like offline support for Spectator revivals won't work.");
         }
 
         ItemManager.init();

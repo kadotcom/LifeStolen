@@ -18,7 +18,7 @@ public class ResetHP implements CommandExecutor {
 
         if(sender instanceof Player){
             Player p = (Player) sender;
-            if(p.isOp() || p.hasPermission(plugin.getCommand("resethp").getPermission())  || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
+            if(p.isOp() || p.hasPermission(plugin.getCommand("resethp").getPermission()) || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 for (Player target : Bukkit.getServer().getOnlinePlayers()) {
                     HealthManager.setMaxHealth(20, target);
                     target.sendMessage(ChatColor.RED + "Your hearts has been resetted.");
