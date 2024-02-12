@@ -23,7 +23,7 @@ public class Revive implements CommandExecutor {
                     sender.sendMessage("Usage: " + plugin.getCommand("revive").getUsage());
                     return true;
                 }
-                new ReviveManager(plugin).revivePlayer(p, args[0]);
+                ReviveManager.revivePlayer(p, args[0]);
             }
         }
         return true;

@@ -13,24 +13,21 @@ import me.kadotcom.lifestolen.LifeStolen;
 import net.quazar.offlinemanager.api.data.entity.IPlayerData;
 
 public class ReviveManager {
-    LifeStolen plugin;
-    public ReviveManager(LifeStolen ls) {
-        plugin = ls;
-    }
+    private static final LifeStolen plugin = LifeStolen.getPlugin(LifeStolen.class);
 
-    public void revivePlayer(Player caller, String playerName) {
+    public static void revivePlayer(Player caller, String playerName) {
         if (plugin.getConfig().getBoolean("death.banOnDeath")) {
             OfflinePlayer sName = Bukkit.getOfflinePlayer(playerName);
-
+            System.out.println(sName);
             if (sName != null) {
                 if (!sName.hasPlayedBefore()) {
-                    caller.sendMessage("Mention a player that has joined.");
+                    caller.sendMessage("§f[§cLifeStolen§f] Mention a player that has joined.");
                 } else if (Bukkit.getBanList(BanList.Type.NAME).isBanned(sName.getName())) {
                     BanManager.unban(sName);
 
-                    caller.sendMessage("You revived " + sName.getName() + ".");
+                    caller.sendMessage("§f[§cLifeStolen§f] You revived " + sName.getName() + ".");
                 } else {
-                    caller.sendMessage("Player you mentioned isn't banned.");
+                    caller.sendMessage("§f[§cLifeStolen§f] Player you mentioned isn't banned.");
                 }
             }
         } else {
@@ -47,14 +44,14 @@ public class ReviveManager {
                     Bukkit.dispatchCommand(console, command);
                     Bukkit.dispatchCommand(console, command2);
 
-                    caller.sendMessage("You revived " + playerName + ".");
+                    caller.sendMessage("§f[§cLifeStolen§f] You revived " + playerName + ".");
                 } else {
-                    caller.sendMessage("Mention a player that is dead.");
+                    caller.sendMessage("§f[§cLifeStolen§f] Mention a player that is dead.");
                 }
             } else {
                 if (LifeStolen.OfflineManagerAPI != null) {
                     if (!LifeStolen.OfflineManagerAPI.getStorage().hasPlayer(playerName)) {
-                        caller.sendMessage("Mention a player that has joined.");
+                        caller.sendMessage("§f[§cLifeStolen§f] Mention a player that has joined.");
                     } else {
                         IPlayerData playerData = LifeStolen.OfflineManagerAPI.getPlayerData(playerName);
                         GameMode gameMode = playerData.getGameMode();
@@ -66,13 +63,13 @@ public class ReviveManager {
                             playerData.setLocation(new Location(world, spawn.getX(), spawn.getY(), spawn.getZ()));
                             playerData.save();
 
-                            caller.sendMessage("You revived " + playerName + ".");
+                            caller.sendMessage("§f[§cLifeStolen§f] You revived " + playerName + ".");
                         } else {
-                            caller.sendMessage("Mention a player that is dead.");
+                            caller.sendMessage("§f[§cLifeStolen§f] Mention a player that is dead.");
                         }
                     }
                 } else {
-                    caller.sendMessage("Offline players cannot be resurrected.");
+                    caller.sendMessage("§f[§cLifeStolen§f] Offline players cannot be resurrected.");
                 }
             }
         }
