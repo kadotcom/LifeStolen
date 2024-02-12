@@ -13,12 +13,15 @@ import me.kadotcom.lifestolen.LifeStolen;
 import net.quazar.offlinemanager.api.data.entity.IPlayerData;
 
 public class ReviveManager {
-    private static final LifeStolen plugin = LifeStolen.getPlugin(LifeStolen.class);
+    LifeStolen plugin;
+    public ReviveManager(LifeStolen ls) {
+        plugin = ls;
+    }
 
-    public static void revivePlayer(Player caller, String playerName) {
+    public void revivePlayer(Player caller, String playerName) {
         if (plugin.getConfig().getBoolean("death.banOnDeath")) {
             OfflinePlayer sName = Bukkit.getOfflinePlayer(playerName);
-            System.out.println(sName);
+
             if (sName != null) {
                 if (!sName.hasPlayedBefore()) {
                     caller.sendMessage("§f[§cLifeStolen§f] Mention a player that has joined.");
