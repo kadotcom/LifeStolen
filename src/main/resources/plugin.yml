@@ -34,6 +34,11 @@ commands:
     usage: /<command> [player] [amount]
     permission: "lifestolen.removehealth"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
+  revive:
+    description: Revives a player.
+    usage: /<command> [player]
+    permission: "lifestolen.revive"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   withdraw:
     description: Withdraws a heart from yourself
     usage: /<command>
