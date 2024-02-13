@@ -20,7 +20,7 @@ public class Revive implements CommandExecutor {
 
             if(p.isOp() || p.hasPermission(plugin.getCommand("revive").getPermission()) || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 if (args.length < 1) {
-                    sender.sendMessage("Usage: " + plugin.getCommand("revive").getUsage());
+                    sender.sendMessage("§f[§cLifeStolen§f] Usage: " + plugin.getCommand("revive").getUsage());
                 }
                 new ReviveManager(plugin).revivePlayer(p, args[0]);
             }

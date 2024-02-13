@@ -105,7 +105,7 @@ public class ItemEvent implements Listener {
 
                     if(!players.contains(player)){
                         players.add(player);
-                        player.sendMessage("Put a username in chat");
+                        player.sendMessage("§f[§cLifeStolen§f] Put a username in chat");
                         event.getItem().setAmount(event.getItem().getAmount() - 1);
 
                     }
