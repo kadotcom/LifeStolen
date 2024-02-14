@@ -27,6 +27,7 @@ public class LifeStolenHelp implements CommandExecutor {
                 This is gonna go under a HUGE rework.
                 So I am gonna delete the code in here for now, if I do a tested 5.0 without this done, expect it to be disabled.
                  */
+                p.sendMessage("§f[§cLifeStolen§f] This command is disabled as it's going under a rework that will be out either next Tested release, or in 5.0.");
             }else if (plugin.getConfig().getBoolean("permissions.lshelp.bePermissionBased") && !p.hasPermission(plugin.getConfig().getString("permissions.lshelp.permission"))){
                 p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
             }

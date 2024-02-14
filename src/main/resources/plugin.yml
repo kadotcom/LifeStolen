@@ -8,52 +8,52 @@ description: Another lifesteal plugin.
 commands:
   resethp:
     description: Resets everyone that is onlines health
-    usage: /<command>
+    usage: /resethp
     permission: "lifestolen.resethp"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   health:
     description: Shows your exact health
-    usage: /<command>
+    usage: /health
   giveheart:
     description: Gives you a heart item.
-    usage: /<command>
+    usage: /giveheart
     permission: "lifestolen.giveheart"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command. You will have to craft a heart."
   sethealth:
     description: Sets a players health.
-    usage: /<command> [player] [amount]
+    usage: /sethealth [player] [amount]
     permission: "lifestolen.sethealth"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   addhealth:
     description: Adds to players health.
-    usage: /<command> [player] [amount]
+    usage: /addhealth [player] [amount]
     permission: "lifestolen.addhealth"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   removehealth:
     description: Removes from players health.
-    usage: /<command> [player] [amount]
+    usage: /removehealth [player] [amount]
     permission: "lifestolen.removehealth"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   revive:
     description: Revives a player.
-    usage: /<command> [player]
+    usage: /revive [player]
     permission: "lifestolen.revive"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   withdraw:
     description: Withdraws a heart from yourself
-    usage: /<command>
+    usage: /withdraw [amount]
   reloadls:
     description: Reloads the plugin
-    usage: /<command>
+    usage: /reloadls
     permission: "lifestolen.reloadls"
     permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
   lshelp:
     description: Shows all commands available to LifeStolen.
-    usage: /<command> [page]
+    usage: /lshelp [page]
   vercheck:
     description: Checks the version of LifeStolen you are using.
-    usage: /<command>
+    usage: /vercheck
   viewrecipes:
     description: Allows you to view the plugin's item recipes.
-    usage: /<command> [heart/reviver]
+    usage: /viewrecipes [heart/reviver]
 
