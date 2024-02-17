@@ -137,7 +137,7 @@ public class LifeStealEvent implements Listener {
         user.createUser(event.getPlayer());
 
         if (!event.getPlayer().hasPlayedBefore()) {
-            HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.startHP"), event.getPlayer());
+            HealthManager.setMaxHealth(user.getUserFile().getInt("User.Config.Info.Health"), event.getPlayer());
         }
 
         if(!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(plugin.getDescription().getVersion()) && !plugin.getDescription().getVersion().contains("Tested")){
