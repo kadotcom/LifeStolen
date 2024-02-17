@@ -138,7 +138,6 @@ public class LifeStealEvent implements Listener {
 
         if (!event.getPlayer().hasPlayedBefore()) {
             HealthManager.setMaxHealth(user.getUserFile().getInt("User.Config.Info.Health"), event.getPlayer());
-            HealthManager.heal(user.getUserFile().getInt("User.Config.Info.Health"), event.getPlayer());
         }
 
         if(!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(plugin.getDescription().getVersion()) && !plugin.getDescription().getVersion().contains("Tested")){
@@ -226,10 +225,6 @@ public class LifeStealEvent implements Listener {
             }else{
                 GameModeManager.setGamemodeAndHealth(GameMode.SPECTATOR, plugin.getConfig().getInt("HP.returnHP"), p);
             }
-        }else{
-            UserDataHandler user = new UserDataHandler(plugin, event.getPlayer().getUniqueId());
-
-            HealthManager.heal(user.getUserFile().getInt("User.Config.Info.Health"), p);
         }
 
     }
