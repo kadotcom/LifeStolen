@@ -24,7 +24,7 @@ public final class LifeStolen extends JavaPlugin {
     public void onEnable() {
         log = getLogger();
 
-        int pluginId = 1234; // <-- Replace with the id of your plugin!
+        int pluginId = 21036;
         Metrics metrics = new Metrics(this, pluginId);
 
         registerEvents();
