@@ -90,12 +90,8 @@ public class LifeStealEvent implements Listener {
 
 
 
-                    //((Player) e).setMaxHealth(((Player) e).getMaxHealth() + 2.0);
-                    //p.setMaxHealth(p.getMaxHealth() - 2.0);
                 } else if (HealthManager.getMaxHealth(p) <= 2.0) {
                     System.out.println("Player " + e.getName() + " Killed " + p.getName());
-                    //((Player) e).setMaxHealth(((Player) e).getMaxHealth() + 2.0);
-                    //p.setMaxHealth(p.getMaxHealth() - 1.0);
                     if(event.getEntityType() != EntityType.PLAYER && event.getEntityType() != EntityType.PRIMED_TNT && event.getEntityType() != EntityType.MINECART_TNT && event.getEntityType() != EntityType.CREEPER  && event.getEntityType() != EntityType.SKELETON  && event.getEntityType() != EntityType.ARROW  && event.getEntityType() != EntityType.SPECTRAL_ARROW) {
                         dm = plugin.getConfig().getString("deathMessages.generic").replace("&", "§").replace("${player}", p.getName()).replace("${attacker}", event.getEntityType().name());
                         event.setDeathMessage(dm);
