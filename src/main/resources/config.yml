@@ -27,10 +27,6 @@ deathMessages: # Custom messages for when a player dies.
   explosion: "${player} was exploded by ${attacker}" # The message that appears when a player dies from a explosion
   shot: "${player} was shot by ${attacker}" # --The message that appears when a player dies from someone shooting the player.
 
-# IGNORE THIS FOR NOW, FEATURE IS NOT DONE.
-trade:
-  enableTrading: false
-
 # Permissions
 
 permissions:
