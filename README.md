@@ -18,4 +18,5 @@ SpigotMC: https://www.spigotmc.org/resources/lifestolen.99220/ \
 Modrinth: https://modrinth.com/plugin/lifestolen \
 GitHub Releases: https://github.com/kadotcom/lifestolen/releases/ (RECOMMENDED)\
 Discord: https://discord.gg/2wNv7MSJaw \
+bStats page: https://bstats.org/plugin/bukkit/LifeStolen/21036 \
 Wiki: https://kadotcom.gitbook.io/lifestolen
