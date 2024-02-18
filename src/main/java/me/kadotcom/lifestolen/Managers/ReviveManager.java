@@ -21,13 +21,11 @@ public class ReviveManager {
     public void revivePlayer(Player caller, String playerName) {
         if (plugin.getConfig().getBoolean("death.banOnDeath")) {
             OfflinePlayer sName = Bukkit.getOfflinePlayer(playerName);
-
             if (sName != null) {
                 if (!sName.hasPlayedBefore()) {
                     caller.sendMessage("§f[§cLifeStolen§f] Mention a player that has joined.");
                 } else if (Bukkit.getBanList(BanList.Type.NAME).isBanned(sName.getName())) {
                     BanManager.unban(sName);
-
                     caller.sendMessage("§f[§cLifeStolen§f] You revived " + sName.getName() + ".");
                 } else {
                     caller.sendMessage("§f[§cLifeStolen§f] Player you mentioned isn't banned.");
@@ -43,10 +41,8 @@ public class ReviveManager {
                     ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
                     String command = "gamemode survival " + sName.getName();
                     String command2 = "tp " + sName.getName() + " " + spawn.getX() + " " + spawn.getY() + " " + spawn.getZ();
-
                     Bukkit.dispatchCommand(console, command);
                     Bukkit.dispatchCommand(console, command2);
-
                     caller.sendMessage("§f[§cLifeStolen§f] You revived " + playerName + ".");
                 } else {
                     caller.sendMessage("§f[§cLifeStolen§f] Mention a player that is dead.");
@@ -65,7 +61,6 @@ public class ReviveManager {
                             playerData.setGameMode(GameMode.SURVIVAL);
                             playerData.setLocation(new Location(world, spawn.getX(), spawn.getY(), spawn.getZ()));
                             playerData.save();
-
                             caller.sendMessage("§f[§cLifeStolen§f] You revived " + playerName + ".");
                         } else {
                             caller.sendMessage("§f[§cLifeStolen§f] Mention a player that is dead.");

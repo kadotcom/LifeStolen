@@ -46,16 +46,10 @@ public class ItemEvent implements Listener {
                         user.getUserFile().set("User.Config.Item.HeartUses",uses);
                         user.saveUserFile();
                         event.setCancelled(true);
-
-
-
                     }else if(HealthManager.getMaxHealth(event.getPlayer()) >= plugin.getConfig().getInt("HP.maxHP")){
                         HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.maxHP"), event.getPlayer());
                         event.setCancelled(true);
-
-
                     }
-
                 }
             }
         }
@@ -64,7 +58,6 @@ public class ItemEvent implements Listener {
             if (event.getItem() != null) {
                 if (event.getItem().getItemMeta().equals(ItemManager.heart.getItemMeta())) {
                     if(HealthManager.getMaxHealth(event.getPlayer()) != plugin.getConfig().getInt("HP.maxHP")) {
-
                         if (event.getItem().getItemMeta().equals(ItemManager.heart.getItemMeta())) {
                             if(HealthManager.getMaxHealth(event.getPlayer()) != plugin.getConfig().getInt("HP.maxHP")) {
                                 if(plugin.getConfig().getBoolean("heart.haveLimitedUses")) {
@@ -83,10 +76,8 @@ public class ItemEvent implements Listener {
                     }else if(HealthManager.getMaxHealth(event.getPlayer()) >= plugin.getConfig().getInt("HP.maxHP")){
                         HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.maxHP"), event.getPlayer());
                         event.setCancelled(true);
-
                     }
-
-            }
+                }
             }
         }else if (event.getItem().getItemMeta().equals(ItemManager.reviver.getItemMeta())) {
                     Player player = event.getPlayer();
@@ -96,30 +87,20 @@ public class ItemEvent implements Listener {
                             event.setCancelled(true);
                             return;
                         }
-
                         int uses = user.getUserFile().getInt("User.Config.Item.ReviverUses");
                         uses += 1;
                         user.getUserFile().set("User.Config.Item.ReviverUses",uses);
                         user.saveUserFile();
                     }
-
                     if(!players.contains(player)){
                         players.add(player);
                         player.sendMessage("§f[§cLifeStolen§f] Put a username in chat");
                         event.getItem().setAmount(event.getItem().getAmount() - 1);
 
                     }
-
-
                     event.setCancelled(true);
-
-
-
-
-
                 }
-
+            }
         }
-        }
-}
+    }
 }

@@ -57,7 +57,6 @@ import org.bukkit.entity.Player;
             } catch (NumberFormatException e) {
                 p.sendMessage("'" + args[0] + "' isn't a valid number");
             }
-
         }
     }
 }

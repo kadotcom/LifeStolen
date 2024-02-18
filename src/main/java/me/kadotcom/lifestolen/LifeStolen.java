@@ -30,7 +30,6 @@ public final class LifeStolen extends JavaPlugin {
         registerEvents();
         setCommandExecutor();
 
-        // Plugin startup logic
         if(!HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220").equalsIgnoreCase(this.getDescription().getVersion()) && !this.getDescription().getVersion().contains("Tested") && !this.getConfig().getBoolean("disableVersionMessage")){
             log.info("♡ LifeStolen ♡ \nVersion: " + this.getDescription().getVersion() + " \nPlugin by: KadotCom\n\n(NOTE: This version is outdated)");
         }else {
@@ -56,7 +55,6 @@ public final class LifeStolen extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ChatEvent(this), this);
         getServer().getPluginManager().registerEvents(new GUIEvent(this), this);
         getServer().getPluginManager().registerEvents(new LifeStealEvent(this), this);
-
     }
 
     public  void setCommandExecutor(){
@@ -73,11 +71,4 @@ public final class LifeStolen extends JavaPlugin {
         getCommand("viewrecipes").setExecutor(new ViewRecipes(this));
         getCommand("revive").setExecutor(new Revive(this));
     }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-    }
-
-
 }

@@ -30,7 +30,6 @@ public class SetHealth implements CommandExecutor {
                     } catch (NumberFormatException e) {
                         p.sendMessage("§f[§cLifeStolen§f] '" + args[1] + "' isn't a valid number");
                     }
-
                 }else{
                     p.sendMessage("§f[§cLifeStolen§f] Player not found!");
                 }

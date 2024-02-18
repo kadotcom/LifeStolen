@@ -25,7 +25,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.Date;
 
 public class LifeStealEvent implements Listener {
-
     LifeStolen plugin;
     public LifeStealEvent(LifeStolen ls){
         plugin = ls;
@@ -44,7 +43,6 @@ public class LifeStealEvent implements Listener {
                 assert e != null;
                 Item dropitem = p.getWorld().dropItem(p.getLocation(), ItemManager.heart);
                 dropitem.setVelocity(dropitem.getVelocity().zero());
-
             }
         }else if(HealthManager.getMaxHealth(p) <= 2.0 && plugin.getConfig().getBoolean("death.anyDeathRemovesHearts")){
             HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 1.0, p);
@@ -52,10 +50,8 @@ public class LifeStealEvent implements Listener {
                 assert e != null;
                 Item dropitem = p.getWorld().dropItem(p.getLocation(), ItemManager.heart);
                 dropitem.setVelocity(dropitem.getVelocity().zero());
-
             }
         }
-
         if (e instanceof Player) {
                 if (HealthManager.getMaxHealth(p) > 2.0) {
                     System.out.println("Player " + e.getName() + " Killed " + p.getName());
@@ -65,30 +61,24 @@ public class LifeStealEvent implements Listener {
                         if(plugin.getConfig().getBoolean("death.dropHeartOnDeath")){
                             Item dropitem = p.getWorld().dropItem(p.getLocation(), ItemManager.heart);
                             dropitem.setVelocity(dropitem.getVelocity().zero());
-
                         }
                     }else if(HealthManager.getMaxHealth(p) <= 2.0 && !plugin.getConfig().getBoolean("death.anyDeathRemovesHearts")){
                         HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 1.0, p);
                         if(plugin.getConfig().getBoolean("death.dropHeartOnDeath")){
                             Item dropitem = p.getWorld().dropItem(p.getLocation(), ItemManager.heart);
                             dropitem.setVelocity(dropitem.getVelocity().zero());
-
                         }
                     }
-
                     if (HealthManager.getMaxHealth((Player) e) != plugin.getConfig().getInt("HP.maxHP")) {
                         if(!plugin.getConfig().getBoolean("death.dropHeartOnDeath")){
                             HealthManager.setMaxHealth(HealthManager.getMaxHealth((Player) e) + 2.0, (Player) e);
                         }
-
                     } else if (HealthManager.getMaxHealth((Player) e) >= plugin.getConfig().getInt("HP.maxHP")) {
                         if(!plugin.getConfig().getBoolean("death.dropHeartOnDeath")){
                             HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.maxHP"), (Player) e);
                         }
 
                     }
-
-
 
                 } else if (HealthManager.getMaxHealth(p) <= 2.0) {
                     System.out.println("Player " + e.getName() + " Killed " + p.getName());
@@ -107,26 +97,19 @@ public class LifeStealEvent implements Listener {
                     }else{
                         event.setDeathMessage(event.getDeathMessage());
                     }
-
                     if (HealthManager.getMaxHealth((Player) e) != plugin.getConfig().getInt("HP.maxHP")) {
                         HealthManager.setMaxHealth(HealthManager.getMaxHealth((Player) e) + 2.0, (Player) e);
                     } else if (HealthManager.getMaxHealth((Player) e) >= plugin.getConfig().getInt("HP.maxHP")) {
                         HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.maxHP"), (Player) e);
                     }
                 }
-
-
             }
-
         if (HealthManager.getMaxHealth(p) == 1.0) {
             for (Player target : Bukkit.getServer().getOnlinePlayers()) {
                 target.sendMessage(plugin.getConfig().getString("death.fullDeathAnnouncement").replace("&", "§").replace("${player}",p.getName()));
             }
-
         }
-
     }
-
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         UserDataHandler user = new UserDataHandler(plugin, event.getPlayer().getUniqueId());
@@ -149,11 +132,9 @@ public class LifeStealEvent implements Listener {
         Player p = event.getPlayer();
 
         if (HealthManager.getMaxHealth(p) == 1.0) {
-
             if(plugin.getConfig().getBoolean("death.clearItemsOnFullDeath")) {
                 p.getInventory().clear();
             }
-
             if(plugin.getConfig().getBoolean("death.runCommandsOnDeath")){
                 for(int i = 0; plugin.getConfig().getStringList("commands.commandsToRun").size() > i; i++){
                     String item = plugin.getConfig().getStringList("commands.commandsToRun").get(i).replace("&", "§").replace("${player}", event.getPlayer().getName());
@@ -161,56 +142,40 @@ public class LifeStealEvent implements Listener {
                     plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), item);
                 }
             }
-
             if(plugin.getConfig().getBoolean("death.teleportOnDeath")){
-
-                Location Location = new Location(p.getWorld(), (double) plugin.getConfig().getDouble("teleporting.xCord"),(double) plugin.getConfig().getDouble("teleporting.yCord"),(double) plugin.getConfig().getDouble("teleporting.zCord"));
+                Location Location = new Location(p.getWorld(), plugin.getConfig().getDouble("teleporting.xCord"),plugin.getConfig().getDouble("teleporting.yCord"),plugin.getConfig().getDouble("teleporting.zCord"));
                 event.setRespawnLocation(Location);
                 if(!p.isDead()){
                     Location l = p.getLocation();
-                    l.setX((double) plugin.getConfig().getDouble("teleporting.xCord"));
-                    l.setY((double) plugin.getConfig().getDouble("teleporting.yCord"));
-                    l.setZ((double) plugin.getConfig().getDouble("teleporting.zCord"));
+                    l.setX(plugin.getConfig().getDouble("teleporting.xCord"));
+                    l.setY(plugin.getConfig().getDouble("teleporting.yCord"));
+                    l.setZ(plugin.getConfig().getDouble("teleporting.zCord"));
                 }
-
                 if(plugin.getConfig().getInt("teleporting.gamemode") == 0){
-
                     if(plugin.getConfig().getBoolean("teleporting.giveDefaultHP")){
                         GameModeManager.setGamemodeAndHealth(GameMode.SURVIVAL,plugin.getConfig().getInt("HP.returnHP"),p);
-
                     }else{
                         GameModeManager.setGamemode(GameMode.SURVIVAL,p);
                     }
-
                 }else if(plugin.getConfig().getInt("teleporting.gamemode") == 1){
-
                     if(plugin.getConfig().getBoolean("teleporting.giveDefaultHP")){
                         GameModeManager.setGamemodeAndHealth(GameMode.CREATIVE,plugin.getConfig().getInt("HP.returnHP"),p);
-
                     }else{
                         GameModeManager.setGamemode(GameMode.CREATIVE,p);
                     }
-
                 }else if(plugin.getConfig().getInt("teleporting.gamemode") == 2){
-
                     if(plugin.getConfig().getBoolean("teleporting.giveDefaultHP")){
                         GameModeManager.setGamemodeAndHealth(GameMode.ADVENTURE,plugin.getConfig().getInt("HP.returnHP"),p);
-
                     }else{
                         GameModeManager.setGamemode(GameMode.ADVENTURE,p);
                     }
-
                 }else {
-
                     if(plugin.getConfig().getBoolean("teleporting.giveDefaultHP")){
                         GameModeManager.setGamemodeAndHealth(GameMode.SPECTATOR,plugin.getConfig().getInt("HP.returnHP"),p);
-
                     }else{
                         GameModeManager.setGamemode(GameMode.SPECTATOR,p);
                     }
-
                 }
-
 
             }else if(plugin.getConfig().getBoolean("death.banOnDeath")) {
                 if(!plugin.getConfig().getBoolean("banning.permBan")){

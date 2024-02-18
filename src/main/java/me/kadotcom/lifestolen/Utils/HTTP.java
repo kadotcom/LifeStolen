@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 public class HTTP {
-
     public static String get(String url) {
         String stuff = "";
         try {

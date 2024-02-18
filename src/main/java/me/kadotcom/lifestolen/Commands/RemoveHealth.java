@@ -24,7 +24,6 @@ public class RemoveHealth implements CommandExecutor {
                 if(sName != null){
                     try {
                         int i = Integer.parseInt(args[1]);
-
                         HealthManager.setMaxHealth(HealthManager.getMaxHealth(sName) - i, sName);
                     } catch (NumberFormatException e) {
                         p.sendMessage("§f[§cLifeStolen§f] '" + args[1] + "' isn't a valid number");
@@ -33,11 +32,6 @@ public class RemoveHealth implements CommandExecutor {
                     p.sendMessage("§f[§cLifeStolen§f] Player not found!");
                 }
             }
-
-
-
-
-
         }
         return true;
     }

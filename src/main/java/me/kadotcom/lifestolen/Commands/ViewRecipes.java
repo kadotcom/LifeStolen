@@ -129,7 +129,6 @@ public class ViewRecipes implements CommandExecutor {
             gui = null;
             return true;
         }
-
         p.openInventory(gui);
     }
 
