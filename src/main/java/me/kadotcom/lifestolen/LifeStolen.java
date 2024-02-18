@@ -6,6 +6,7 @@ import me.kadotcom.lifestolen.Events.GUIEvent;
 import me.kadotcom.lifestolen.Events.ItemEvent;
 import me.kadotcom.lifestolen.Events.LifeStealEvent;
 import me.kadotcom.lifestolen.Managers.ItemManager;
+import me.kadotcom.lifestolen.Utils.Metrics;
 import net.md_5.bungee.api.chat.ClickEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -22,6 +23,9 @@ public final class LifeStolen extends JavaPlugin {
     @Override
     public void onEnable() {
         log = getLogger();
+
+        int pluginId = 1234; // <-- Replace with the id of your plugin!
+        Metrics metrics = new Metrics(this, pluginId);
 
         registerEvents();
         setCommandExecutor();
