@@ -30,7 +30,7 @@ public class ViewUsage implements CommandExecutor {
                     return  true;
                 }
 
-                if(args[1].equalsIgnoreCase("heart")){
+                if(args[0].equalsIgnoreCase("heart")){
                     if(!plugin.getConfig().getBoolean("heart.haveLimitedUses")){
                         player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] heart.haveLimitedUses is disabled, so this command will not be executed.");
                         return true;
@@ -38,7 +38,7 @@ public class ViewUsage implements CommandExecutor {
                     UserDataHandler user = new UserDataHandler(plugin, player.getUniqueId());
                     int usage = user.getUserFile().getInt("User.Config.Item.HeartUses");
                     player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] You have used " + usage + "/" + plugin.getConfig().getInt("heart.uses") + " hearts.");
-                }else if(args[1].equalsIgnoreCase("reviver")){
+                }else if(args[0].equalsIgnoreCase("reviver")){
                     if(!plugin.getConfig().getBoolean("reviver.haveLimitedUses")){
                         player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] reviver.haveLimitedUses is disabled, so this command will not be executed.");
                         return true;

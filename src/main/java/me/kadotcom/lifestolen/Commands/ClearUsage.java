@@ -23,7 +23,7 @@ public class ClearUsage implements CommandExecutor {
         if(sender instanceof Player) {
             Player player = (Player)sender;
 
-            if(player.isOp() || player.hasPermission(plugin.getCommand("sethealth").getPermission()) || player.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
+            if(player.isOp() || player.hasPermission("lifestolen.clearusage") || player.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 if (args.length < 1) {
                     player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f]] Usage: /clearusage [player] [heart/reviver]");
                     return  true;

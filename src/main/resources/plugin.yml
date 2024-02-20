@@ -9,41 +9,33 @@ commands:
   resethp:
     description: Resets everyone that is onlines health
     usage: /resethp
-    permission: "lifestolen.resethp"
   health:
     description: Shows your exact health
     usage: /health
   giveheart:
     description: Gives you a heart item.
     usage: /giveheart
-    permission: "lifestolen.giveheart"
   givereviver:
     description: Gives you a reviver item.
     usage: /givereviver
-    permission: "lifestolen.givereviver"
   sethealth:
     description: Sets a players health.
     usage: /sethealth [player] [amount]
-    permission: "lifestolen.sethealth"
   addhealth:
     description: Adds to players health.
     usage: /addhealth [player] [amount]
-    permission: "lifestolen.addhealth"
   removehealth:
     description: Removes from players health.
     usage: /removehealth [player] [amount]
-    permission: "lifestolen.removehealth"
   revive:
     description: Revives a player.
     usage: /revive [player]
-    permission: "lifestolen.revive"
   withdraw:
     description: Withdraws a heart from yourself
     usage: /withdraw [amount]
   reloadls:
     description: Reloads the plugin
     usage: /reloadls
-    permission: "lifestolen.reloadls"
   lshelp:
     description: Shows all commands available to LifeStolen.
     usage: /lshelp [page]
@@ -56,7 +48,6 @@ commands:
   clearusage:
     description: Clears a players usage of an item.
     usage: /clearusage [player] [heart/reviver]
-    permission: "lifestolen.clearusage"
   viewusage:
     description: Shows your usage of an item.
     usage: /viewusage [heart/reviver]

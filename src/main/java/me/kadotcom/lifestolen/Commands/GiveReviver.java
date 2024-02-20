@@ -16,7 +16,7 @@ public class GiveReviver implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player){
             Player p = (Player) sender;
-            if(p.isOp() || p.hasPermission(plugin.getCommand("givereviver").getPermission())  || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
+            if(p.isOp() || p.hasPermission("lifestolen.givereviver")  || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 if(plugin.getConfig().getBoolean("reviver.isEnabled")){
                     p.getInventory().addItem(ItemManager.reviver);
                 }else {

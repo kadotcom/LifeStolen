@@ -20,7 +20,7 @@ public class ReloadLifeStolen implements CommandExecutor {
 
         if(sender instanceof Player){
             Player p = (Player) sender;
-            if(p.isOp() || p.hasPermission(plugin.getCommand("reloadls").getPermission())  || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
+            if(p.isOp() || p.hasPermission("lifestolen.reloadls")  || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 plugin.reloadConfig();
                 p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] Reloaded!");
             }else{
