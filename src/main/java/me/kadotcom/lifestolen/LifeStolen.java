@@ -70,5 +70,6 @@ public final class LifeStolen extends JavaPlugin {
         getCommand("vercheck").setExecutor(new VerCheck(this));
         getCommand("viewrecipes").setExecutor(new ViewRecipes(this));
         getCommand("revive").setExecutor(new Revive(this));
+        getCommand("clearusage").setExecutor(new ClearUsage(this));
     }
 }

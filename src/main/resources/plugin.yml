@@ -56,4 +56,9 @@ commands:
   viewrecipes:
     description: Allows you to view the plugin's item recipes.
     usage: /viewrecipes [heart/reviver]
+  clearusage:
+    description: Clears a players usage of items.
+    usage: /clearusage [player] [heart/reviver]
+    permission: "lifestolen.clearusage"
+    permission-message: "&f[&cLifeStolen&f] You don't have permission to use this command."
 
