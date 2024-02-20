@@ -31,6 +31,8 @@ public class RemoveHealth implements CommandExecutor {
                 }else{
                     p.sendMessage("§f[§cLifeStolen§f] Player not found!");
                 }
+            }else{
+                p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
             }
         }
         return true;

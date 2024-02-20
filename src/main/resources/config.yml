@@ -44,6 +44,12 @@ permissions:
   lshelp:
     bePermissionBased: false
     permission: "lifestolen.lshelp"
+  viewrecipes:
+    bePermissionBased: false
+    permission: "lifestolen.viewrecipes"
+  viewusage:
+    bePermissionBased: false
+    permission: "lifestolen.viewusage"
   messages:
     outdatedPermissionMessage: "lifestolen.message.outdated"
   permissionToDoEverything: "lifestolen.*" # The permission someone needs to run all permission based commands.

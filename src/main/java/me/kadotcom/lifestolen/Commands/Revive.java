@@ -23,6 +23,8 @@ public class Revive implements CommandExecutor {
                     sender.sendMessage("§f[§cLifeStolen§f] Usage: " + plugin.getCommand("revive").getUsage());
                 }
                 new ReviveManager(plugin).revivePlayer(p, args[0]);
+            }else{
+                p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
             }
         }
         return true;

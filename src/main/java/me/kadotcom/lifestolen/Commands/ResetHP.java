@@ -23,6 +23,8 @@ public class ResetHP implements CommandExecutor {
                     HealthManager.setMaxHealth(20, target);
                     target.sendMessage("§f[§cLifeStolen§f] " + ChatColor.RED + "Your hearts has been resetted.");
                 }
+            }else{
+                p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
             }
         }
         return true;
