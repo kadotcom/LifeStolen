@@ -17,10 +17,10 @@ commands:
     description: Gives you a heart item.
     usage: /giveheart
     permission: "lifestolen.giveheart"
-    giveheart:
-      description: Gives you a reviver item.
-      usage: /giveheart
-      permission: "lifestolen.givereviver"
+  givereviver:
+    description: Gives you a reviver item.
+    usage: /givereviver
+    permission: "lifestolen.givereviver"
   sethealth:
     description: Sets a players health.
     usage: /sethealth [player] [amount]
