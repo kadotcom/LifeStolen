@@ -22,9 +22,9 @@ public class ReloadLifeStolen implements CommandExecutor {
             Player p = (Player) sender;
             if(p.isOp() || p.hasPermission(plugin.getCommand("reloadls").getPermission())  || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 plugin.reloadConfig();
-                p.sendMessage("[" + ChatColor.RED + "LifeStolen" + ChatColor.WHITE + "] Reloaded!");
+                p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] Reloaded!");
             }else{
-                p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
+                p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
             }
         }
         return true;

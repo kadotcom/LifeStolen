@@ -29,7 +29,7 @@ public class ViewRecipes implements CommandExecutor {
         Player p = (Player) sender;
 
         if(!plugin.getConfig().getBoolean("permissions.viewrecipes.bePermissionBased") || plugin.getConfig().getBoolean("permissions.viewrecipes.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.viewrecipes.permission"))){
-            Inventory gui = Bukkit.createInventory(p,45, "LifeStolen Crafting View");
+            Inventory gui = Bukkit.createInventory(p,45, plugin.getConfig().getString("translation.serverName") + " Crafting View");
             if(args[0].equalsIgnoreCase("heart")){
                 ItemStack[] menu = {
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
@@ -129,13 +129,13 @@ public class ViewRecipes implements CommandExecutor {
                 };
                 gui.setContents(menu);
             }else{
-                p.sendMessage("§f[§cLifeStolen§f] " + args[0] + " isn't a valid item in LifeStolen.");
+                p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + args[0] + " isn't a valid item in LifeStolen.");
                 gui = null;
                 return true;
             }
             p.openInventory(gui);
         }else if (plugin.getConfig().getBoolean("permissions.viewrecipes.bePermissionBased") && !p.hasPermission(plugin.getConfig().getString("permissions.viewrecipes.permission"))){
-            p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
+            p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
         }
 
     }

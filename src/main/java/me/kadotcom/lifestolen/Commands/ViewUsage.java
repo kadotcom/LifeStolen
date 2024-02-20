@@ -26,31 +26,31 @@ public class ViewUsage implements CommandExecutor {
 
             if(!plugin.getConfig().getBoolean("permissions.viewusage.bePermissionBased") || plugin.getConfig().getBoolean("permissions.viewusage.bePermissionBased") && player.hasPermission(plugin.getConfig().getString("permissions.viewusage.permission"))){
                 if (args.length < 1) {
-                    player.sendMessage("§f[§cLifeStolen§f] Usage: /viewusage [heart/reviver]");
+                    player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] Usage: /viewusage [heart/reviver]");
                     return  true;
                 }
 
                 if(args[1].equalsIgnoreCase("heart")){
                     if(!plugin.getConfig().getBoolean("heart.haveLimitedUses")){
-                        player.sendMessage("§f[§cLifeStolen§f] heart.haveLimitedUses is disabled, so this command will not be executed.");
+                        player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] heart.haveLimitedUses is disabled, so this command will not be executed.");
                         return true;
                     }
                     UserDataHandler user = new UserDataHandler(plugin, player.getUniqueId());
                     int usage = user.getUserFile().getInt("User.Config.Item.HeartUses");
-                    player.sendMessage("§f[§cLifeStolen§f] You have used " + usage + "/" + plugin.getConfig().getInt("heart.uses") + " hearts.");
+                    player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] You have used " + usage + "/" + plugin.getConfig().getInt("heart.uses") + " hearts.");
                 }else if(args[1].equalsIgnoreCase("reviver")){
                     if(!plugin.getConfig().getBoolean("reviver.haveLimitedUses")){
-                        player.sendMessage("§f[§cLifeStolen§f] reviver.haveLimitedUses is disabled, so this command will not be executed.");
+                        player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] reviver.haveLimitedUses is disabled, so this command will not be executed.");
                         return true;
                     }
                     UserDataHandler user = new UserDataHandler(plugin, player.getUniqueId());
                     int usage = user.getUserFile().getInt("User.Config.Item.ReviverUses");
-                    player.sendMessage("§f[§cLifeStolen§f] You have used " + usage + "/" + plugin.getConfig().getInt("reviver.uses") + " revivers." );
+                    player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] You have used " + usage + "/" + plugin.getConfig().getInt("reviver.uses") + " revivers." );
                 }else{
-                    player.sendMessage("§f[§cLifeStolen§f] Usage: /viewusage [heart/reviver]");
+                    player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] Usage: /viewusage [heart/reviver]");
                 }
             }else if (plugin.getConfig().getBoolean("permissions.viewusage.bePermissionBased") && !player.hasPermission(plugin.getConfig().getString("permissions.viewusage.permission"))) {
-                player.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
+                player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
             }
 
             }

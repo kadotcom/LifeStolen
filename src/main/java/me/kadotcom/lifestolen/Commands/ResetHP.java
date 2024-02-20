@@ -21,10 +21,10 @@ public class ResetHP implements CommandExecutor {
             if(p.isOp() || p.hasPermission(plugin.getCommand("resethp").getPermission()) || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 for (Player target : Bukkit.getServer().getOnlinePlayers()) {
                     HealthManager.setMaxHealth(20, target);
-                    target.sendMessage("§f[§cLifeStolen§f] " + ChatColor.RED + "Your hearts has been resetted.");
+                    target.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + ChatColor.RED + "Your hearts has been resetted.");
                 }
             }else{
-                p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
+                p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
             }
         }
         return true;

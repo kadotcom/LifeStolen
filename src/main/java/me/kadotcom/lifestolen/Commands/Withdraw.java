@@ -27,7 +27,7 @@ import org.bukkit.entity.Player;
                             p.sendMessage(plugin.getConfig().getString("heart.disabledMessage").replace("&", "§"));
                         }
                     }else if (plugin.getConfig().getBoolean("permissions.withdraw.bePermissionBased") && !p.hasPermission(plugin.getConfig().getString("permissions.withdraw.permission"))){
-                        p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
+                        p.sendMessage("§f[§cLifeStolen§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
                     }
 
                 }
@@ -41,7 +41,7 @@ import org.bukkit.entity.Player;
                 HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
                 p.getInventory().addItem(ItemManager.heart);
             } else {
-                p.sendMessage("§f[§cLifeStolen§f] You don't have enough hearts to withdraw.");
+                p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] You don't have enough hearts to withdraw.");
             }
         }else{
             try {
@@ -50,12 +50,12 @@ import org.bukkit.entity.Player;
                         HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) - 2, p);
                         p.getInventory().addItem(ItemManager.heart);
                     }else{
-                        p.sendMessage("§f[§cLifeStolen§f] You don't have enough hearts to withdraw.");
+                        p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] You don't have enough hearts to withdraw.");
                         break;
                     }
                 }
             } catch (NumberFormatException e) {
-                p.sendMessage("'" + args[0] + "' isn't a valid number");
+                p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] '" + args[0] + "' isn't a valid number");
             }
         }
     }

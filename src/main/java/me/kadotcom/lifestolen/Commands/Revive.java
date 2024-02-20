@@ -20,11 +20,11 @@ public class Revive implements CommandExecutor {
 
             if(p.isOp() || p.hasPermission(plugin.getCommand("revive").getPermission()) || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 if (args.length < 1) {
-                    sender.sendMessage("§f[§cLifeStolen§f] Usage: " + plugin.getCommand("revive").getUsage());
+                    sender.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] Usage: " + plugin.getCommand("revive").getUsage());
                 }
                 new ReviveManager(plugin).revivePlayer(p, args[0]);
             }else{
-                p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
+                p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
             }
         }
         return true;

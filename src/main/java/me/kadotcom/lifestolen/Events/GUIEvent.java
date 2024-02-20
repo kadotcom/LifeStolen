@@ -14,7 +14,7 @@ public class GUIEvent implements Listener {
 
     @EventHandler
     public void ClickEvent(InventoryClickEvent e){
-        if(e.getView().getTitle().equalsIgnoreCase("LifeStolen Crafting View")){
+        if(e.getView().getTitle().equalsIgnoreCase(plugin.getConfig().getString("translation.serverName") + " Crafting View")){
             e.setCancelled(true);
         }
     }

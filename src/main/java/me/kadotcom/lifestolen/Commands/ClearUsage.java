@@ -25,43 +25,43 @@ public class ClearUsage implements CommandExecutor {
 
             if(player.isOp() || player.hasPermission(plugin.getCommand("sethealth").getPermission()) || player.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 if (args.length < 1) {
-                    player.sendMessage("§f[§cLifeStolen§f] Usage: /clearusage [player] [heart/reviver]");
+                    player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f]] Usage: /clearusage [player] [heart/reviver]");
                     return  true;
                 }
 
                 UUID uuid = Bukkit.getOfflinePlayer(args[0]).getUniqueId();
 
                 if(!Bukkit.getOfflinePlayer(args[0]).hasPlayedBefore()) {
-                    player.sendMessage("§f[§cLifeStolen§f] User " + args[0] + " has not played on this server before." );
+                    player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] User " + args[0] + " has not played on this server before." );
                     return true;
                 }else{
                     if(args[1].equalsIgnoreCase("heart")){
                         if(!plugin.getConfig().getBoolean("heart.haveLimitedUses")){
-                            player.sendMessage("§f[§cLifeStolen§f] heart.haveLimitedUses is disabled, so this command will not be executed.");
+                            player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] heart.haveLimitedUses is disabled, so this command will not be executed.");
                             return true;
                         }
                         UserDataHandler user = new UserDataHandler(plugin, uuid);
                         int usage = user.getUserFile().getInt("User.Config.Item.HeartUses");
-                        player.sendMessage("§f[§cLifeStolen§f] You had used " + usage + "/" + plugin.getConfig().getInt("heart.uses") + " hearts. This is now 0." );
+                        player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] You had used " + usage + "/" + plugin.getConfig().getInt("heart.uses") + " hearts. This is now 0." );
                         user.getUserFile().set("User.Config.Item.HeartUses", 0);
                         user.saveUserFile();
                     }else if(args[1].equalsIgnoreCase("reviver")){
                         if(!plugin.getConfig().getBoolean("reviver.haveLimitedUses")){
-                            player.sendMessage("§f[§cLifeStolen§f] reviver.haveLimitedUses is disabled, so this command will not be executed.");
+                            player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] reviver.haveLimitedUses is disabled, so this command will not be executed.");
                             return true;
                         }
                         UserDataHandler user = new UserDataHandler(plugin, uuid);
                         int usage = user.getUserFile().getInt("User.Config.Item.ReviverUses");
-                        player.sendMessage("§f[§cLifeStolen§f] You had used " + usage + "/" + plugin.getConfig().getInt("reviver.uses") + " revivers. This is now 0." );
+                        player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] You had used " + usage + "/" + plugin.getConfig().getInt("reviver.uses") + " revivers. This is now 0." );
                         user.getUserFile().set("User.Config.Item.ReviverUses", 0);
                         user.saveUserFile();
                     }else{
-                        player.sendMessage("§f[§cLifeStolen§f] Usage: /clearusage [player] [heart/reviver]");
+                        player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] Usage: /clearusage [player] [heart/reviver]");
                     }
                 }
 
             }else{
-                player.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
+                player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
             }
 
         }

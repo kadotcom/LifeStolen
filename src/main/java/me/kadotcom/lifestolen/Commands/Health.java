@@ -24,10 +24,10 @@ public class Health implements CommandExecutor {
 
             Player p = (Player) sender;
             if(!plugin.getConfig().getBoolean("permissions.health.bePermissionBased") || plugin.getConfig().getBoolean("permissions.health.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.health.permission"))){
-                p.sendMessage("§f[§cLifeStolen§f] " + ChatColor.AQUA + "Your exact health is " + p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() + "");
+                p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + ChatColor.AQUA + "Your exact health is " + p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() + "");
                 p.playSound(p, Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
             }else if (plugin.getConfig().getBoolean("permissions.health.bePermissionBased") && !p.hasPermission(plugin.getConfig().getString("permissions.health.permission"))){
-                p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
+                p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
             }
 
         }

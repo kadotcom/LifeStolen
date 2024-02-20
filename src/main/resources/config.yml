@@ -22,11 +22,6 @@ death:
   dropHeartOnDeath: false # Heart Item drops when a player dies from a player (if anyDeathRemovesHearts is false) or by anything (if anyDeathRemovesHearts is true)
   runCommandsOnDeath: false # If set to true, command(s) will run when a full death occurs.
 
-deathMessages: # Custom messages for when a player dies.
-  generic: "${player} was slain by ${attacker}" # The message that appears when a player dies from a generic reason
-  explosion: "${player} was exploded by ${attacker}" # The message that appears when a player dies from a explosion
-  shot: "${player} was shot by ${attacker}" # --The message that appears when a player dies from someone shooting the player.
-
 # Permissions
 
 permissions:
@@ -119,3 +114,14 @@ ReviverRecipe:
   Slot7: "OBSIDIAN"
   Slot8: "OBSIDIAN"
   Slot9: "OBSIDIAN"
+
+# Translations
+translation:
+  serverName: "LifeStolen" # Name of your server, will be used in GUIs and messages.
+  deathMessages: # Messages that appears when a player dies.
+    generic: "${player} was slain by ${attacker}" # The message that appears when a player dies from a generic reason
+    explosion: "${player} was exploded by ${attacker}" # The message that appears when a player dies from a explosion
+    shot: "${player} was shot by ${attacker}" # --The message that appears when a player dies from someone shooting the player.
+  errorMessages: # The message that appears when a player encounters an error when running a command.
+    noPermission: "You don't have permission to use this command." # The message that appears when a player doesn't have permission to use a command.
+    offlinePlayer: "Player wasn't found." # The message that appears when an offline player is mentioned in a command.

@@ -28,13 +28,13 @@ public class SetHealth implements CommandExecutor {
 
                         HealthManager.setMaxHealth(i, sName);
                     } catch (NumberFormatException e) {
-                        p.sendMessage("§f[§cLifeStolen§f] '" + args[1] + "' isn't a valid number");
+                        p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] '" + args[1] + "' isn't a valid number");
                     }
                 }else{
-                    p.sendMessage("§f[§cLifeStolen§f] Player not found!");
+                    p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.offlinePlayer"));
                 }
             }else{
-                p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
+                p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
             }
         }
 

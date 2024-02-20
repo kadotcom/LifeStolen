@@ -24,7 +24,7 @@ public class GiveHeart implements CommandExecutor {
                 }
                 return true;
             }else{
-                p.sendMessage("§f[§cLifeStolen§f] You don't have permission to use this command.");
+                p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
             }
 
         }
