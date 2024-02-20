@@ -26,7 +26,7 @@ public final class LifeStolen extends JavaPlugin {
 
         int pluginId = 21036;
         Metrics metrics = new Metrics(this, pluginId);
-        
+
         registerEvents();
         setCommandExecutor();
 
@@ -59,6 +59,7 @@ public final class LifeStolen extends JavaPlugin {
 
     public  void setCommandExecutor(){
         getCommand("giveheart").setExecutor(new GiveHeart(this));
+        getCommand("givereviver").setExecutor(new GiveReviver(this));
         getCommand("health").setExecutor(new Health(this));
         getCommand("resethp").setExecutor(new ResetHP(this));
         getCommand("sethealth").setExecutor(new SetHealth(this));
