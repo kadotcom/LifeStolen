@@ -121,7 +121,7 @@ translation:
   deathMessages: # Messages that appears when a player dies.
     generic: "${player} was slain by ${attacker}" # The message that appears when a player dies from a generic reason
     explosion: "${player} was exploded by ${attacker}" # The message that appears when a player dies from a explosion
-    shot: "${player} was shot by ${attacker}" # --The message that appears when a player dies from someone shooting the player.
+    shot: "${player} was shot by ${attacker}" # The message that appears when a player dies from someone shooting the player.
   errorMessages: # The message that appears when a player encounters an error when running a command.
     noPermission: "You don't have permission to use this command." # The message that appears when a player doesn't have permission to use a command.
     offlinePlayer: "Player wasn't found." # The message that appears when an offline player is mentioned in a command.

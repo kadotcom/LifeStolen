@@ -91,7 +91,7 @@ public class LifeStealEvent implements Listener {
                     }else if (event.getEntityType() == EntityType.CREEPER || event.getEntityType() == EntityType.MINECART_TNT || event.getEntityType() == EntityType.PRIMED_TNT) {
                         dm = plugin.getConfig().getString("translation.deathMessages.explosion").replace("&", "§").replace("${player}", p.getName()).replace("${attacker}", event.getEntityType().name());
                         event.setDeathMessage(dm);
-                    }else if(event.getEntityType() == EntityType.SKELETON || event.getEntityType() == EntityType.ARROW || event.getEntityType() == EntityType.SPECTRAL_ARROW){
+                    }else if(event.getEntityType() == EntityType.SKELETON || event.getEntityType() == EntityType.ARROW || event.getEntityType() == EntityType.SPECTRAL_ARROW) {
                         dm = plugin.getConfig().getString("translation.deathMessages.shot").replace("&", "§").replace("${player}", p.getName()).replace("${attacker}", event.getEntityType().name());
                         event.setDeathMessage(dm);
                     }else{

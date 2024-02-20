@@ -33,7 +33,7 @@ public class LifeStolenHelp implements CommandExecutor {
                     String cmdName = pdf.getKey();
                     Object cmdProperties = pdf.getValue();
                     String stringedProperties = cmdProperties.toString().replace("{","").replace("}","").replace("description=","").replace(", usage="," | ");
-                    p.sendMessage(ChatColor.RED + "/" + cmdName + " | " + stringedProperties);
+                    p.sendMessage(ChatColor.WHITE + "/" + cmdName + " | " + stringedProperties);
                 }
                 //p.sendMessage("§f[§cLifeStolen§f] This command is disabled as it's going under a rework that will be out either next Tested release, or in 5.0.");
             }else if (plugin.getConfig().getBoolean("permissions.lshelp.bePermissionBased") && !p.hasPermission(plugin.getConfig().getString("permissions.lshelp.permission"))){
