@@ -21,6 +21,7 @@ public class Revive implements CommandExecutor {
             if(p.isOp() || p.hasPermission("lifestolen.revive") || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
                 if (args.length < 1) {
                     sender.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] Usage: " + plugin.getCommand("revive").getUsage());
+                    return true;
                 }
                 new ReviveManager(plugin).revivePlayer(p, args[0]);
             }else{
