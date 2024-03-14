@@ -2,19 +2,13 @@ package me.kadotcom.lifestolen.Commands;
 
 import me.kadotcom.lifestolen.LifeStolen;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.Sound;
-import org.bukkit.attribute.Attribute;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ViewRecipes implements CommandExecutor {
     LifeStolen plugin;
@@ -29,6 +23,10 @@ public class ViewRecipes implements CommandExecutor {
         Player p = (Player) sender;
 
         if(!plugin.getConfig().getBoolean("permissions.viewrecipes.bePermissionBased") || plugin.getConfig().getBoolean("permissions.viewrecipes.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.viewrecipes.permission"))){
+            if (args.length < 1) {
+                sender.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] Usage: " + plugin.getCommand("viewrecipes").getUsage());
+                return true;
+            }
             Inventory gui = Bukkit.createInventory(p,45, plugin.getConfig().getString("translation.serverName") + " Crafting View");
             if(args[0].equalsIgnoreCase("heart")){
                 ItemStack[] menu = {
