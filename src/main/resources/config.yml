@@ -60,6 +60,8 @@ heart:
   item: 'RED_DYE' # Item used for hearts
   haveLimitedUses: false # When this is enabled, you can use this item a certain amount of times before having to kill players for hearts.
   uses: 5 # Uses that are allowed if haveLimitedUses is true.
+  useCustomModelData: false # When this is enabled, you can make it so you can set a custom model for this item.
+  customModelDataID: 1 # This is where you put your custom model data ID to set the custom model for this item.
 reviver:
   itemName: "Reviver" # Item name.
   itemLore: "This will revive someone." # Item lore.
@@ -68,6 +70,8 @@ reviver:
   item: 'BEACON' # Item used for hearts
   haveLimitedUses: false # When this is enabled, you can use this item a certain amount of times before you can't use this item anymore.
   uses: 5 # Uses that are allowed if haveLimitedUses is true.
+  useCustomModelData: false # When this is enabled, you can make it so you can set a custom model for this item.
+  customModelDataID: 1 # This is where you put your custom model data ID to set the custom model for this item.
 
 # Death Punishments
 

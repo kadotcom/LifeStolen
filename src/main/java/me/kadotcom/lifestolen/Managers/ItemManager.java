@@ -32,6 +32,9 @@ public class ItemManager {
         List<String> lore = new ArrayList<>();
         lore.add(main.getConfig().getString("heart.itemLore"));
         meta.setLore(lore);
+        if(main.getConfig().getBoolean("heart.useCustomModelData")){
+            meta.setCustomModelData(main.getConfig().getInt("heart.customModelDataID"));
+        }
         item.setItemMeta(meta);
         heart = item;
 
@@ -56,6 +59,9 @@ public class ItemManager {
         meta.setDisplayName(main.getConfig().getString("reviver.itemName"));
         List<String> lore = new ArrayList<>();
         lore.add(main.getConfig().getString("reviver.itemLore"));
+        if(main.getConfig().getBoolean("reviver.useCustomModelData")){
+            meta.setCustomModelData(main.getConfig().getInt("reviver.customModelDataID"));
+        }
         meta.setLore(lore);
         item.setItemMeta(meta);
         reviver = item;
