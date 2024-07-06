@@ -82,13 +82,13 @@ public class LifeStealEvent implements Listener {
 
                 } else if (HealthManager.getMaxHealth(p) <= 2.0) {
                     System.out.println("Player " + e.getName() + " Killed " + p.getName());
-                    if(event.getEntityType() != EntityType.PLAYER && event.getEntityType() != EntityType.PRIMED_TNT && event.getEntityType() != EntityType.MINECART_TNT && event.getEntityType() != EntityType.CREEPER  && event.getEntityType() != EntityType.SKELETON  && event.getEntityType() != EntityType.ARROW  && event.getEntityType() != EntityType.SPECTRAL_ARROW) {
+                    if(event.getEntityType() != EntityType.PLAYER && !event.getEntityType().equals(EntityType.TNT)  && !event.getEntityType().equals(EntityType.TNT_MINECART) && event.getEntityType() != EntityType.CREEPER  && event.getEntityType() != EntityType.SKELETON  && event.getEntityType() != EntityType.ARROW  && event.getEntityType() != EntityType.SPECTRAL_ARROW) {
                         dm = plugin.getConfig().getString("translation.deathMessages.generic").replace("&", "§").replace("${player}", p.getName()).replace("${attacker}", event.getEntityType().name());
                         event.setDeathMessage(dm);
                     }else if(event.getEntityType() == EntityType.PLAYER){
                         dm = plugin.getConfig().getString("translation.deathMessages.generic").replace("&", "§").replace("${player}", p.getName()).replace("${attacker}", e.getName());
                         event.setDeathMessage(dm);
-                    }else if (event.getEntityType() == EntityType.CREEPER || event.getEntityType() == EntityType.MINECART_TNT || event.getEntityType() == EntityType.PRIMED_TNT) {
+                    }else if (event.getEntityType() == EntityType.CREEPER || event.getEntityType().equals(EntityType.TNT) || event.getEntityType().equals(EntityType.TNT_MINECART)) {
                         dm = plugin.getConfig().getString("translation.deathMessages.explosion").replace("&", "§").replace("${player}", p.getName()).replace("${attacker}", event.getEntityType().name());
                         event.setDeathMessage(dm);
                     }else if(event.getEntityType() == EntityType.SKELETON || event.getEntityType() == EntityType.ARROW || event.getEntityType() == EntityType.SPECTRAL_ARROW) {
