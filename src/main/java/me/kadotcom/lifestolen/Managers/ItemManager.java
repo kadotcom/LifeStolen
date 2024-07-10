@@ -7,6 +7,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -42,6 +43,7 @@ public class ItemManager {
         sr.shape("123"
                 , "456"
                 , "789");
+
         sr.setIngredient('1', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot1")));
         sr.setIngredient('2', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot2")));
         sr.setIngredient('3', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot3")));
@@ -70,15 +72,52 @@ public class ItemManager {
         sr.shape("123"
                 , "456"
                 , "789");
-        sr.setIngredient('1', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot1")));
-        sr.setIngredient('2', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot2")));
-        sr.setIngredient('3', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot3")));
-        sr.setIngredient('4', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot4")));
-        sr.setIngredient('5', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot5")));
-        sr.setIngredient('6', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot6")));
-        sr.setIngredient('7', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot7")));
-        sr.setIngredient('8', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot8")));
-        sr.setIngredient('9', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot9")));
+
+        if(main.getConfig().getString("ReviverRecipe.Slot1") == "HEART"){
+            sr.setIngredient('1', new RecipeChoice.ExactChoice(heart));
+        }else{
+            sr.setIngredient('1', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot1")));
+        }
+        if(main.getConfig().getString("ReviverRecipe.Slot2") == "HEART"){
+            sr.setIngredient('2', new RecipeChoice.ExactChoice(heart));
+        }else{
+            sr.setIngredient('2', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot2")));
+        }
+        if(main.getConfig().getString("ReviverRecipe.Slot3") == "HEART"){
+            sr.setIngredient('3', new RecipeChoice.ExactChoice(heart));
+        }else{
+            sr.setIngredient('3', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot3")));
+        }
+        if(main.getConfig().getString("ReviverRecipe.Slot4") == "HEART"){
+            sr.setIngredient('4', new RecipeChoice.ExactChoice(heart));
+        }else{
+            sr.setIngredient('4', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot4")));
+        }
+        if(main.getConfig().getString("ReviverRecipe.Slot5") == "HEART"){
+            sr.setIngredient('5', new RecipeChoice.ExactChoice(heart));
+        }else{
+            sr.setIngredient('5', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot5")));
+        }
+        if(main.getConfig().getString("ReviverRecipe.Slot6") == "HEART"){
+            sr.setIngredient('6', new RecipeChoice.ExactChoice(heart));
+        }else{
+            sr.setIngredient('6', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot6")));
+        }
+        if(main.getConfig().getString("ReviverRecipe.Slot7") == "HEART"){
+            sr.setIngredient('7', new RecipeChoice.ExactChoice(heart));
+        }else{
+            sr.setIngredient('7', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot7")));
+        }
+        if(main.getConfig().getString("ReviverRecipe.Slot8") == "HEART"){
+            sr.setIngredient('8', new RecipeChoice.ExactChoice(heart));
+        }else{
+            sr.setIngredient('8', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot8")));
+        }
+        if(main.getConfig().getString("ReviverRecipe.Slot9") == "HEART"){
+            sr.setIngredient('9', new RecipeChoice.ExactChoice(heart));
+        }else{
+            sr.setIngredient('9', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot9")));
+        }
         main.getServer().addRecipe(sr);
     }
 }
