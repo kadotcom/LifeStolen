@@ -1,10 +1,7 @@
 package me.kadotcom.lifestolen.Commands;
 
 import me.kadotcom.lifestolen.LifeStolen;
-import me.kadotcom.lifestolen.Utils.HTTP;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.Sound;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.command.Command;

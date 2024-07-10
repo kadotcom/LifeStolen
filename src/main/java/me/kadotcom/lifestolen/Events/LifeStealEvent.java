@@ -7,10 +7,7 @@ import me.kadotcom.lifestolen.Managers.HealthManager;
 import me.kadotcom.lifestolen.Managers.ItemManager;
 import me.kadotcom.lifestolen.Utils.HTTP;
 import me.kadotcom.lifestolen.Utils.UserDataHandler;
-import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.*;
-import org.bukkit.command.ConsoleCommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
@@ -20,9 +17,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
-import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.Date;
 
 public class LifeStealEvent implements Listener {
     LifeStolen plugin;

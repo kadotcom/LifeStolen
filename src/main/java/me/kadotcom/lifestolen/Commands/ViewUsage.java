@@ -2,16 +2,10 @@ package me.kadotcom.lifestolen.Commands;
 
 import me.kadotcom.lifestolen.LifeStolen;
 import me.kadotcom.lifestolen.Utils.UserDataHandler;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Sound;
-import org.bukkit.attribute.Attribute;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.util.UUID;
 
 public class ViewUsage implements CommandExecutor {
     LifeStolen plugin;

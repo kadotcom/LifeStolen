@@ -4,8 +4,6 @@ import me.kadotcom.lifestolen.LifeStolen;
 import me.kadotcom.lifestolen.Managers.HealthManager;
 import me.kadotcom.lifestolen.Managers.ItemManager;
 import me.kadotcom.lifestolen.Utils.UserDataHandler;
-import org.bukkit.Material;
-import org.bukkit.block.data.type.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

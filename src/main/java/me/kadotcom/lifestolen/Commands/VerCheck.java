@@ -1,7 +1,6 @@
 package me.kadotcom.lifestolen.Commands;
 
 import me.kadotcom.lifestolen.LifeStolen;
-import me.kadotcom.lifestolen.Managers.ItemManager;
 import me.kadotcom.lifestolen.Utils.HTTP;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

@@ -2,7 +2,6 @@ package me.kadotcom.lifestolen.Commands;
 
 import me.kadotcom.lifestolen.LifeStolen;
 import me.kadotcom.lifestolen.Utils.UserDataHandler;
-import net.quazar.offlinemanager.api.OfflineManagerAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

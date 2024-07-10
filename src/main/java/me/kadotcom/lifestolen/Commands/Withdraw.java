@@ -10,12 +10,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-        public class Withdraw implements CommandExecutor {
-            LifeStolen plugin;
-            public Withdraw(LifeStolen ls){
+public class Withdraw implements CommandExecutor {
+    LifeStolen plugin;
+    public Withdraw(LifeStolen ls){
                 plugin = ls;
             }
-
             @Override
             public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
                 if(sender instanceof Player){
