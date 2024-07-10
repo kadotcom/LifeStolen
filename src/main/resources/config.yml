@@ -58,7 +58,7 @@ heart:
   isEnabled: true # Indicates if an item is enabled or disabled.
   disabledMessage: '&cThe heart item is disabled on this server.' # Message that appears if this item is disabled
   item: 'RED_DYE' # Item used for hearts
-  haveLimitedUses: false # When this is enabled, you can use this item a certain amount of times before having to kill players for hearts.
+  haveLimitedUses: false # When this is enabled, you can use this item a certain amount of times before you can't use this item anymore.
   uses: 5 # Uses that are allowed if haveLimitedUses is true.
   useCustomModelData: false # When this is enabled, you can make it so you can set a custom model for this item.
   customModelDataID: 1 # This is where you put your custom model data ID to set the custom model for this item.
@@ -67,7 +67,7 @@ reviver:
   itemLore: "This will revive someone." # Item lore.
   isEnabled: true # Indicates if an item is enabled or disabled.
   disabledMessage: '&cThe reviver item is disabled on this server.' # Message that appears if this item is disabled
-  item: 'BEACON' # Item used for hearts
+  item: 'BEACON' # Item used for revivers
   haveLimitedUses: false # When this is enabled, you can use this item a certain amount of times before you can't use this item anymore.
   uses: 5 # Uses that are allowed if haveLimitedUses is true.
   useCustomModelData: false # When this is enabled, you can make it so you can set a custom model for this item.
@@ -98,6 +98,7 @@ commands: # Category for running commands when a player gets a full death (if ru
 # Crafting
 # For reference. See this image to see each slots 'https://wiki.vg/images/7/7b/CraftingTable-slots.png' and this for material types 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'
 # To make a blank spot, type 'AIR' in one of the slots
+# If you want to use the Heart item as an item in the Reviver recipe, type 'HEART' in one of the slots in the ReviverRecipe config.
 HeartRecipe:
   Slot1: "REDSTONE_BLOCK"
   Slot2: "REDSTONE_BLOCK"
