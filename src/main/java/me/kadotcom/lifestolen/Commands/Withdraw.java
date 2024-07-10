@@ -26,7 +26,7 @@ public class Withdraw implements CommandExecutor {
                             p.sendMessage(plugin.getConfig().getString("heart.disabledMessage").replace("&", "§"));
                         }
                     }else if (plugin.getConfig().getBoolean("permissions.withdraw.bePermissionBased") && !p.hasPermission(plugin.getConfig().getString("permissions.withdraw.permission"))){
-                        p.sendMessage("§f[§cLifeStolen§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
+                        p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
                     }
 
                 }
