@@ -116,7 +116,7 @@ public class LifeStealEvent implements Listener {
         if(event.getPlayer().isOp() || event.getPlayer().hasPermission(plugin.getConfig().getString("permissions.messages.outdatedPermissionMessage"))){
             String version = HTTP.get("https://api.spigotmc.org/legacy/update.php?resource=99220");
             if(!version.equalsIgnoreCase(plugin.getDescription().getVersion()) && !plugin.getDescription().getVersion().contains("Tested")){
-                event.getPlayer().sendMessage("§f[§cLifeStolen§f] There is a new version of LifeStolen.\nYou are on "+ plugin.getDescription().getVersion() +" while the newest version is " + version + ".\nYou can get the newest version here. https://www.spigotmc.org/resources/lifestolen.99220/");
+                event.getPlayer().sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] There is a new version of LifeStolen.\nYou are on "+ plugin.getDescription().getVersion() +" while the newest version is " + version + ".\nYou can get the newest version here. https://www.spigotmc.org/resources/lifestolen.99220/");
             }
         }
 
