@@ -101,7 +101,7 @@ public class ItemEvent implements Listener {
                         event.getItem().setAmount(event.getItem().getAmount() - 1);
 
                     }
-                    event.setCancelled(true);
+
                 }
             }
         }
