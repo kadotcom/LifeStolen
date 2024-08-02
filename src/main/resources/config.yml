@@ -130,3 +130,5 @@ translation:
   errorMessages: # The message that appears when a player encounters an error when running a command.
     noPermission: "You don't have permission to use this command." # The message that appears when a player doesn't have permission to use a command.
     offlinePlayer: "Player wasn't found." # The message that appears when an offline player is mentioned in a command.
+    itemDoesNotExist: "This item does not exist in LifeStolen plugin." # The message that appears when an item is mentioned that doesn't exist with the plugin
+    amountUnderZero: "Please specify a value over 0" # The message that appears when a number is given that is under, or is zero.

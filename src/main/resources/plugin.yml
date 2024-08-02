@@ -12,12 +12,9 @@ commands:
   health:
     description: Shows your exact health
     usage: /health
-  giveheart:
-    description: Gives you a heart item.
-    usage: /giveheart
-  givereviver:
-    description: Gives you a reviver item.
-    usage: /givereviver
+  lsgive:
+    description: Allows you to gain items from LifeStolen.
+    usage: /lsgive [player] [item] [amount]
   sethealth:
     description: Sets a players health.
     usage: /sethealth [player] [amount]
