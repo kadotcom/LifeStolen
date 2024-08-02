@@ -18,14 +18,14 @@ public class LSGive implements CommandExecutor {
         if(sender instanceof Player){
             Player p = (Player) sender;
             if(p.isOp() || p.hasPermission("lifestolen.lsgive") || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
-                Player giving = Bukkit.getPlayerExact(args[0]);
-                String item = args[1];
-                int amount = Integer.parseInt(args[2]);
-
                 if(args[0].isEmpty() || args[1].isEmpty() || args[2].isEmpty()){
                     p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.missingArguments"));
                     return true;
                 }
+
+                Player giving = Bukkit.getPlayerExact(args[0]);
+                String item = args[1];
+                int amount = Integer.parseInt(args[2]);
 
                 if(giving == null){
                     p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.offlinePlayer"));

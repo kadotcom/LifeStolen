@@ -74,13 +74,13 @@ public class ItemEvent implements Listener {
                                 Player p = event.getPlayer();
                                 HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) + 2.0, p);
                                 event.setCancelled(true);
-                    }else if(HealthManager.getMaxHealth(event.getPlayer()) >= plugin.getConfig().getInt("HP.maxHP")){
-                        HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.maxHP"), event.getPlayer());
-                        event.setCancelled(true);
+                            }else if(HealthManager.getMaxHealth(event.getPlayer()) >= plugin.getConfig().getInt("HP.maxHP")){
+                                HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.maxHP"), event.getPlayer());
+                                event.setCancelled(true);
+                            }
+                        }
                     }
-                }
-            }
-        }else if (event.getItem().getItemMeta().equals(ItemManager.reviver.getItemMeta())) {
+                }else if (event.getItem().getItemMeta().equals(ItemManager.reviver.getItemMeta())) {
                     Player player = event.getPlayer();
 
                     if(plugin.getConfig().getBoolean("reviver.haveLimitedUses")) {
@@ -96,12 +96,15 @@ public class ItemEvent implements Listener {
                         user.saveUserFile();
                     }
                     if(!players.contains(player)){
+                        event.getItem().setAmount(event.getItem().getAmount() - 1);
                         players.add(player);
                         player.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] Put a username in chat");
-                        event.getItem().setAmount(event.getItem().getAmount() - 1);
 
+
+                    }else{
+                        event.setCancelled(true);
                     }
-
+                    event.setCancelled(true);
                 }
             }
         }
