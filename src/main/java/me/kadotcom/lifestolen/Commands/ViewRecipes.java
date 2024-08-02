@@ -1,6 +1,7 @@
 package me.kadotcom.lifestolen.Commands;
 
 import me.kadotcom.lifestolen.LifeStolen;
+import me.kadotcom.lifestolen.Managers.ItemManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -78,7 +79,7 @@ public class ViewRecipes implements CommandExecutor {
                 };
                 gui.setContents(menu);
             }else if(args[0].equalsIgnoreCase("reviver")){
-                ItemStack[] menu = {
+                ItemStack[] menu = new ItemStack[] {
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
@@ -91,27 +92,27 @@ public class ViewRecipes implements CommandExecutor {
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
-                        new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot1"))),
-                        new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot2"))),
-                        new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot3"))),
+                        new ItemStack(Material.FLINT),
+                        new ItemStack(Material.FLINT),
+                        new ItemStack(Material.FLINT),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
-                        new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot4"))),
-                        new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot5"))),
-                        new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot6"))),
+                        new ItemStack(Material.FLINT),
+                        new ItemStack(Material.FLINT),
+                        new ItemStack(Material.FLINT),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
-                        new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot7"))),
-                        new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot8"))),
-                        new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot9"))),
+                        new ItemStack(Material.FLINT),
+                        new ItemStack(Material.FLINT),
+                        new ItemStack(Material.FLINT),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
@@ -125,6 +126,37 @@ public class ViewRecipes implements CommandExecutor {
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                 };
+
+                if(plugin.getConfig().getString("HeartRecipe.Slot1").equalsIgnoreCase("HEART")){
+                    menu[12] = ItemManager.heart;
+                }
+                if(plugin.getConfig().getString("HeartRecipe.Slot2").equalsIgnoreCase("HEART")){
+                    menu[13] = ItemManager.heart;
+                }
+                if(plugin.getConfig().getString("HeartRecipe.Slot3").equalsIgnoreCase("HEART")){
+                    menu[14] = ItemManager.heart;
+                }
+
+                if(plugin.getConfig().getString("HeartRecipe.Slot4").equalsIgnoreCase("HEART")){
+                    menu[21] = ItemManager.heart;
+                }
+                if(plugin.getConfig().getString("HeartRecipe.Slot5").equalsIgnoreCase("HEART")){
+                    menu[22] = ItemManager.heart;
+                }
+                if(plugin.getConfig().getString("HeartRecipe.Slot6").equalsIgnoreCase("HEART")){
+                    menu[23] = ItemManager.heart;
+                }
+
+                if(plugin.getConfig().getString("HeartRecipe.Slot7").equalsIgnoreCase("HEART")){
+                    menu[30] = ItemManager.heart;
+                }
+                if(plugin.getConfig().getString("HeartRecipe.Slot8").equalsIgnoreCase("HEART")){
+                    menu[31] = ItemManager.heart;
+                }
+                if(plugin.getConfig().getString("HeartRecipe.Slot9").equalsIgnoreCase("HEART")){
+                    menu[32] = ItemManager.heart;
+                }
+
                 gui.setContents(menu);
             }else{
                 p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + args[0] + " isn't a valid item in LifeStolen.");
