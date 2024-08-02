@@ -34,7 +34,7 @@ public class ViewRecipes implements CommandExecutor {
 
                 Inventory gui = Bukkit.createInventory(p, 45, plugin.getConfig().getString("translation.serverName") + " Crafting View");
 
-                if(args[0].equalsIgnoreCase("heart")){
+                if(args[0].equalsIgnoreCase("heart") && plugin.getConfig().getBoolean("heart.isCraftable") && plugin.getConfig().getBoolean("heart.isEnabled")){
                     ItemStack[] menu = new ItemStack[45];
                     for (int i = 0; i < menu.length; i++) {
                         menu[i] = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
@@ -51,7 +51,7 @@ public class ViewRecipes implements CommandExecutor {
                     menu[32] = getItemStack("HeartRecipe.Slot9");
 
                     gui.setContents(menu);
-                } else if(args[0].equalsIgnoreCase("reviver")){
+                } else if(args[0].equalsIgnoreCase("reviver") && plugin.getConfig().getBoolean("reviver.isCraftable") && plugin.getConfig().getBoolean("reviver.isEnabled")){
                     ItemStack[] menu = new ItemStack[45];
                     for (int i = 0; i < menu.length; i++) {
                         menu[i] = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);

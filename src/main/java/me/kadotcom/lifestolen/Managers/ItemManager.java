@@ -36,21 +36,23 @@ public class ItemManager {
         item.setItemMeta(meta);
         heart = item;
 
-        ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("heart"), item);
-        sr.shape("123"
-                , "456"
-                , "789");
+        if(main.getConfig().getBoolean("reviver.isCraftable")){
+            ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("heart"), item);
+            sr.shape("123"
+                    , "456"
+                    , "789");
 
-        sr.setIngredient('1', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot1")));
-        sr.setIngredient('2', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot2")));
-        sr.setIngredient('3', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot3")));
-        sr.setIngredient('4', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot4")));
-        sr.setIngredient('5', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot5")));
-        sr.setIngredient('6', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot6")));
-        sr.setIngredient('7', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot7")));
-        sr.setIngredient('8', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot8")));
-        sr.setIngredient('9', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot9")));
-        main.getServer().addRecipe(sr);
+            sr.setIngredient('1', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot1")));
+            sr.setIngredient('2', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot2")));
+            sr.setIngredient('3', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot3")));
+            sr.setIngredient('4', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot4")));
+            sr.setIngredient('5', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot5")));
+            sr.setIngredient('6', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot6")));
+            sr.setIngredient('7', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot7")));
+            sr.setIngredient('8', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot8")));
+            sr.setIngredient('9', Material.valueOf(main.getConfig().getString("HeartRecipe.Slot9")));
+            main.getServer().addRecipe(sr);
+        }
     }
     private static void createReviver(){
         ItemStack item = new ItemStack(Material.matchMaterial(main.getConfig().getString("reviver.item")), 1);
@@ -65,57 +67,61 @@ public class ItemManager {
         item.setItemMeta(meta);
         reviver = item;
 
-        ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("reviver"), item);
-        sr.shape("123"
-                , "456"
-                , "789");
+        if(main.getConfig().getBoolean("reviver.isCraftable")){
+            ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("reviver"), item);
+            sr.shape("123"
+                    , "456"
+                    , "789");
 
-        if(main.getConfig().getString("ReviverRecipe.Slot1").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('1', Material.valueOf(main.getConfig().getString("heart.item")));
-        }else{
-            sr.setIngredient('1', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot1")));
+            if(main.getConfig().getString("ReviverRecipe.Slot1").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
+                sr.setIngredient('1', Material.valueOf(main.getConfig().getString("heart.item")));
+            }else{
+                sr.setIngredient('1', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot1")));
+            }
+            if(main.getConfig().getString("ReviverRecipe.Slot2").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
+                sr.setIngredient('2', Material.valueOf(main.getConfig().getString("heart.item")));
+            }else{
+                sr.setIngredient('2', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot2")));
+            }
+            if(main.getConfig().getString("ReviverRecipe.Slot3").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
+                sr.setIngredient('3', Material.valueOf(main.getConfig().getString("heart.item")));
+            }else{
+                sr.setIngredient('3', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot3")));
+            }
+            if(main.getConfig().getString("ReviverRecipe.Slot4").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
+                sr.setIngredient('4', Material.valueOf(main.getConfig().getString("heart.item")));
+            }else{
+                sr.setIngredient('4', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot4")));
+            }
+            if(main.getConfig().getString("ReviverRecipe.Slot5").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
+                sr.setIngredient('5', Material.valueOf(main.getConfig().getString("heart.item")));
+            }else{
+                sr.setIngredient('5', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot5")));
+            }
+            if(main.getConfig().getString("ReviverRecipe.Slot6").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
+                sr.setIngredient('6', Material.valueOf(main.getConfig().getString("heart.item")));
+            }else{
+                sr.setIngredient('6', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot6")));
+            }
+            if(main.getConfig().getString("ReviverRecipe.Slot7").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
+                sr.setIngredient('7', Material.valueOf(main.getConfig().getString("heart.item")));
+            }else{
+                sr.setIngredient('7', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot7")));
+            }
+            if(main.getConfig().getString("ReviverRecipe.Slot8").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
+                sr.setIngredient('8', Material.valueOf(main.getConfig().getString("heart.item")));
+            }else{
+                sr.setIngredient('8', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot8")));
+            }
+            if(main.getConfig().getString("ReviverRecipe.Slot9").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
+                sr.setIngredient('9', Material.valueOf(main.getConfig().getString("heart.item")));
+            }else{
+                sr.setIngredient('9', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot9")));
+            }
+            main.getServer().addRecipe(sr);
         }
-        if(main.getConfig().getString("ReviverRecipe.Slot2").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('2', Material.valueOf(main.getConfig().getString("heart.item")));
-        }else{
-            sr.setIngredient('2', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot2")));
-        }
-        if(main.getConfig().getString("ReviverRecipe.Slot3").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('3', Material.valueOf(main.getConfig().getString("heart.item")));
-        }else{
-            sr.setIngredient('3', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot3")));
-        }
-        if(main.getConfig().getString("ReviverRecipe.Slot4").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('4', Material.valueOf(main.getConfig().getString("heart.item")));
-        }else{
-            sr.setIngredient('4', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot4")));
-        }
-        if(main.getConfig().getString("ReviverRecipe.Slot5").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('5', Material.valueOf(main.getConfig().getString("heart.item")));
-        }else{
-            sr.setIngredient('5', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot5")));
-        }
-        if(main.getConfig().getString("ReviverRecipe.Slot6").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('6', Material.valueOf(main.getConfig().getString("heart.item")));
-        }else{
-            sr.setIngredient('6', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot6")));
-        }
-        if(main.getConfig().getString("ReviverRecipe.Slot7").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('7', Material.valueOf(main.getConfig().getString("heart.item")));
-        }else{
-            sr.setIngredient('7', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot7")));
-        }
-        if(main.getConfig().getString("ReviverRecipe.Slot8").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('8', Material.valueOf(main.getConfig().getString("heart.item")));
-        }else{
-            sr.setIngredient('8', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot8")));
-        }
-        if(main.getConfig().getString("ReviverRecipe.Slot9").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('9', Material.valueOf(main.getConfig().getString("heart.item")));
-        }else{
-            sr.setIngredient('9', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot9")));
-        }
-        main.getServer().addRecipe(sr);
+
+
     }
 
 

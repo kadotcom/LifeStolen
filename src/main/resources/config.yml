@@ -62,6 +62,7 @@ heart:
   uses: 5 # Uses that are allowed if haveLimitedUses is true.
   useCustomModelData: false # When this is enabled, you can make it so you can set a custom model for this item.
   customModelDataID: 1 # This is where you put your custom model data ID to set the custom model for this item.
+  isCraftable: true # If enabled, the item can be crafted.
 reviver:
   itemName: "Reviver" # Item name.
   itemLore: "This will revive someone." # Item lore.
@@ -72,6 +73,7 @@ reviver:
   uses: 5 # Uses that are allowed if haveLimitedUses is true.
   useCustomModelData: false # When this is enabled, you can make it so you can set a custom model for this item.
   customModelDataID: 1 # This is where you put your custom model data ID to set the custom model for this item.
+  isCraftable: true # If enabled, the item can be crafted.
 
 # Death Punishments
 
