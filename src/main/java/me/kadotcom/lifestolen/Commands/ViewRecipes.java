@@ -127,34 +127,53 @@ public class ViewRecipes implements CommandExecutor {
                         new ItemStack(Material.GRAY_STAINED_GLASS_PANE),
                 };
 
-                if(plugin.getConfig().getString("HeartRecipe.Slot1").equalsIgnoreCase("HEART")){
+                if(plugin.getConfig().getString("ReviverRecipe.Slot1").equalsIgnoreCase("HEART")){
                     menu[12] = ItemManager.heart;
+                }else{
+                    menu[12] = new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot1")));
                 }
+
                 if(plugin.getConfig().getString("HeartRecipe.Slot2").equalsIgnoreCase("HEART")){
                     menu[13] = ItemManager.heart;
+                }else{
+                    menu[13] = new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot2")));
                 }
                 if(plugin.getConfig().getString("HeartRecipe.Slot3").equalsIgnoreCase("HEART")){
                     menu[14] = ItemManager.heart;
+                }else{
+                    menu[14] = new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot3")));
                 }
 
                 if(plugin.getConfig().getString("HeartRecipe.Slot4").equalsIgnoreCase("HEART")){
                     menu[21] = ItemManager.heart;
+                }else{
+                    menu[21] = new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot4")));
                 }
                 if(plugin.getConfig().getString("HeartRecipe.Slot5").equalsIgnoreCase("HEART")){
                     menu[22] = ItemManager.heart;
+                }else{
+                    menu[22] = new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot5")));
                 }
                 if(plugin.getConfig().getString("HeartRecipe.Slot6").equalsIgnoreCase("HEART")){
                     menu[23] = ItemManager.heart;
+                }else{
+                    menu[23] = new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot6")));
                 }
 
                 if(plugin.getConfig().getString("HeartRecipe.Slot7").equalsIgnoreCase("HEART")){
                     menu[30] = ItemManager.heart;
+                }else{
+                    menu[30] = new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot7")));
                 }
                 if(plugin.getConfig().getString("HeartRecipe.Slot8").equalsIgnoreCase("HEART")){
                     menu[31] = ItemManager.heart;
+                }else{
+                    menu[31] = new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot8")));
                 }
                 if(plugin.getConfig().getString("HeartRecipe.Slot9").equalsIgnoreCase("HEART")){
                     menu[32] = ItemManager.heart;
+                }else{
+                    menu[32] = new ItemStack(Material.valueOf(plugin.getConfig().getString("ReviverRecipe.Slot9")));
                 }
 
                 gui.setContents(menu);
