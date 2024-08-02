@@ -132,3 +132,4 @@ translation:
     offlinePlayer: "Player wasn't found." # The message that appears when an offline player is mentioned in a command.
     itemDoesNotExist: "This item does not exist in LifeStolen plugin." # The message that appears when an item is mentioned that doesn't exist with the plugin
     amountUnderZero: "Please specify a value over 0" # The message that appears when a number is given that is under, or is zero.
+    amountOverSixtyFour: "Please specify a value under 64" # The message that appears when a number is given that is over 64

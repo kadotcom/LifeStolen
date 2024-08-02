@@ -30,6 +30,10 @@ public class LSGive implements CommandExecutor {
                     p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.amountUnderZero"));
                     return true;
                 }
+                if(amount > 64){
+                    p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.amountOverSixtyFour"));
+                    return true;
+                }
 
                 if(item.equalsIgnoreCase("heart")){
                     if(plugin.getConfig().getBoolean("heart.isEnabled")){
