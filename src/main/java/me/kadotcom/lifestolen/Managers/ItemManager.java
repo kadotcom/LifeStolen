@@ -71,50 +71,65 @@ public class ItemManager {
                 , "789");
 
         if(main.getConfig().getString("ReviverRecipe.Slot1").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('1', heart.getData());
+            sr.setIngredient('1', Material.valueOf(main.getConfig().getString("heart.item")));
         }else{
             sr.setIngredient('1', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot1")));
         }
         if(main.getConfig().getString("ReviverRecipe.Slot2").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('2', heart.getData());
+            sr.setIngredient('2', Material.valueOf(main.getConfig().getString("heart.item")));
         }else{
             sr.setIngredient('2', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot2")));
         }
         if(main.getConfig().getString("ReviverRecipe.Slot3").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('3', heart.getData());
+            sr.setIngredient('3', Material.valueOf(main.getConfig().getString("heart.item")));
         }else{
             sr.setIngredient('3', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot3")));
         }
         if(main.getConfig().getString("ReviverRecipe.Slot4").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('4', heart.getData());
+            sr.setIngredient('4', Material.valueOf(main.getConfig().getString("heart.item")));
         }else{
             sr.setIngredient('4', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot4")));
         }
         if(main.getConfig().getString("ReviverRecipe.Slot5").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('5', heart.getData());
+            sr.setIngredient('5', Material.valueOf(main.getConfig().getString("heart.item")));
         }else{
             sr.setIngredient('5', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot5")));
         }
         if(main.getConfig().getString("ReviverRecipe.Slot6").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('6', heart.getData());
+            sr.setIngredient('6', Material.valueOf(main.getConfig().getString("heart.item")));
         }else{
             sr.setIngredient('6', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot6")));
         }
         if(main.getConfig().getString("ReviverRecipe.Slot7").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('7', heart.getData());
+            sr.setIngredient('7', Material.valueOf(main.getConfig().getString("heart.item")));
         }else{
             sr.setIngredient('7', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot7")));
         }
         if(main.getConfig().getString("ReviverRecipe.Slot8").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('8', heart.getData());
+            sr.setIngredient('8', Material.valueOf(main.getConfig().getString("heart.item")));
         }else{
             sr.setIngredient('8', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot8")));
         }
         if(main.getConfig().getString("ReviverRecipe.Slot9").equals("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
-            sr.setIngredient('9', heart.getData());
+            sr.setIngredient('9', Material.valueOf(main.getConfig().getString("heart.item")));
         }else{
             sr.setIngredient('9', Material.valueOf(main.getConfig().getString("ReviverRecipe.Slot9")));
         }
         main.getServer().addRecipe(sr);
+    }
+
+
+    public static boolean doesRecipeContainCustomItem(String item, String recipe){
+        if(recipe.equalsIgnoreCase("REVIVER")){
+            if(item.equalsIgnoreCase("HEART") && main.getConfig().getBoolean("heart.isEnabled")){
+                if(main.getConfig().getString("ReviverRecipe.Slot1").equals("HEART") || main.getConfig().getString("ReviverRecipe.Slot2").equals("HEART") || main.getConfig().getString("ReviverRecipe.Slot3").equals("HEART") || main.getConfig().getString("ReviverRecipe.Slot4").equals("HEART") || main.getConfig().getString("ReviverRecipe.Slot5").equals("HEART") || main.getConfig().getString("ReviverRecipe.Slot6").equals("HEART") || main.getConfig().getString("ReviverRecipe.Slot7").equals("HEART") || main.getConfig().getString("ReviverRecipe.Slot8").equals("HEART") || main.getConfig().getString("ReviverRecipe.Slot9").equals("HEART")){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
+
+        return false;
     }
 }

@@ -1,10 +1,7 @@
 package me.kadotcom.lifestolen;
 
 import me.kadotcom.lifestolen.Commands.*;
-import me.kadotcom.lifestolen.Events.ChatEvent;
-import me.kadotcom.lifestolen.Events.GUIEvent;
-import me.kadotcom.lifestolen.Events.ItemEvent;
-import me.kadotcom.lifestolen.Events.LifeStealEvent;
+import me.kadotcom.lifestolen.Events.*;
 import me.kadotcom.lifestolen.Managers.ItemManager;
 import me.kadotcom.lifestolen.Utils.Metrics;
 import org.bukkit.Bukkit;
@@ -52,6 +49,7 @@ public final class LifeStolen extends JavaPlugin {
     public void registerEvents(){
         getServer().getPluginManager().registerEvents(new ItemEvent(this), this);
         getServer().getPluginManager().registerEvents(new ChatEvent(this), this);
+        getServer().getPluginManager().registerEvents(new CraftingEvent(this), this);
         getServer().getPluginManager().registerEvents(new GUIEvent(this), this);
         getServer().getPluginManager().registerEvents(new LifeStealEvent(this), this);
     }
