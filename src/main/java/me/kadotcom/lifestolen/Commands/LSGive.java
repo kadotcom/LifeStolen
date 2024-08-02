@@ -18,7 +18,7 @@ public class LSGive implements CommandExecutor {
         if(sender instanceof Player){
             Player p = (Player) sender;
             if(p.isOp() || p.hasPermission("lifestolen.lsgive") || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
-                if(args[0].isEmpty() || args[1].isEmpty() || args[2].isEmpty()){
+                if(args[0].isEmpty() || args[0].isBlank() || args[0].length() == 0 || args[1].isEmpty() || args[1].isBlank() || args[1].length() == 0 || args[2].isEmpty() || args[2].isBlank() || args[2].length() == 0){
                     p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.missingArguments"));
                     return true;
                 }
