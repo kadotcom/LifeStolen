@@ -19,7 +19,7 @@ public class ResetHP implements CommandExecutor {
         if(sender instanceof Player){
             Player p = (Player) sender;
             if(p.isOp() || p.hasPermission("lifestolen.resethp") || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
-                if(args[0].isEmpty() || args[0].isBlank() || args[0].length() == 0){
+                if(args == null || args[0] == null || args[0].isEmpty() || args[0].isBlank() || args[0].length() == 0){
                     p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.missingArguments"));
                     return true;
                 }
