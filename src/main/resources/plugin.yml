@@ -7,8 +7,8 @@ authors: [ KadotCom ]
 description: Another lifesteal plugin.
 commands:
   resethp:
-    description: Resets everyone that is onlines health
-    usage: /resethp
+    description: Resets a specific player's health, or every player that is online's health to the default amount.
+    usage: /resethp [player/all]
   health:
     description: Shows your exact health
     usage: /health

@@ -125,6 +125,8 @@ ReviverRecipe:
 # Translations
 translation:
   serverName: "LifeStolen" # Name of your server, will be used in GUIs and messages.
+  ingameMessages: # Messages that appears with the plugin.
+    resetHealth: "Your health has been reset to default." # The message that appears when a players health is reset to the starting HP.
   deathMessages: # Messages that appears when a player dies.
     generic: "${player} was slain by ${attacker}" # The message that appears when a player dies from a generic reason
     explosion: "${player} was exploded by ${attacker}" # The message that appears when a player dies from a explosion

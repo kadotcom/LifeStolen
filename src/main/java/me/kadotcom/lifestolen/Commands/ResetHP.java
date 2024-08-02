@@ -19,9 +19,22 @@ public class ResetHP implements CommandExecutor {
         if(sender instanceof Player){
             Player p = (Player) sender;
             if(p.isOp() || p.hasPermission("lifestolen.resethp") || p.hasPermission(plugin.getConfig().getString("permissions.permissionToDoEverything"))){
-                for (Player target : Bukkit.getServer().getOnlinePlayers()) {
-                    HealthManager.setMaxHealth(20, target);
-                    target.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + ChatColor.RED + "Your hearts has been resetted.");
+                if(args[0].equalsIgnoreCase("all")){
+                    for (Player target : Bukkit.getServer().getOnlinePlayers()) {
+                        HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.startHP"), target);
+                        target.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + ChatColor.RED + plugin.getConfig().getString("translation.ingameMessages.resetHealth"));
+                    }
+                }else{
+                    Player target = Bukkit.getPlayerExact(args[0]);
+
+                    if(target != null){
+                        HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.startHP"), target);
+
+                        target.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + ChatColor.RED + plugin.getConfig().getString("translation.ingameMessages.resetHealth"));
+                    }else{
+                        p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.offlinePlayer"));
+                        return true;
+                    }
                 }
             }else{
                 p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
