@@ -30,14 +30,14 @@ public class CraftingEvent implements Listener {
                     if (meta != null && meta.hasDisplayName() && meta.getDisplayName().equals(plugin.getConfig().getString("heart.itemName"))) {
                         hasCustomItem = true;
                     } else {
-                        event.getInventory().setResult(new ItemStack(Material.AIR)); // Invalidate the crafting
+                        event.getInventory().setResult(new ItemStack(Material.AIR));
                         return;
                     }
                 }
             }
 
             if (!hasCustomItem) {
-                event.getInventory().setResult(new ItemStack(Material.AIR)); // Invalidate the crafting
+                event.getInventory().setResult(new ItemStack(Material.AIR));
             }
         }
 
