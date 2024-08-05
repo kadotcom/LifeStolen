@@ -29,8 +29,13 @@ public class ItemManager {
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(main.getConfig().getString("heart.itemName").replace("&","§"));
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GRAY + "============================");
+        StringBuilder equals = new StringBuilder("=");
+        for(int i = 0; i < main.getConfig().getString("heart.itemLore").replace("&","§").length(); i++){
+            equals.append("=");
+        }
+        lore.add(ChatColor.GRAY + "" + equals);
         lore.add(main.getConfig().getString("heart.itemLore").replace("&","§"));
+        lore.add(ChatColor.GRAY + "" + equals);
         meta.setLore(lore);
         if(main.getConfig().getBoolean("heart.useCustomModelData")){
             meta.setCustomModelData(main.getConfig().getInt("heart.customModelDataID"));
@@ -61,8 +66,13 @@ public class ItemManager {
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(main.getConfig().getString("reviver.itemName").replace("&","§"));
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GRAY + "============================");
+        StringBuilder equals = new StringBuilder("=");
+        for(int i = 0; i < main.getConfig().getString("heart.itemLore").replace("&","§").length(); i++){
+            equals.append("=");
+        }
+        lore.add(ChatColor.GRAY + "" + equals);
         lore.add(main.getConfig().getString("reviver.itemLore").replace("&","§"));
+        lore.add(ChatColor.GRAY + "" + equals);
         if(main.getConfig().getBoolean("reviver.useCustomModelData")){
             meta.setCustomModelData(main.getConfig().getInt("reviver.customModelDataID"));
         }
