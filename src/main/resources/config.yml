@@ -63,6 +63,8 @@ heart:
   useCustomModelData: false # When this is enabled, you can make it so you can set a custom model for this item.
   customModelDataID: 1 # This is where you put your custom model data ID to set the custom model for this item.
   isCraftable: true # If enabled, the item can be crafted.
+  usableWhenCertainHP: false # If enabled, you can only use this item if you have a certain amount of HP (e.g, if this is true and hpNeededToUse is set to 10, that means you can only use the item if you have 5, or more hearts)
+  hpNeededToUse: 0 # The minimum amount of HP needed to use hearts (if usableWhenCertainHP is set to true)
 reviver:
   itemName: "&bʀᴇᴠɪᴠᴇʀ" # Item name.
   itemLore: "&bᴛʜɪꜱ ɪᴛᴇᴍ ᴄᴀɴ ʙᴇ ᴜꜱᴇᴅ ᴛᴏ ʀᴇᴠɪᴠᴇ ꜱᴏᴍᴇᴏɴᴇ" # Item lore.
