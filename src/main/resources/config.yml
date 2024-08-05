@@ -53,8 +53,8 @@ permissions:
 # To see valid items, go to this website 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'
 
 heart:
-  itemName: "Heart" # Item name.
-  itemLore: "This will give you one heart." # Item lore.
+  itemName: "&cʜᴇᴀʀᴛ" # Item name.
+  itemLore: "&cᴛʜɪꜱ ᴡɪʟʟ ɢɪᴠᴇ ʏᴏᴜ ᴏɴᴇ ʜᴇᴀʀᴛ" # Item lore.
   isEnabled: true # Indicates if an item is enabled or disabled.
   disabledMessage: '&cThe heart item is disabled on this server.' # Message that appears if this item is disabled
   item: 'RED_DYE' # Item used for hearts
@@ -64,8 +64,8 @@ heart:
   customModelDataID: 1 # This is where you put your custom model data ID to set the custom model for this item.
   isCraftable: true # If enabled, the item can be crafted.
 reviver:
-  itemName: "Reviver" # Item name.
-  itemLore: "This will revive someone." # Item lore.
+  itemName: "&bʀᴇᴠɪᴠᴇʀ" # Item name.
+  itemLore: "&bᴛʜɪꜱ ɪᴛᴇᴍ ᴄᴀɴ ʙᴇ ᴜꜱᴇᴅ ᴛᴏ ʀᴇᴠɪᴠᴇ ꜱᴏᴍᴇᴏɴᴇ" # Item lore.
   isEnabled: true # Indicates if an item is enabled or disabled.
   disabledMessage: '&cThe reviver item is disabled on this server.' # Message that appears if this item is disabled
   item: 'BEACON' # Item used for revivers

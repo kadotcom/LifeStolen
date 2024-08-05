@@ -1,6 +1,7 @@
 package me.kadotcom.lifestolen.Managers;
 
 import me.kadotcom.lifestolen.LifeStolen;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -26,9 +27,10 @@ public class ItemManager {
     private static void createHeart(){
         ItemStack item = new ItemStack(Material.matchMaterial(main.getConfig().getString("heart.item")), 1);
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(main.getConfig().getString("heart.itemName"));
+        meta.setDisplayName(main.getConfig().getString("heart.itemName").replace("&","§"));
         List<String> lore = new ArrayList<>();
-        lore.add(main.getConfig().getString("heart.itemLore"));
+        lore.add(ChatColor.GRAY + "============================");
+        lore.add(main.getConfig().getString("heart.itemLore").replace("&","§"));
         meta.setLore(lore);
         if(main.getConfig().getBoolean("heart.useCustomModelData")){
             meta.setCustomModelData(main.getConfig().getInt("heart.customModelDataID"));
@@ -36,7 +38,7 @@ public class ItemManager {
         item.setItemMeta(meta);
         heart = item;
 
-        if(main.getConfig().getBoolean("reviver.isCraftable")){
+        if(main.getConfig().getBoolean("heart.isCraftable")){
             ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("heart"), item);
             sr.shape("123"
                     , "456"
@@ -57,9 +59,10 @@ public class ItemManager {
     private static void createReviver(){
         ItemStack item = new ItemStack(Material.matchMaterial(main.getConfig().getString("reviver.item")), 1);
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(main.getConfig().getString("reviver.itemName"));
+        meta.setDisplayName(main.getConfig().getString("reviver.itemName").replace("&","§"));
         List<String> lore = new ArrayList<>();
-        lore.add(main.getConfig().getString("reviver.itemLore"));
+        lore.add(ChatColor.GRAY + "============================");
+        lore.add(main.getConfig().getString("reviver.itemLore").replace("&","§"));
         if(main.getConfig().getBoolean("reviver.useCustomModelData")){
             meta.setCustomModelData(main.getConfig().getInt("reviver.customModelDataID"));
         }
