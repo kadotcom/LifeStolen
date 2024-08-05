@@ -29,13 +29,13 @@ public class ItemManager {
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(main.getConfig().getString("heart.itemName").replace("&","§"));
         List<String> lore = new ArrayList<>();
-        StringBuilder equals = new StringBuilder("=");
-        for(int i = 0; i < main.getConfig().getString("heart.itemLore").replace("&","§").length(); i++){
-            equals.append("=");
+        StringBuilder equalstxt = new StringBuilder("=");
+        for(int i = 0; i < main.getConfig().getString("heart.itemLore").length(); i++){
+            equalstxt.append("=");
         }
-        lore.add(ChatColor.GRAY + "" + equals);
-        lore.add(main.getConfig().getString("heart.itemLore").replace("&","§"));
-        lore.add(ChatColor.GRAY + "" + equals);
+        lore.add(ChatColor.GRAY + "" + equalstxt);
+        lore.add(main.getConfig().getString("heart.itemLore").replace("&", "§"));
+        lore.add(ChatColor.GRAY + "" + equalstxt);
         meta.setLore(lore);
         if(main.getConfig().getBoolean("heart.useCustomModelData")){
             meta.setCustomModelData(main.getConfig().getInt("heart.customModelDataID"));
@@ -66,13 +66,13 @@ public class ItemManager {
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(main.getConfig().getString("reviver.itemName").replace("&","§"));
         List<String> lore = new ArrayList<>();
-        StringBuilder equals = new StringBuilder("=");
-        for(int i = 0; i < main.getConfig().getString("heart.itemLore").replace("&","§").length(); i++){
-            equals.append("=");
+        StringBuilder equalstxt = new StringBuilder("=");
+        for(int i = 0; i < main.getConfig().getString("reviver.itemLore").length(); i++){
+            equalstxt.append("=");
         }
-        lore.add(ChatColor.GRAY + "" + equals);
-        lore.add(main.getConfig().getString("reviver.itemLore").replace("&","§"));
-        lore.add(ChatColor.GRAY + "" + equals);
+        lore.add(ChatColor.GRAY + "" + equalstxt);
+        lore.add(main.getConfig().getString("reviver.itemLore").replace("&", "§"));
+        lore.add(ChatColor.GRAY + "" + equalstxt);
         if(main.getConfig().getBoolean("reviver.useCustomModelData")){
             meta.setCustomModelData(main.getConfig().getInt("reviver.customModelDataID"));
         }
