@@ -51,7 +51,7 @@ permissions:
 
 # Item
 # To see valid items, go to this website 'https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html'
-
+# To get different fonts for the item names and lore, go to this website 'https://allfancytext.com/minecraft-fancy-fonts-generator.html'
 heart:
   itemName: "&cʜᴇᴀʀᴛ" # Item name.
   itemLore: "&cᴛʜɪꜱ ᴡɪʟʟ ɢɪᴠᴇ ʏᴏᴜ ᴏɴᴇ ʜᴇᴀʀᴛ" # Item lore.
