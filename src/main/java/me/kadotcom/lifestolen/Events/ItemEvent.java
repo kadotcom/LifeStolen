@@ -39,7 +39,7 @@ public class ItemEvent implements Listener {
                         event.getItem().setAmount(event.getItem().getAmount() - 1);
                         Player p = event.getPlayer();
                         HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) + 2.0, p);
-                        HealthManager.heal(2.0, p);
+                        HealthManager.heal(HealthManager.getMaxHealth(p), p);
                         int uses = user.getUserFile().getInt("User.Config.Item.HeartUses");
                         uses += 1;
                         user.getUserFile().set("User.Config.Item.HeartUses",uses);
@@ -74,7 +74,7 @@ public class ItemEvent implements Listener {
                                 event.getItem().setAmount(event.getItem().getAmount() - 1);
                                 Player p = event.getPlayer();
                                 HealthManager.setMaxHealth(HealthManager.getMaxHealth(p) + 2.0, p);
-                                HealthManager.heal(2.0, p);
+                                HealthManager.heal(HealthManager.getMaxHealth(p), p);
                                 event.setCancelled(true);
                             }else if(HealthManager.getMaxHealth(event.getPlayer()) >= plugin.getConfig().getInt("HP.maxHP")){
                                 HealthManager.setMaxHealth(plugin.getConfig().getInt("HP.maxHP"), event.getPlayer());
