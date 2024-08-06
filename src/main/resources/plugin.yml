@@ -17,7 +17,7 @@ commands:
     usage: /lsgive [player] [item] [amount]
   health:
     description: Changes the players health.
-    usage: /addhealth [add/set/remove] [player] [amount]
+    usage: /health [add/set/remove] [player] [amount]
   revive:
     description: Revives a player.
     usage: /revive [player]
