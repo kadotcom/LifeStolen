@@ -25,7 +25,7 @@ public class Health implements CommandExecutor {
                 if(sName != null){
                     if(option.equalsIgnoreCase("add")){
                         try {
-                            int i = Integer.parseInt(args[3]);
+                            int i = Integer.parseInt(args[2]);
 
                             HealthManager.setMaxHealth(HealthManager.getMaxHealth(sName) + i, sName);
                         } catch (NumberFormatException e) {
@@ -33,7 +33,7 @@ public class Health implements CommandExecutor {
                         }
                     }else if(option.equalsIgnoreCase("set")){
                         try {
-                            int i = Integer.parseInt(args[3]);
+                            int i = Integer.parseInt(args[2]);
 
                             HealthManager.setMaxHealth(i, sName);
                         } catch (NumberFormatException e) {
@@ -41,7 +41,7 @@ public class Health implements CommandExecutor {
                         }
                     }else if(option.equalsIgnoreCase("remove")){
                         try {
-                            int i = Integer.parseInt(args[3]);
+                            int i = Integer.parseInt(args[2]);
 
                             HealthManager.setMaxHealth(HealthManager.getMaxHealth(sName) - i, sName);
                         } catch (NumberFormatException e) {
