@@ -15,15 +15,9 @@ commands:
   lsgive:
     description: Allows you to gain items from LifeStolen.
     usage: /lsgive [player] [item] [amount]
-  sethealth:
-    description: Sets a players health.
-    usage: /sethealth [player] [amount]
-  addhealth:
-    description: Adds to players health.
-    usage: /addhealth [player] [amount]
-  removehealth:
-    description: Removes from players health.
-    usage: /removehealth [player] [amount]
+  health:
+    description: Changes the players health.
+    usage: /addhealth [add/set/remove] [player] [amount]
   revive:
     description: Revives a player.
     usage: /revive [player]
