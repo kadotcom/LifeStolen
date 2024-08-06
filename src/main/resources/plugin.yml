@@ -9,9 +9,9 @@ commands:
   resethp:
     description: Resets a specific player's health, or every player that is online's health to the default amount.
     usage: /resethp [player/all]
-  health:
+  viewhp:
     description: Shows your exact health
-    usage: /health
+    usage: /viewhp
   lsgive:
     description: Allows you to gain items from LifeStolen.
     usage: /lsgive [player] [item] [amount]

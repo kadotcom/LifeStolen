@@ -56,7 +56,7 @@ public final class LifeStolen extends JavaPlugin {
 
     public  void setCommandExecutor(){
         getCommand("lsgive").setExecutor(new LSGive(this));
-        getCommand("health").setExecutor(new Health(this));
+        getCommand("viewhp").setExecutor(new ViewHP(this));
         getCommand("resethp").setExecutor(new ResetHP(this));
         getCommand("sethealth").setExecutor(new SetHealth(this));
         getCommand("withdraw").setExecutor(new Withdraw(this));

@@ -9,9 +9,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Health implements CommandExecutor {
+public class ViewHP implements CommandExecutor {
     LifeStolen plugin;
-    public Health(LifeStolen ls){
+    public ViewHP(LifeStolen ls){
         plugin = ls;
     }
 
@@ -20,10 +20,10 @@ public class Health implements CommandExecutor {
         if (sender instanceof Player) {
 
             Player p = (Player) sender;
-            if(!plugin.getConfig().getBoolean("permissions.health.bePermissionBased") || plugin.getConfig().getBoolean("permissions.health.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.health.permission"))){
+            if(!plugin.getConfig().getBoolean("permissions.viewhp.bePermissionBased") || plugin.getConfig().getBoolean("permissions.viewhp.bePermissionBased") && p.hasPermission(plugin.getConfig().getString("permissions.viewhp.permission"))){
                 p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + ChatColor.AQUA + "Your exact health is " + p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue() + "");
                 p.playSound(p, Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
-            }else if (plugin.getConfig().getBoolean("permissions.health.bePermissionBased") && !p.hasPermission(plugin.getConfig().getString("permissions.health.permission"))){
+            }else if (plugin.getConfig().getBoolean("permissions.viewhp.bePermissionBased") && !p.hasPermission(plugin.getConfig().getString("permissions.viewhp.permission"))){
                 p.sendMessage("§f[§c" + plugin.getConfig().getString("translation.serverName") + "§f] " + plugin.getConfig().getString("translation.errorMessages.noPermission"));
             }
 

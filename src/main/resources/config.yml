@@ -30,9 +30,9 @@ permissions:
   vercheck:
     bePermissionBased: false
     permission: "lifestolen.vercheck"
-  health:
+  viewhp:
     bePermissionBased: false
-    permission: "lifestolen.health"
+    permission: "lifestolen.viewhp"
   withdraw:
     bePermissionBased: false
     permission: "lifestolen.withdraw"
