@@ -9,7 +9,7 @@ public class HealthManager {
         p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(h);
     }
     public static double getMaxHealth(Player p){
-        return p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
+        return p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue();
     }
     public static void heal(double h, Player p){
         p.setHealth(h);
