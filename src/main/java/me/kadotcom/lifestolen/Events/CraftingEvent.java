@@ -16,7 +16,6 @@ public class CraftingEvent implements Listener {
     public CraftingEvent(LifeStolen ls){
         plugin = ls;
     }
-
     @EventHandler
     public void onPrepareItemCraft(PrepareItemCraftEvent event) {
         CraftingInventory inventory = event.getInventory();
