@@ -1,6 +1,7 @@
 package me.kadotcom.lifestolen.Events;
 
 import me.kadotcom.lifestolen.LifeStolen;
+import me.kadotcom.lifestolen.Managers.ItemManager;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,7 +24,7 @@ public class CraftingEvent implements Listener {
 
         boolean hasCustomItem = false;
 
-        if(inventory.getResult() != null && inventory.getResult().getItemMeta().hasDisplayName() && inventory.getResult().getItemMeta().getDisplayName().equals(plugin.getConfig().getString("reviver.itemName")) && inventory.getResult().getType() == Material.valueOf(plugin.getConfig().getString("reviver.item"))){
+        if(inventory.getResult() != null && inventory.getResult().getItemMeta().hasDisplayName() && inventory.getResult().getItemMeta().getDisplayName().equals(plugin.getConfig().getString("reviver.itemName")) && inventory.getResult().getType() == Material.valueOf(plugin.getConfig().getString("reviver.item")) && ItemManager.doesRecipeContainCustomItem("HEART", "REVIVER")){
             for (ItemStack item : matrix) {
                 if (item != null && item.getType() == Material.valueOf(plugin.getConfig().getString("heart.item"))) {
                     ItemMeta meta = item.getItemMeta();
